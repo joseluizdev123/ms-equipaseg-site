@@ -69,6 +69,13 @@ node tools/serve.mjs
 - Sobreposição do Figma na página: `?overlay` na URL. O PNG vem do `data-overlay` do `<body>` (sem ele, `_ref/page-full.png`, da home).
 - Compare com 1440px de largura útil: no Windows a barra de rolagem ocupa ~15px.
 
+## Publicação
+
+- Repositório: https://github.com/joseluizdev123/ms-equipaseg-site (público, branch `main`, conta `joseluizdev123`).
+- Site no ar: https://joseluizdev123.github.io/ms-equipaseg-site/ — o GitHub Pages republica a cada push na `main`.
+- `_ref/` fica fora do repositório (68MB de PNGs de conferência), então o `?overlay` só funciona local.
+- Para publicar uma correção: `git add`, `git commit` e `git push`. Antes de dar push, rode `git pull --rebase`: vários chats mexem na mesma pasta.
+
 ## Convenções
 
 - Reusar tokens e componentes antes de criar novos: `.container`, `.section-title`, `.btn-outline`, `.cta` (`--67`, `--degrade`, `--dark`, `--sm`), `.feature-card`, `.feature-list`, `.feature-media`, `.arrow-btn`, `.site-header`, `.site-footer`.
