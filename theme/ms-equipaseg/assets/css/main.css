@@ -1,0 +1,2318 @@
+/*
+ * MS Equipaseg — estilos do tema.
+ * O mesmo arquivo serve o index.html estático e o tema WordPress.
+ * Medidas transcritas do Figma I7qYIaCi6nFLVWPiu9y1Un, frame "Página inicial" (3047:6).
+ */
+
+:root {
+  /* Estruturais */
+  --frame-w: 1440px;
+  --content-w: 1280px;
+  --section-px: clamp(24px, 5.5556vw, 80px);
+  --content-gap: 48px;
+
+  /* Cores */
+  --color-black: #0d0d0b;
+  --color-ink: #1b1a17;
+  --color-white: #fff;
+  --color-yellow: #f4b612;
+  --color-yellow-light: #ffc52b;
+  --color-yellow-soft: #ffeda6;
+  --color-surface: #f7f7f7;
+  --color-line-dark: rgba(255, 255, 255, 0.1);
+  --color-border-card: #c7c7c7;
+  --color-nav-bg: #2d2d2d;
+  --color-media-dark: #1b1c1f;
+  --color-tag-text: #191919;
+  --color-yellow-pale: #ffde59;
+  --color-social-bg: #1f1f1f;
+  --color-line-dark-hover: rgba(255, 255, 255, 0.3);
+  --color-black-transparent: rgba(13, 13, 11, 0);
+  --color-ink-transparent: rgba(27, 26, 23, 0);
+  --color-placeholder-start: #191919;
+  --color-placeholder-end: #1e1e1e;
+  --color-cream: #fff8db;
+  --color-cream-transparent: rgba(255, 248, 219, 0);
+  --color-black-pure: #000;
+  --color-icon-bg: #eee;
+  --color-nav-dark-bg: #292929;
+  --color-nav-dark-border: #444;
+  --color-overlay: rgba(0, 0, 0, 0.2);
+  --color-line-clara: rgba(255, 255, 255, 0.15);
+  --color-input-bg: #212121;
+  --gray-01: #f2f4f7;
+  --gray-02: #eaecf0;
+  --gray-03: #d0d5dd;
+  --gray-05: #667085;
+  --gray-06: #475467;
+
+  /* Tipografia. O Figma arredonda o line-height "auto" da Exo para px inteiros;
+     os valores explícitos abaixo reproduzem essas alturas de linha. */
+  --font-heading: 'Exo', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-footer: 'Montserrat', system-ui, sans-serif;
+  --font-form: 'Roboto', system-ui, sans-serif;
+  --font-credits: 'Work Sans', system-ui, sans-serif;
+  --tracking: -0.01em;
+}
+
+/* Base */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-white);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+figure {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img,
+svg {
+  display: block;
+}
+
+/* Foco de teclado: anel amarelo com um anel escuro por dentro, para aparecer tanto no fundo claro quanto no escuro. */
+:focus-visible {
+  outline: 2px solid var(--color-yellow);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px var(--color-ink);
+}
+
+.container {
+  width: 100%;
+  max-width: calc(var(--content-w) + 2 * var(--section-px));
+  margin-inline: auto;
+  padding-inline: var(--section-px);
+}
+
+.skip-link {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 100;
+  padding: 8px 16px;
+  background: var(--color-yellow);
+  color: var(--color-ink);
+  font-weight: 600;
+  transform: translateY(-200%);
+}
+
+.skip-link:focus {
+  transform: none;
+}
+
+/* Botões */
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  /* Figma: 12px 24px com traço interno. No CSS a borda soma à caixa, então sai do padding. */
+  padding: 11px 23px;
+  border: 1px solid var(--color-line-dark);
+  color: var(--color-white);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: var(--tracking);
+  white-space: nowrap;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+@media (hover: hover) {
+  .btn-outline:hover {
+    border-color: var(--color-yellow);
+    background-color: var(--color-line-dark);
+  }
+}
+
+.btn-outline:active {
+  background-color: var(--color-line-dark-hover);
+}
+
+.btn-outline img {
+  width: 20px;
+  height: 20px;
+}
+
+/* Botão retangular amarelo (Figma 5253:1505, 5277:2725, 5277:2751, 5254:636, 5254:782) */
+
+.btn-solid {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 32px;
+  border: 0;
+  background: var(--color-yellow-pale);
+  color: var(--color-ink);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: var(--tracking);
+  white-space: nowrap;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+@media (hover: hover) {
+  .btn-solid:hover {
+    background: var(--color-yellow-light);
+  }
+}
+
+.btn-solid:active {
+  transform: translateY(1px);
+}
+
+.btn-solid img {
+  flex: none;
+  width: 24px;
+  height: 24px;
+}
+
+/* 142×49 (Figma 5277:2751) */
+.btn-solid--sm {
+  padding: 14px 24px;
+  font-size: 14px;
+}
+
+/* 131×45 (Figma 5254:782) */
+.btn-solid--xs {
+  padding: 12px 24px;
+  font-size: 14px;
+}
+
+/* Botão de contorno sobre fundo escuro (Figma 5253:1506). Traço interno de 1px no Figma. */
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 15px 31px;
+  border: 1px solid var(--color-line-clara);
+  color: var(--color-white);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: var(--tracking);
+  white-space: nowrap;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+@media (hover: hover) {
+  .btn-ghost:hover {
+    border-color: var(--color-yellow);
+    background-color: var(--color-line-dark);
+  }
+}
+
+.btn-ghost:active {
+  background-color: var(--color-line-dark-hover);
+}
+
+/* CTA recortado (Figma "CTA" 5288:1543): shape exportado do Figma como fundo. */
+.cta {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: 16px;
+  width: 244px;
+  height: 72px;
+  padding: 1px 0 0 32px;
+  background: url('../images/cta-shape-yellow.svg') center / 100% 100% no-repeat;
+  color: var(--color-ink);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: var(--tracking);
+  white-space: nowrap;
+  transition: filter 0.2s ease, transform 0.2s ease;
+}
+
+/* Hover: sobe 2px com sombra no contorno do shape (o drop-shadow segue o recorte). Clique: desce e escurece. */
+@media (hover: hover) {
+  .cta:hover {
+    filter: brightness(1.06) drop-shadow(0 6px 10px var(--color-overlay));
+    transform: translateY(-2px);
+  }
+
+  /* No shape escuro o brilho precisa ser maior para aparecer. */
+  .cta--dark:hover {
+    filter: brightness(1.5) drop-shadow(0 6px 10px var(--color-overlay));
+  }
+}
+
+.cta:active {
+  filter: brightness(0.94);
+  transform: translateY(1px);
+}
+
+.cta__icon {
+  flex: none;
+  width: 20px;
+  height: 20px;
+}
+
+/* CTA de 67px com rótulo centralizado (Figma 5288:1555, 5293:1686) */
+.cta--67 {
+  justify-content: center;
+  height: 67px;
+  padding: 0;
+  background-image: url('../images/cta-shape-67.svg');
+}
+
+.cta--degrade {
+  background-image: url('../images/cta-shape-67-degrade.svg');
+}
+
+/* CTA escuro (Figma 5306:803) */
+.cta--dark {
+  color: var(--color-white);
+  background-image: url('../images/cta-shape-dark.svg');
+}
+
+/* CTA do rodapé, 210×65 (Figma 5306:1726) */
+.cta--sm {
+  width: 210px;
+  height: 65px;
+  padding: 0.5px 0 0 24px;
+  font-size: 16px;
+  background-image: url('../images/cta-shape-210.svg');
+  background-position: 0 0.124px;
+}
+
+/* CTA claro, 160×72 (Figma 5306:624) */
+.cta--claro {
+  width: 160px;
+  background-image: url('../images/cta-shape-white-160.svg');
+}
+
+/* CTA pequeno, 142×49, com rótulo centralizado (Figma 5306:2721) */
+.cta--xs {
+  justify-content: center;
+  width: 142px;
+  height: 49px;
+  padding: 0 0 1px;
+  font-size: 14px;
+  line-height: 21px;
+  background-image: url('../images/cta-shape-142.svg');
+}
+
+/* Setas: um ícone para ativo e outro para inativo, espelhados conforme a direção. */
+.arrow-btn {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+}
+
+.arrow-btn > img {
+  grid-area: 1 / 1;
+}
+
+.arrow-btn[aria-disabled='true'] {
+  cursor: default;
+}
+
+.arrow-btn[aria-disabled='true'] .arrow-btn__on,
+.arrow-btn:not([aria-disabled='true']) .arrow-btn__off {
+  display: none;
+}
+
+.arrow-btn--prev .arrow-btn__on,
+.arrow-btn--next .arrow-btn__off {
+  transform: scaleX(-1);
+}
+
+.arrow-btn__on {
+  transition: filter 0.2s ease;
+}
+
+/* Seta ativa no hover: fundo amarelo e seta escura (brightness(0) escurece o ícone claro ou escuro).
+   A classe repetida vence os fundos definidos em cada seção (depoimentos, galerias). Ao clicar, encolhe. */
+@media (hover: hover) {
+  .arrow-btn.arrow-btn:not([aria-disabled='true']):hover {
+    border-color: var(--color-yellow);
+    background-color: var(--color-yellow);
+  }
+
+  .arrow-btn:not([aria-disabled='true']):hover .arrow-btn__on {
+    filter: brightness(0);
+  }
+}
+
+.arrow-btn:not([aria-disabled='true']):active {
+  transform: scale(0.92);
+}
+
+/* Menos movimento: sem subir, afundar ou encolher nos estados (o html só aumenta a especificidade). */
+@media (prefers-reduced-motion: reduce) {
+  html .cta:hover,
+  html .cta:active,
+  html .arrow-btn:not([aria-disabled='true']):active,
+  html .carousel-dots__dot:active {
+    transform: none;
+  }
+}
+
+/* 1 · Header — Figma 7020:1080 */
+
+.site-header {
+  position: relative;
+  z-index: 10;
+  background: var(--color-black);
+  border-bottom: 1px solid var(--color-line-dark);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 71px;
+  padding-block: 12px;
+}
+
+.site-header__logo img {
+  width: 111px;
+  height: 48px;
+}
+
+/* Logos do header e do rodapé levam à página inicial: clareiam um pouco no hover. */
+.site-header__logo,
+.site-footer__logo {
+  transition: opacity 0.2s ease;
+}
+
+@media (hover: hover) {
+  .site-header__logo:hover,
+  .site-footer__logo:hover {
+    opacity: 0.8;
+  }
+}
+
+.site-nav,
+.site-nav__list,
+.site-nav__item {
+  display: flex;
+  align-self: stretch;
+}
+
+.site-nav__list {
+  gap: 32px;
+}
+
+.site-nav__link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-white);
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: var(--tracking);
+  white-space: nowrap;
+}
+
+.site-nav__item.is-current > .site-nav__link {
+  font-weight: 600;
+}
+
+/* Traço amarelo de 2px sobre a borda inferior do header: cheio na página atual (Figma "Active" 5174:1009)
+   e crescendo do centro no hover dos outros itens. Só no primeiro nível: o WordPress repete as classes no submenu. */
+.site-nav__list > .site-nav__item > .site-nav__link::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: -14px;
+  left: 0;
+  height: 2px;
+  background: var(--color-yellow);
+  transform: scaleX(0);
+  transition: transform 0.25s ease;
+}
+
+.site-nav__list > .site-nav__item.is-current > .site-nav__link::after {
+  transform: none;
+}
+
+@media (hover: hover) {
+  .site-nav__list > .site-nav__item > .site-nav__link:hover::after {
+    transform: none;
+  }
+}
+
+.site-nav__link:active {
+  color: var(--color-yellow);
+}
+
+/* Submenu (WordPress). Não existe no Figma; aparece só quando o menu tem itens filhos. */
+.site-nav__item {
+  position: relative;
+}
+
+.site-nav .sub-menu {
+  position: absolute;
+  top: calc(100% + 13px);
+  left: -20px;
+  z-index: 20;
+  min-width: 220px;
+  padding: 8px 0;
+  border: 1px solid var(--color-line-dark);
+  background: var(--color-black);
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+}
+
+/* Ponte invisível entre o item e o submenu para o hover não cair no vão. */
+.site-nav .sub-menu::before {
+  content: '';
+  position: absolute;
+  top: -14px;
+  right: 0;
+  left: 0;
+  height: 14px;
+}
+
+.site-nav__item:hover > .sub-menu,
+.site-nav__item:focus-within > .sub-menu {
+  visibility: visible;
+  opacity: 1;
+  transform: none;
+}
+
+.site-nav .sub-menu a {
+  display: block;
+  padding: 10px 20px;
+  color: var(--color-white);
+  font-size: 15px;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.site-nav .sub-menu a:hover {
+  color: var(--color-yellow);
+}
+
+.site-nav__caret {
+  position: relative;
+  flex: none;
+  width: 9px;
+  height: 8px;
+  transform: scaleY(-1);
+}
+
+.site-nav__caret img {
+  position: absolute;
+  top: 13%;
+  left: 7.87%;
+  width: 84.26%;
+  height: 87%;
+}
+
+/* 2 · Hero — Figma 5051:133 */
+
+.hero {
+  position: relative;
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+/* Caixa com a proporção do frame (1440×641) presa à direita: em 1440px coincide com o Figma
+   e, em telas mais largas, a foto não distorce. O recorte fica aqui, e não no .hero, porque o
+   shape amarelo passa 0,48px da borda inferior no Figma. */
+.hero__media {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  aspect-ratio: 1440 / 641;
+  overflow: hidden;
+}
+
+.hero__media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to left, var(--color-black-transparent) 0%, var(--color-black) 71.84%);
+}
+
+.hero__bg {
+  position: absolute;
+  top: -6.89%;
+  left: 29.12%;
+  width: 91.42%;
+  max-width: none;
+  height: 110.95%;
+  object-fit: cover;
+}
+
+.hero__container {
+  position: relative;
+  padding-block: 120px;
+}
+
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+  width: 736px;
+  max-width: 100%;
+}
+
+.hero__text {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 100%;
+}
+
+/* 809px no Figma, mais largo que a coluna de 736px. */
+.hero__title {
+  width: 809px;
+  max-width: calc(100vw - 2 * var(--section-px));
+  font-family: var(--font-heading);
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 64px;
+}
+
+.hero__subtitle {
+  width: 736px;
+  max-width: 100%;
+  color: var(--gray-02);
+  font-size: 18px;
+  line-height: 1.5;
+  letter-spacing: var(--tracking);
+}
+
+.hero__shape {
+  position: absolute;
+  right: 0;
+  bottom: -0.481px;
+  width: 485px;
+  height: 59.481px;
+  transform: scaleX(-1);
+}
+
+/* 3 · Nossos clientes — Figma 5051:163 */
+
+.clientes {
+  border-bottom: 1px solid var(--gray-03);
+}
+
+.clientes__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  /* 32px no Figma; o último 1px é a borda inferior. */
+  padding-block: 32px 31px;
+}
+
+.clientes__title {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  letter-spacing: var(--tracking);
+  white-space: nowrap;
+}
+
+/* Faixa de logos rodando sem parar (pedido do usuário; no Figma os logos ficam parados). Ocupa o espaço
+   depois do título; as pontas apagadas fazem o logo sumir ao sair e aparecer ao entrar. */
+.clientes__faixa {
+  flex: 1 1 600px;
+  min-width: 0;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, var(--color-black) 120px, var(--color-black) calc(100% - 120px), transparent);
+  mask-image: linear-gradient(90deg, transparent, var(--color-black) 120px, var(--color-black) calc(100% - 120px), transparent);
+}
+
+/* Duas cópias da lista: andar metade do trilho volta ao ponto de partida sem emenda. */
+.clientes__trilho {
+  display: flex;
+  width: max-content;
+  animation: clientes-rolar 30s linear infinite;
+}
+
+/* 88px entre os logos: cada cópia (1083px) é mais larga que a faixa (até 1078px), então nunca sobra vão. */
+.clientes__logos {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 88px;
+  padding-right: 88px;
+}
+
+@keyframes clientes-rolar {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .clientes__trilho {
+    animation: none;
+  }
+}
+
+/* Título de seção (Figma 5275:754, 5275:794): Exo 40 em caixa fixa de 43px; a linha de 53px transborda. */
+
+.section-title {
+  height: 43px;
+  font-family: var(--font-heading);
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 53px;
+  letter-spacing: var(--tracking);
+}
+
+/* Título de seção das páginas internas: Exo 40 com a linha de 53px e sem letter-spacing. */
+
+.titulo-secao {
+  font-family: var(--font-heading);
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 53px;
+}
+
+/* Card com conteúdo + mídia (produtos e projetos) */
+
+.feature-card {
+  display: flex;
+  align-items: center;
+  background: var(--color-white);
+}
+
+/* Mídia à esquerda (Dilacerador 5174:1038): largura pelo conteúdo (1282px). Traço interno no Figma. */
+.feature-card--media-left {
+  flex-direction: row-reverse;
+  gap: 80px;
+  width: max-content;
+  /* No Figma o card passa 2px da coluna de 1280px. */
+  max-width: calc(100% + 2px);
+  padding: 31px;
+  border: 1px solid var(--color-border-card);
+}
+
+/* Mídia à direita (Torniquete 5275:757, Projetos 5275:797) */
+.feature-card--media-right {
+  justify-content: space-between;
+  padding: 32px 32px 32px 60px;
+}
+
+.feature-card--bordered {
+  padding: 31px 31px 31px 59px;
+  border: 1px solid var(--gray-03);
+}
+
+/* 623px no Figma; encolhe quando a largura útil fica menor que a do layout. */
+.feature-card__content {
+  display: flex;
+  flex: 0 1 623px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+  min-width: 0;
+}
+
+.feature-card__body {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  gap: 24px;
+}
+
+.feature-card__text {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.feature-card--media-left .feature-card__text {
+  gap: 16px;
+}
+
+.feature-card__title {
+  font-family: var(--font-heading);
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 43px;
+  letter-spacing: var(--tracking);
+}
+
+.feature-card__desc {
+  color: var(--gray-06);
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: var(--tracking);
+}
+
+.feature-card--bordered .feature-card__desc {
+  max-width: 557px;
+}
+
+/* Lista com ícone. O Figma arredonda o line-height de 15px × 1,5 para 23px. */
+
+.feature-list__item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.feature-list__icon {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 100px;
+  background: var(--color-yellow-soft);
+}
+
+.feature-list__icon img {
+  width: 20px;
+  height: 20px;
+}
+
+.feature-list__text {
+  min-width: 0;
+  color: var(--gray-06);
+  font-size: 15px;
+  line-height: 23px;
+  letter-spacing: var(--tracking);
+}
+
+/* Quebras definidas no conteúdo (<br>), sem quebra automática. */
+.feature-list__text--nowrap {
+  white-space: nowrap;
+}
+
+/* Grade em linhas (Dilacerador 5051:282) */
+.feature-list--grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 16px 28px;
+}
+
+/* Duas colunas independentes (Torniquete 5328:721) */
+.feature-list--columns {
+  display: flex;
+  gap: 24px;
+}
+
+.feature-list__col {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+
+/* Pilha com ícone quadrado (Projetos 5275:804) */
+.feature-list--stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.feature-list--stack .feature-list__icon {
+  border-radius: 0;
+}
+
+.feature-list--stack .feature-list__text {
+  font-size: 16px;
+  line-height: 19px;
+}
+
+/* Mídia com galeria (Figma 5174:1041, 5565:1497, 5275:824) */
+
+.feature-media {
+  position: relative;
+  flex: none;
+  width: 515px;
+  height: 500px;
+  overflow: hidden;
+}
+
+.feature-media__slide {
+  transition: opacity 0.3s ease;
+}
+
+.feature-media__slide:not(.is-active) {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.feature-media--photo .feature-media__slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.feature-media--cutout {
+  background: var(--color-media-dark);
+}
+
+.feature-media__pattern {
+  position: absolute;
+  top: 20px;
+  left: -412px;
+  width: 1338px;
+  max-width: none;
+  height: 960px;
+}
+
+/* Centralizado; -1px casa a imagem exportada com a posição do Figma (99,89px). */
+.feature-media--cutout .feature-media__slide {
+  position: absolute;
+  top: -4.2px;
+  left: calc(50% - 1px);
+  width: auto;
+  height: 517px;
+  transform: translateX(-50%);
+}
+
+.feature-media--placeholder {
+  background: linear-gradient(180deg, var(--color-placeholder-start) 0%, var(--color-placeholder-end) 100%);
+}
+
+.feature-media__nav {
+  position: absolute;
+  top: 50%;
+  margin-top: -24px;
+  background: var(--color-nav-bg);
+}
+
+.feature-media__nav--prev {
+  left: 0;
+}
+
+.feature-media__nav--next {
+  right: 0;
+}
+
+.feature-media--photo .feature-media__nav--prev {
+  left: 10px;
+}
+
+.feature-media--photo .feature-media__nav--next {
+  right: 10px;
+}
+
+.feature-media__tag {
+  position: absolute;
+  top: 32px;
+  right: 32px;
+  padding: 6px 20px;
+  background: var(--color-yellow-soft);
+  color: var(--color-tag-text);
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 27px;
+  letter-spacing: var(--tracking);
+  white-space: nowrap;
+}
+
+/* 4–6 · Produtos — Figma 5275:717, 5051:235, 5275:756 */
+
+.produtos__head {
+  padding-top: 100px;
+}
+
+.produtos__list {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  padding-block: 60px 100px;
+}
+
+/* Galerias: a etiqueta de cada foto vem logo depois dela no HTML; só a da foto ativa aparece. */
+.produtos .feature-media__tag {
+  transition: opacity 0.3s ease;
+}
+
+.produtos .feature-media__slide:not(.is-active) + .feature-media__tag {
+  visibility: hidden;
+  opacity: 0;
+}
+
+/* Foto já no tamanho da caixa (515×500), com o fundo e as elipses: ocupa a mídia inteira. */
+.produtos .feature-media--cutout .feature-media__slide--fill {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: none;
+}
+
+/* 7–8 · Projetos especiais — Figma 5275:793, 5275:796 */
+
+.projetos {
+  background: var(--color-surface);
+}
+
+.projetos__head {
+  padding-block: 100px 60px;
+}
+
+.projetos__body {
+  padding-bottom: 120px;
+}
+
+/* 9 · Sobre nós + Nossos números — Figma 5060:357 */
+
+.sobre {
+  position: relative;
+  background: var(--color-ink);
+  color: var(--color-white);
+}
+
+.sobre__media {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 813px;
+  height: 655.786px;
+  overflow: hidden;
+}
+
+.sobre__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sobre__media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to left, var(--color-ink-transparent) 44.712%, var(--color-ink) 100%);
+}
+
+.sobre__container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  padding-block: 120px 40px;
+}
+
+.sobre__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+}
+
+.sobre__text {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 100%;
+}
+
+.sobre__title {
+  font-family: var(--font-heading);
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 53px;
+  letter-spacing: var(--tracking);
+}
+
+.sobre__body {
+  width: 428.882px;
+  max-width: 100%;
+  color: var(--gray-02);
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: var(--tracking);
+}
+
+.sobre__body p + p {
+  margin-top: 16px;
+}
+
+.sobre__body strong {
+  font-weight: 600;
+}
+
+.numeros {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  /* 32px no Figma; 1px é a borda superior. */
+  padding-top: 31px;
+  border-top: 1px solid var(--color-line-dark);
+}
+
+.numeros__title {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  white-space: nowrap;
+}
+
+.numeros__list {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.numeros__item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.numeros__item:not(:last-child) {
+  padding-right: 31px;
+  border-right: 1px solid var(--color-line-dark);
+}
+
+.numeros__icon {
+  display: flex;
+  flex: none;
+  padding: 8px;
+  background: var(--color-yellow-soft);
+}
+
+.numeros__icon img {
+  width: 20px;
+  height: 20px;
+}
+
+/* pre: o Figma usa espaço duplo em "+20  estados". */
+.numeros__text {
+  color: var(--gray-01);
+  font-size: 16px;
+  line-height: 19px;
+  white-space: pre;
+}
+
+.numeros__text strong {
+  font-weight: 600;
+}
+
+/* 10 · Depoimentos — Figma 5060:1948 */
+
+.depoimentos {
+  overflow: hidden;
+  background: var(--color-surface);
+}
+
+.depoimentos__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--content-gap);
+  padding-block: 120px;
+}
+
+.depoimentos__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.depoimentos__title {
+  font-family: var(--font-heading);
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 45px;
+  letter-spacing: var(--tracking);
+  white-space: nowrap;
+}
+
+.depoimentos__intro {
+  flex: none;
+  width: 402px;
+  color: var(--gray-06);
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: var(--tracking);
+}
+
+.depoimentos__track {
+  display: flex;
+  gap: 32px;
+  transition: transform 0.4s ease;
+}
+
+.depoimento {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  gap: 32px;
+  width: 405px;
+  padding: 32px;
+  background: var(--color-white);
+}
+
+.depoimento__quote {
+  margin: 0;
+  color: var(--gray-06);
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: var(--tracking);
+}
+
+.depoimento__quote p + p {
+  margin-top: 12px;
+}
+
+/* Traço de 1px centralizado numa linha de altura zero (Figma 5060:1968). */
+.depoimento__divisor {
+  position: relative;
+  height: 0;
+}
+
+.depoimento__divisor::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 1px;
+  background: var(--gray-02);
+  transform: translateY(-0.5px);
+}
+
+.depoimento__cliente {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.depoimento__avatar {
+  position: relative;
+  flex: none;
+  width: 68px;
+  height: 68px;
+  overflow: hidden;
+  border-radius: 50%;
+  background: var(--color-yellow);
+}
+
+.depoimento:nth-child(4n) .depoimento__avatar {
+  background: var(--color-yellow-pale);
+}
+
+.depoimento__avatar-icon {
+  position: absolute;
+  top: 22.525px;
+  left: 22.886px;
+  width: 22.2248px;
+  height: 23.5486px;
+}
+
+.depoimento__foto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.depoimento__id {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.depoimento__nome {
+  color: var(--color-ink);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 26px;
+  letter-spacing: var(--tracking);
+}
+
+.depoimento__cargo {
+  color: var(--gray-06);
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: var(--tracking);
+}
+
+.depoimentos__nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.carousel-dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.carousel-dots__dot {
+  position: relative;
+  width: 6px;
+  height: 6px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--gray-03);
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+/* Área de clique de 12×24px sem mudar o desenho do ponto de 6px. */
+.carousel-dots__dot::before {
+  content: '';
+  position: absolute;
+  inset: -9px -3px;
+}
+
+.carousel-dots__dot.is-active {
+  background: var(--color-yellow);
+}
+
+@media (hover: hover) {
+  .carousel-dots__dot:not(.is-active):hover {
+    background: var(--gray-05);
+  }
+}
+
+.carousel-dots__dot:active {
+  transform: scale(0.8);
+}
+
+.carousel-arrows {
+  display: flex;
+  gap: 16px;
+}
+
+.carousel-arrows .arrow-btn {
+  background: var(--color-white);
+}
+
+/* 11 · CTA final — Figma 5235:1048 */
+
+.cta-final {
+  position: relative;
+  background: var(--color-yellow);
+}
+
+/* Fundo amarelo: o foco de teclado usa a cor escura para aparecer. */
+.cta-final :focus-visible {
+  outline-color: var(--color-ink);
+}
+
+.cta-final__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+  padding-block: 120px;
+}
+
+.cta-final__text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 100%;
+  color: var(--color-ink);
+}
+
+/* Figma: linha de 1.4 × 48 = 67,2px e caixa arredondada para 134px (2 linhas).
+   top: o Chrome arredonda a linha de base 1px acima do Figma neste tamanho. */
+.cta-final__title {
+  position: relative;
+  top: 1px;
+  width: 349px;
+  max-width: 100%;
+  margin-bottom: -0.4px;
+  font-family: var(--font-heading);
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 67.2px;
+}
+
+.cta-final__desc {
+  width: 308.782px;
+  max-width: 100%;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: var(--tracking);
+}
+
+.cta-final__media {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 715px;
+  background: var(--color-ink);
+}
+
+.cta-final__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Quadrados decorativos (Figma "Pattern" 5093:19), posicionados a partir da borda esquerda da foto. */
+.cta-final__square {
+  position: absolute;
+  background: var(--color-ink);
+}
+
+.cta-final__square--1 {
+  top: 223px;
+  left: -40px;
+  width: 32.226px;
+  height: 32.226px;
+}
+
+.cta-final__square--2 {
+  top: 264.02px;
+  left: -7.77px;
+  width: 32.226px;
+  height: 32.226px;
+}
+
+.cta-final__square--3 {
+  top: 296.24px;
+  left: -22.42px;
+  width: 14.648px;
+  height: 14.648px;
+}
+
+.cta-final__square--4 {
+  top: 242.04px;
+  left: 21.52px;
+  width: 17.578px;
+  height: 17.578px;
+}
+
+/* 12 · Footer — Figma 5235:1049 */
+
+.site-footer {
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+.site-footer__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--content-gap);
+  padding-block: 80px 40px;
+}
+
+.site-footer__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* 40px no Figma; 1px é a borda inferior. */
+  padding-bottom: 39px;
+  border-bottom: 1px solid var(--gray-06);
+}
+
+.site-footer__logo img {
+  width: 73px;
+  height: 49.124px;
+}
+
+.social {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.social__link {
+  display: block;
+  padding: 8px 12px;
+  background: var(--color-social-bg);
+  color: var(--gray-01);
+  font-family: var(--font-heading);
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  white-space: nowrap;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+@media (hover: hover) {
+  .social__link:hover {
+    background: var(--color-nav-bg);
+    color: var(--color-yellow);
+  }
+}
+
+.social__link:active {
+  opacity: 0.75;
+}
+
+.site-footer__main {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 48px;
+  padding-bottom: 60px;
+}
+
+.site-footer__about {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+}
+
+/* top: o Chrome posiciona a Montserrat ~1px acima do Figma (métricas verticais da fonte). */
+.site-footer__desc {
+  position: relative;
+  top: 1px;
+  width: 298px;
+  color: var(--gray-03);
+  font-family: var(--font-footer);
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.site-footer__cols {
+  display: flex;
+  align-items: flex-start;
+  gap: 60px;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footer-col__title {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: var(--tracking);
+  white-space: nowrap;
+}
+
+.footer-col__list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footer-col__list a,
+.footer-contact__item {
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: var(--tracking);
+}
+
+.footer-col__list a {
+  display: block;
+  white-space: nowrap;
+}
+
+.footer-col__list a,
+.footer-contact__item a {
+  transition: color 0.2s ease;
+}
+
+@media (hover: hover) {
+  .footer-col__list a:hover,
+  .footer-contact__item a:hover {
+    color: var(--color-yellow);
+  }
+}
+
+.footer-col__list a:active,
+.footer-contact__item a:active {
+  opacity: 0.75;
+}
+
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footer-contact__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-contact__icon {
+  position: relative;
+  flex: none;
+  width: 36px;
+  height: 36px;
+}
+
+/* Os SVGs exportados têm 36,124px (36,376px no endereço) com o quadrado deslocado. */
+.footer-contact__icon img {
+  position: absolute;
+  top: -0.124px;
+  left: 0;
+  width: 36px;
+  max-width: none;
+  height: 36.124px;
+}
+
+.footer-contact__item--endereco .footer-contact__icon img {
+  top: 0;
+  height: 36.376px;
+}
+
+.footer-contact__text {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.footer-contact__item--endereco .footer-contact__text {
+  flex: none;
+  width: 231px;
+}
+
+.site-footer__credits {
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+  padding-top: 20px;
+  color: var(--gray-03);
+  font-family: var(--font-credits);
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.site-footer__credits p {
+  white-space: nowrap;
+}
+
+.site-footer__dev {
+  width: 254px;
+  text-align: right;
+}
+
+.site-footer__dev strong {
+  font-weight: 700;
+}
+
+/* Galeria de fotos com setas e pontos (Figma 5241:591, 5277:2575) */
+
+.galeria {
+  overflow: hidden;
+}
+
+.galeria--escura {
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+.galeria__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--content-gap);
+  padding-block: 120px;
+}
+
+.galeria__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.galeria__text {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+
+.galeria__desc {
+  max-width: 100%;
+  color: var(--gray-06);
+  font-size: 18px;
+  line-height: 27px;
+  letter-spacing: var(--tracking);
+}
+
+.galeria--escura .galeria__desc {
+  color: var(--gray-01);
+}
+
+/* Traço interno de 1px no Figma: com a borda, a caixa continua com 48px. */
+.galeria .carousel-arrows .arrow-btn {
+  border: 1px solid var(--gray-02);
+}
+
+.galeria--escura .carousel-arrows .arrow-btn {
+  border-color: var(--color-nav-dark-border);
+  background: var(--color-nav-dark-bg);
+}
+
+.galeria__track {
+  display: flex;
+  gap: 32px;
+  transition: transform 0.4s ease;
+}
+
+.galeria__item {
+  position: relative;
+  display: flex;
+  flex: none;
+  align-items: flex-end;
+  width: 406px;
+  height: 432px;
+  padding: 16px;
+  overflow: hidden;
+}
+
+.galeria__item > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.galeria__item--escurecida::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--color-overlay);
+}
+
+.galeria__card {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  min-width: 0;
+  padding: 24px;
+  background: var(--color-white);
+}
+
+.galeria__card-title {
+  color: var(--color-ink);
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.galeria__card-text {
+  color: var(--gray-06);
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: var(--tracking);
+}
+
+.galeria__dots {
+  display: flex;
+  justify-content: center;
+}
+
+/* Perguntas frequentes (Figma 5250:1139). Abrem e fecham com <details>; no Figma ficam todas abertas. */
+
+.faq__inner {
+  display: flex;
+  gap: 80px;
+  padding-block: 100px;
+}
+
+.faq__intro {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 32px;
+  background: linear-gradient(127.6364deg, var(--color-cream) 21.48%, var(--color-cream-transparent) 78.459%);
+}
+
+.faq__title {
+  width: 183px;
+  font-family: var(--font-heading);
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 43px;
+}
+
+/* O SVG exportado tem 237×137; a caixa usa o tamanho do Figma (236,43×136,5) para o alinhamento. */
+.faq__ilustra {
+  position: relative;
+  width: 236.429px;
+  height: 136.502px;
+}
+
+.faq__ilustra img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 237px;
+  max-width: none;
+  height: 137px;
+}
+
+.faq__list {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  min-width: 0;
+}
+
+/* Traço interno de 1px no Figma: a borda sai do padding de 24px. */
+.faq__item {
+  padding: 23px;
+  border: 1px solid var(--gray-02);
+  background: var(--color-white);
+}
+
+.faq__question {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  color: var(--color-ink);
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 28px;
+  list-style: none;
+  cursor: pointer;
+}
+
+.faq__question::-webkit-details-marker {
+  display: none;
+}
+
+.faq__question > span {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.faq__icon {
+  flex: none;
+  width: 24px;
+  height: 24px;
+  transition: transform 0.2s ease;
+}
+
+.faq__item[open] .faq__icon {
+  transform: scaleY(-1);
+}
+
+.faq__answer {
+  margin-top: 8px;
+  color: var(--gray-06);
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: var(--tracking);
+}
+
+/* Blocos das páginas internas de produto e projetos (Figma 5253:1499, 5253:1679, 5277:2692,
+   5278:2824, 5278:2832, 5278:2878). Ficam aqui porque repetem entre Torniquete e Projetos. */
+
+/* Títulos de seção de 32px (na Dilacerador são 40px). */
+.titulo-secao--32 {
+  font-size: 32px;
+  line-height: 43px;
+}
+
+/* Hero escuro com foto à direita */
+
+.hero-produto {
+  position: relative;
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+/* Recorte do Figma: a foto ocupa 481px à direita (1440 ÷ 2,99376), com 641px de altura
+   (500 ÷ 0,77997) subindo 70,5px (0,11001 × 641). */
+.hero-produto__media {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 481.02px;
+  overflow: hidden;
+}
+
+/* A foto já vem recortada do Figma (1130×1175), na mesma proporção da caixa. */
+.hero-produto__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.4;
+}
+
+.hero-produto::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to left, var(--color-black-transparent) 0%, var(--color-black) 33.264%);
+}
+
+.hero-produto__inner {
+  position: relative;
+  z-index: 1;
+  padding-block: 120px;
+}
+
+.hero-produto__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+}
+
+.hero-produto__text {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 100%;
+}
+
+.hero-produto__title {
+  width: 492px;
+  max-width: 100%;
+  font-family: var(--font-heading);
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 64px;
+}
+
+.hero-produto__desc {
+  width: 610px;
+  max-width: 100%;
+  color: var(--gray-02);
+  font-size: 18px;
+  line-height: 27px;
+  letter-spacing: var(--tracking);
+}
+
+.hero-produto__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+
+.hero-produto__shape {
+  position: absolute;
+  right: 0;
+  bottom: -0.481px;
+  z-index: 1;
+  width: 485px;
+  height: 59.481px;
+  transform: scaleX(-1);
+}
+
+/* Diferenciais em cards (Figma 5253:1679, 5278:2832) */
+
+.bento {
+  background: var(--color-surface);
+}
+
+.bento__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--content-gap);
+  padding-block: 120px;
+}
+
+.bento__grid {
+  display: flex;
+  gap: 32px;
+}
+
+/* Colunas de até 296px: em 1440px coincidem com o Figma; com a barra de rolagem, encolhem
+   sem quebrar a linha. */
+.bento__col {
+  display: grid;
+  flex: 1 1 0;
+  grid-template-columns: repeat(3, minmax(0, 296px));
+  gap: 32px;
+  min-width: 0;
+}
+
+.bento-card {
+  display: flex;
+  flex: 0 1 296px;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+  height: 192px;
+  padding: 24px;
+  background: var(--color-white);
+  color: var(--gray-06);
+  font-size: 16px;
+  line-height: 24px;
+}
+
+/* O card alto ocupa as duas linhas. */
+.bento-card--alto {
+  height: 416px;
+}
+
+/* Cards que prendem o texto embaixo (Figma 5253:1682, 5253:1708). */
+.bento-card--baixo {
+  justify-content: space-between;
+}
+
+/* Só no Torniquete o card alto é preto (Figma 5253:1708). */
+.bento-card--escuro {
+  background: var(--color-black-pure);
+  color: var(--color-white);
+}
+
+.bento-card__icon {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  background: var(--color-yellow-soft);
+}
+
+.bento-card--escuro .bento-card__icon {
+  background: var(--color-placeholder-start);
+}
+
+.bento-card__icon img {
+  width: 24px;
+  height: 24px;
+}
+
+.bento-card__text {
+  max-width: 100%;
+}
+
+/* Foto com recorte amarelo e círculo (Figma 5277:2694, 5277:2735, 5278:2881) */
+
+.foto-produto {
+  position: relative;
+  flex: none;
+  width: 515px;
+  max-width: 100%;
+  height: 500px;
+}
+
+.foto-produto__quadro {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+/* A foto já vem recortada do Figma (nó exportado em 2x), no tamanho da caixa. */
+.foto-produto__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.foto-produto__shape {
+  position: absolute;
+  bottom: -0.302px;
+  left: 0;
+  width: 296px;
+  height: 36.302px;
+}
+
+.foto-produto__circulo {
+  position: absolute;
+  top: 16px;
+  left: 26px;
+  width: 224px;
+  height: 224px;
+}
+
+/* Card de destaque com foto e lista (Figma 5277:2692, 5278:2878) */
+
+.destaque__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--content-gap);
+  padding-block: 120px 60px;
+}
+
+/* Traço interno de 1px no Figma: a borda sai do padding (32px à esquerda, 60px à direita). */
+.destaque__card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 31px 59px 31px 31px;
+  border: 1px solid var(--color-black-pure);
+  background: var(--color-white);
+}
+
+.destaque__content {
+  display: flex;
+  flex: 0 1 623px;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 0;
+}
+
+.destaque__title {
+  height: 43px;
+  font-family: var(--font-heading);
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 43px;
+  letter-spacing: var(--tracking);
+}
+
+.destaque__body {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.destaque__desc {
+  color: var(--gray-06);
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: var(--tracking);
+}
+
+/* O botão tem a largura do rótulo (213px no Figma); o resto da coluna ocupa os 623px. */
+.destaque__content > .btn-solid {
+  align-self: flex-start;
+}
+
+/* Abaixo de 1440px estes blocos reorganizam; em 1440px nada muda. */
+
+@media (max-width: 1279px) {
+  .destaque__card {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 40px;
+    padding: 23px;
+  }
+
+  .foto-produto {
+    align-self: center;
+  }
+}
+
+@media (max-width: 1023px) {
+  .bento__grid {
+    flex-wrap: wrap;
+  }
+
+  .bento__col {
+    flex: 1 1 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .bento-card--alto {
+    flex: 1 1 100%;
+    height: auto;
+    min-height: 192px;
+  }
+}
+
+@media (max-width: 767px) {
+  .bento__col {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Páginas internas do WordPress (fora do Figma): conteúdo simples. */
+
+.page-content {
+  padding-block: 80px;
+}
+
+.page-content__title {
+  height: auto;
+  margin-bottom: 32px;
+}
+
+.page-content__body {
+  max-width: 800px;
+  color: var(--gray-06);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.page-content__body > * + * {
+  margin-top: 1em;
+}
+
+/* Larguras menores que 1440px ---------------------------------------------------------------
+   O Figma só tem a versão de 1440px. Estas regras não mudam nada em 1440px: evitam rolagem
+   lateral e sobreposição em notebooks e tablets. Mobile dedicado depende de layout próprio. */
+
+/* Linhas que cabem com folga em 1440px quebram quando falta espaço. */
+.clientes__inner,
+.numeros,
+.numeros__list,
+.depoimentos__head,
+.social,
+.site-footer__top,
+.site-footer__main,
+.site-footer__cols,
+.site-footer__credits,
+.galeria__head {
+  flex-wrap: wrap;
+}
+
+.site-footer__top {
+  gap: 24px;
+}
+
+/* A foto do CTA final encolhe antes de encostar no texto (349px + 40px de respiro). */
+.cta-final__media {
+  width: min(715px, calc(100% - 389px - 2 * var(--section-px)));
+}
+
+@media (max-width: 1279px) {
+  .feature-card,
+  .feature-card--media-left {
+    flex-direction: column-reverse;
+    align-items: stretch;
+    gap: 40px;
+    width: auto;
+    max-width: none;
+  }
+
+  .feature-card--media-left,
+  .feature-card--bordered {
+    padding: 23px;
+  }
+
+  .feature-card--media-right:not(.feature-card--bordered) {
+    padding: 24px;
+  }
+
+  .feature-card__content {
+    flex: none;
+  }
+
+  .feature-card--bordered .feature-card__desc {
+    max-width: none;
+  }
+
+  .feature-media {
+    align-self: center;
+    width: 100%;
+    max-width: 515px;
+  }
+
+  .feature-media__pattern {
+    left: calc(50% - 669px);
+  }
+}
+
+@media (max-width: 1023px) {
+  .hero__title {
+    width: auto;
+  }
+
+  .depoimentos__title {
+    white-space: normal;
+  }
+
+  .depoimentos__intro {
+    flex: 1 1 auto;
+    width: auto;
+    max-width: 402px;
+  }
+
+  .sobre__media {
+    width: 70%;
+  }
+
+  .faq__inner {
+    flex-direction: column;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 859px) {
+  .site-nav {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .feature-list__text--nowrap {
+    white-space: normal;
+  }
+
+  .feature-list--grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .feature-list--columns {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .sobre__media {
+    width: 100%;
+    opacity: 0.35;
+  }
+
+  .cta-final__media {
+    display: none;
+  }
+}

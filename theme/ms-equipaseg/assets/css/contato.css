@@ -1,0 +1,247 @@
+/*
+ * MS Equipaseg — página "Contato". Carregado depois do main.css.
+ * Medidas transcritas do Figma I7qYIaCi6nFLVWPiu9y1Un, frame "Contato" (5235:876).
+ * Header, depoimentos, botões e rodapé vêm do main.css.
+ */
+
+/* Contato · Hero — Figma 5254:467 */
+
+.contato-hero {
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+.contato-hero__inner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 32px;
+  padding-block: 80px;
+}
+
+.contato-hero__col {
+  display: flex;
+  flex: 0 1 515px;
+  flex-direction: column;
+  gap: 56px;
+  min-width: 0;
+}
+
+.contato-hero__text {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contato-hero__title {
+  font-family: var(--font-heading);
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 53px;
+  white-space: nowrap;
+}
+
+.contato-hero__desc {
+  width: 381px;
+  max-width: 100%;
+  color: var(--gray-01);
+  font-size: 18px;
+  line-height: 27px;
+  letter-spacing: var(--tracking);
+}
+
+.contatos {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* 16px no Figma; 1px é a borda inferior. */
+.contatos__item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--color-line-dark);
+}
+
+.contatos__icon {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  background: var(--color-yellow-pale);
+}
+
+.contatos__icon img {
+  width: 20px;
+  height: 20px;
+}
+
+.contatos__text {
+  flex: 1 1 0;
+  min-width: 0;
+  color: var(--gray-01);
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: var(--tracking);
+}
+
+/* Ilustração exportada do Figma (5254:743). A caixa tem 308px; o brilho da imagem passa um
+   pouco disso, então ela fica posicionada e não empurra o resto da coluna. */
+.contato-ilustra {
+  position: relative;
+  height: 308px;
+}
+
+.contato-ilustra img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 515px;
+  max-width: 100%;
+  height: 322px;
+}
+
+/* Contato · Formulário — Figma 5254:621 */
+
+.form-contato {
+  display: flex;
+  flex: 0 1 624px;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 0;
+  padding: 40px;
+  background: var(--color-placeholder-start);
+}
+
+.form-contato__campo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-contato__label {
+  color: var(--color-white);
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 21px;
+}
+
+.form-contato__input,
+.form-contato__textarea {
+  width: 100%;
+  padding: 12px 20px;
+  border: 0;
+  background: var(--color-input-bg);
+  color: var(--gray-02);
+  font-family: var(--font-form);
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.form-contato__input::placeholder,
+.form-contato__textarea::placeholder {
+  color: var(--gray-02);
+  opacity: 1;
+}
+
+.form-contato__textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+.form-contato__aviso {
+  color: var(--gray-01);
+  font-family: var(--font-form);
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.form-contato .btn-solid {
+  align-self: flex-start;
+}
+
+/* Contato · Depoimentos — Figma 5284:1443: avatares em amarelo claro. */
+
+.depoimentos--contato .depoimento__avatar {
+  background: var(--color-yellow-pale);
+}
+
+/* Contato · Mapa — Figma 5254:670 */
+
+.mapa {
+  position: relative;
+  background: var(--color-white);
+}
+
+.mapa__img {
+  width: 100%;
+  height: 568px;
+  object-fit: cover;
+}
+
+/* Cartão flutuante com o endereço (Figma 5254:760): sombra de 4 camadas do Figma. */
+.mapa__card {
+  position: absolute;
+  bottom: 40px;
+  left: calc(50% + 0.5px);
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  max-width: calc(100% - 2 * var(--section-px));
+  padding: 16px 24px;
+  background: var(--color-white);
+  box-shadow:
+    0 17px 18px rgba(0, 0, 0, 0.1),
+    0 66px 33px rgba(0, 0, 0, 0.09),
+    0 149px 44.5px rgba(0, 0, 0, 0.05),
+    0 264px 53px rgba(0, 0, 0, 0.01);
+  transform: translateX(-50%);
+}
+
+.mapa__endereco {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--gray-06);
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: var(--tracking);
+  white-space: nowrap;
+}
+
+.mapa__endereco img {
+  flex: none;
+  width: 20px;
+  height: 20px;
+}
+
+/* Larguras menores que 1440px ---------------------------------------------------------------
+   Estas regras não mudam nada em 1440px: evitam rolagem lateral e sobreposição. */
+
+.contato-hero__inner {
+  flex-wrap: wrap;
+}
+
+@media (max-width: 1279px) {
+  .contato-hero__col,
+  .form-contato {
+    flex: 1 1 480px;
+  }
+}
+
+@media (max-width: 767px) {
+  .contato-hero__title,
+  .mapa__endereco {
+    white-space: normal;
+  }
+
+  .mapa__card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+}

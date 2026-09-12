@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contato — MS Equipaseg</title>
+  <meta name="description" content="Fale com a MS Equipaseg: preencha o formulário, mande um WhatsApp ou visite a fábrica em São Paulo.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Exo:wght@400;600;700&family=Inter:wght@400;600;700&family=Montserrat&family=Roboto:wght@400&family=Work+Sans:wght@400;700&display=swap">
+  <link rel="stylesheet" href="theme/ms-equipaseg/assets/css/main.css">
+  <link rel="stylesheet" href="theme/ms-equipaseg/assets/css/contato.css">
+</head>
+<body data-overlay="_ref/contato-figma.png">
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="site-header" data-figma="5235:877">
+    <div class="site-header__inner container">
+      <a class="site-header__logo" href="./" aria-label="MS Equipaseg — página inicial">
+        <img src="theme/ms-equipaseg/assets/images/logo-ms-equipaseg.svg" alt="MS Equipaseg" width="111" height="48">
+      </a>
+
+      <nav class="site-nav" aria-label="Menu principal">
+        <ul class="site-nav__list">
+          <li class="site-nav__item"><a class="site-nav__link" href="./">Página inicial</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="quem-somos.html">Quem somos</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="./#produtos">Produtos<span class="site-nav__caret" aria-hidden="true"><img src="theme/ms-equipaseg/assets/images/icon-caret-down.svg" alt=""></span></a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="./#projetos">Projetos</a></li>
+        </ul>
+      </nav>
+
+      <a class="btn-outline" href="#formulario">
+        <img src="theme/ms-equipaseg/assets/images/icon-chat.svg" alt="" width="20" height="20">
+        <span>Fale conosco</span>
+      </a>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="contato-hero" aria-labelledby="contato-titulo" data-figma="5254:467">
+      <div class="contato-hero__inner container">
+        <div class="contato-hero__col">
+          <div class="contato-hero__text">
+            <h1 class="contato-hero__title" id="contato-titulo">Fale conosco</h1>
+            <p class="contato-hero__desc">Fale com a MS Equipaseg e conheça nossos equipamentos. Preencha o formulário e nossa equipe retornará em breve.</p>
+          </div>
+
+          <ul class="contatos">
+            <li class="contatos__item">
+              <span class="contatos__icon"><img src="theme/ms-equipaseg/assets/images/icon-email.svg" alt="E-mail" width="20" height="20"></span>
+              <a class="contatos__text" href="mailto:email@msequipaseg.com.br">email@msequipaseg.com.br</a>
+            </li>
+            <li class="contatos__item">
+              <span class="contatos__icon"><img src="theme/ms-equipaseg/assets/images/icon-whatsapp-contato.svg" alt="WhatsApp" width="20" height="20"></span>
+              <a class="contatos__text" href="https://wa.me/5511991111111">(11) 99111-1111</a>
+            </li>
+            <li class="contatos__item">
+              <span class="contatos__icon"><img src="theme/ms-equipaseg/assets/images/icon-endereco.svg" alt="Endereço" width="20" height="20"></span>
+              <span class="contatos__text">R. José André Pattini, 250, Terceira Divisão de Interlagos, São Paulo / SP</span>
+            </li>
+          </ul>
+
+          <div class="contato-ilustra" aria-hidden="true">
+            <img src="theme/ms-equipaseg/assets/seed/contato-ilustracao.png" alt="" width="1030" height="644" loading="lazy">
+          </div>
+        </div>
+
+        <form class="form-contato" id="formulario" method="post" action="#" aria-label="Formulário de contato" data-figma="5254:621">
+          <div class="form-contato__campo">
+            <label class="form-contato__label" for="nome">Nome completo</label>
+            <input class="form-contato__input" id="nome" name="nome" type="text" placeholder="Nome completo" autocomplete="name">
+          </div>
+          <div class="form-contato__campo">
+            <label class="form-contato__label" for="empresa">Empresa</label>
+            <input class="form-contato__input" id="empresa" name="empresa" type="text" placeholder="Empresa" autocomplete="organization">
+          </div>
+          <div class="form-contato__campo">
+            <label class="form-contato__label" for="telefone">Telefone</label>
+            <input class="form-contato__input" id="telefone" name="telefone" type="tel" placeholder="(00) 00000-0000" autocomplete="tel">
+          </div>
+          <div class="form-contato__campo">
+            <label class="form-contato__label" for="email">E-mail</label>
+            <input class="form-contato__input" id="email" name="email" type="email" placeholder="email@exemplo.com" autocomplete="email">
+          </div>
+          <div class="form-contato__campo">
+            <label class="form-contato__label" for="mensagem">Mensagem</label>
+            <textarea class="form-contato__textarea" id="mensagem" name="mensagem" placeholder="Mensagem"></textarea>
+          </div>
+
+          <p class="form-contato__aviso">*Este site é protegido pelo reCAPTCHA e a Política de Privacidade e os Termos de Serviço do Google se aplicam.</p>
+
+          <button class="btn-solid" type="submit">Enviar</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="depoimentos depoimentos--contato" aria-labelledby="depoimentos-titulo" data-figma="5284:1443">
+      <div class="depoimentos__inner container" data-carousel>
+        <div class="depoimentos__head">
+          <h2 class="depoimentos__title" id="depoimentos-titulo">Clientes que confiam e recomendam</h2>
+          <p class="depoimentos__intro">A confiança dos nossos clientes é o que impulsiona a MS Equipaseg a inovar e entregar sempre o melhor</p>
+        </div>
+
+        <div class="depoimentos__track" data-carousel-track>
+          <figure class="depoimento">
+            <blockquote class="depoimento__quote">
+              <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
+              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatu</p>
+            </blockquote>
+            <div class="depoimento__divisor" aria-hidden="true"></div>
+            <figcaption class="depoimento__cliente">
+              <span class="depoimento__avatar"><img class="depoimento__avatar-icon" src="theme/ms-equipaseg/assets/images/icon-user.svg" alt="" width="22" height="24"></span>
+              <span class="depoimento__id">
+                <span class="depoimento__nome">Nome cliente</span>
+                <span class="depoimento__cargo">Cargo/Empresa</span>
+              </span>
+            </figcaption>
+          </figure>
+          <figure class="depoimento">
+            <blockquote class="depoimento__quote">
+              <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
+              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatu</p>
+            </blockquote>
+            <div class="depoimento__divisor" aria-hidden="true"></div>
+            <figcaption class="depoimento__cliente">
+              <span class="depoimento__avatar"><img class="depoimento__avatar-icon" src="theme/ms-equipaseg/assets/images/icon-user.svg" alt="" width="22" height="24"></span>
+              <span class="depoimento__id">
+                <span class="depoimento__nome">Nome cliente</span>
+                <span class="depoimento__cargo">Cargo/Empresa</span>
+              </span>
+            </figcaption>
+          </figure>
+          <figure class="depoimento">
+            <blockquote class="depoimento__quote">
+              <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
+              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatu</p>
+            </blockquote>
+            <div class="depoimento__divisor" aria-hidden="true"></div>
+            <figcaption class="depoimento__cliente">
+              <span class="depoimento__avatar"><img class="depoimento__avatar-icon" src="theme/ms-equipaseg/assets/images/icon-user.svg" alt="" width="22" height="24"></span>
+              <span class="depoimento__id">
+                <span class="depoimento__nome">Nome cliente</span>
+                <span class="depoimento__cargo">Cargo/Empresa</span>
+              </span>
+            </figcaption>
+          </figure>
+          <figure class="depoimento">
+            <blockquote class="depoimento__quote">
+              <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
+              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatu</p>
+            </blockquote>
+            <div class="depoimento__divisor" aria-hidden="true"></div>
+            <figcaption class="depoimento__cliente">
+              <span class="depoimento__avatar"><img class="depoimento__avatar-icon" src="theme/ms-equipaseg/assets/images/icon-user.svg" alt="" width="22" height="24"></span>
+              <span class="depoimento__id">
+                <span class="depoimento__nome">Nome cliente</span>
+                <span class="depoimento__cargo">Cargo/Empresa</span>
+              </span>
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="depoimentos__nav">
+          <div class="carousel-dots">
+            <button class="carousel-dots__dot is-active" type="button" aria-label="Depoimento 1" aria-current="true" data-carousel-dot></button>
+            <button class="carousel-dots__dot" type="button" aria-label="Depoimento 2" data-carousel-dot></button>
+            <button class="carousel-dots__dot" type="button" aria-label="Depoimento 3" data-carousel-dot></button>
+            <button class="carousel-dots__dot" type="button" aria-label="Depoimento 4" data-carousel-dot></button>
+          </div>
+          <div class="carousel-arrows">
+            <button class="arrow-btn arrow-btn--prev" type="button" aria-label="Depoimento anterior" aria-disabled="true" data-carousel-prev>
+              <img class="arrow-btn__off" src="theme/ms-equipaseg/assets/images/icon-chevron-left-light.svg" alt="" width="24" height="24">
+              <img class="arrow-btn__on" src="theme/ms-equipaseg/assets/images/icon-chevron-right-dark.svg" alt="" width="48" height="48">
+            </button>
+            <button class="arrow-btn arrow-btn--next" type="button" aria-label="Próximo depoimento" data-carousel-next>
+              <img class="arrow-btn__off" src="theme/ms-equipaseg/assets/images/icon-chevron-left-light.svg" alt="" width="24" height="24">
+              <img class="arrow-btn__on" src="theme/ms-equipaseg/assets/images/icon-chevron-right-dark.svg" alt="" width="48" height="48">
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mapa" aria-label="Onde estamos" data-figma="5254:670">
+      <img class="mapa__img" src="theme/ms-equipaseg/assets/seed/mapa.png" alt="Mapa com a localização da MS Equipaseg em São Paulo" width="1367" height="766" loading="lazy">
+
+      <div class="mapa__card">
+        <p class="mapa__endereco">
+          <img src="theme/ms-equipaseg/assets/images/icon-pin.svg" alt="" width="20" height="20">
+          <span>R. José André Pattini, 250, Terceira Divisão de Interlagos, São Paulo / SP</span>
+        </p>
+        <a class="btn-solid btn-solid--xs" href="https://www.google.com/maps/search/?api=1&amp;query=R.+Jos%C3%A9+Andr%C3%A9+Pattini%2C+250%2C+S%C3%A3o+Paulo" target="_blank" rel="noopener"><span>Ver no maps</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" data-figma="5235:1280">
+    <div class="site-footer__inner container">
+      <div class="site-footer__top">
+        <a class="site-footer__logo" href="./" aria-label="MS Equipaseg — página inicial">
+          <img src="theme/ms-equipaseg/assets/images/logo-ms-equipaseg-footer.svg" alt="MS Equipaseg" width="73" height="49">
+        </a>
+        <ul class="social">
+          <li><a class="social__link" href="#" rel="noopener">Instagram</a></li>
+          <li><a class="social__link" href="#" rel="noopener">Facebook</a></li>
+          <li><a class="social__link" href="#" rel="noopener">YouTube</a></li>
+          <li><a class="social__link" href="#" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+
+      <div class="site-footer__main">
+        <div class="site-footer__about">
+          <p class="site-footer__desc">Eget cursus nec vehicula, convallis. tincidunt Ut enim. Nunc placerat nisi non vitae Donec faucibus vehicula, sapien scelerisque Donec Nunc Lorem.</p>
+          <a class="cta cta--sm" href="#formulario">
+            <img class="cta__icon" src="theme/ms-equipaseg/assets/images/icon-whatsapp-dark.svg" alt="" width="20" height="20">
+            <span>Solicitar cotação</span>
+          </a>
+        </div>
+
+        <div class="site-footer__cols">
+          <nav class="footer-col" aria-labelledby="rodape-navegacao">
+            <h2 class="footer-col__title" id="rodape-navegacao">Navegação</h2>
+            <ul class="footer-col__list">
+              <li><a href="./">Página inicial</a></li>
+              <li><a href="quem-somos.html">Quem somos</a></li>
+              <li><a href="contato.html">Contato</a></li>
+            </ul>
+          </nav>
+          <nav class="footer-col" aria-labelledby="rodape-produtos">
+            <h2 class="footer-col__title" id="rodape-produtos">Produtos</h2>
+            <ul class="footer-col__list">
+              <li><a href="dilacerador-de-pneus.html">Dilacerador de Pneus</a></li>
+              <li><a href="torniquete.html">Torniquete</a></li>
+              <li><a href="./#projetos">Projetos especiais</a></li>
+            </ul>
+          </nav>
+          <nav class="footer-col" aria-labelledby="rodape-politicas">
+            <h2 class="footer-col__title" id="rodape-politicas">Políticas</h2>
+            <ul class="footer-col__list">
+              <li><a href="#">Política de Cookies</a></li>
+              <li><a href="#">Política de Privacidade</a></li>
+              <li><a href="#">Termos e condições</a></li>
+            </ul>
+          </nav>
+          <div class="footer-col">
+            <h2 class="footer-col__title">Contato</h2>
+            <ul class="footer-contact">
+              <li class="footer-contact__item">
+                <span class="footer-contact__icon"><img src="theme/ms-equipaseg/assets/images/icon-contato-whatsapp.svg" alt="WhatsApp" width="36" height="36"></span>
+                <a class="footer-contact__text" href="https://wa.me/5511999998989">11 99999-8989</a>
+              </li>
+              <li class="footer-contact__item">
+                <span class="footer-contact__icon"><img src="theme/ms-equipaseg/assets/images/icon-contato-telefone.svg" alt="Telefone" width="36" height="36"></span>
+                <a class="footer-contact__text" href="tel:+551133334444">11 3333-4444</a>
+              </li>
+              <li class="footer-contact__item">
+                <span class="footer-contact__icon"><img src="theme/ms-equipaseg/assets/images/icon-contato-email.svg" alt="E-mail" width="36" height="36"></span>
+                <a class="footer-contact__text" href="mailto:email@exemplo.com.br">email@exemplo.com.br</a>
+              </li>
+              <li class="footer-contact__item footer-contact__item--endereco">
+                <span class="footer-contact__icon"><img src="theme/ms-equipaseg/assets/images/icon-contato-endereco.svg" alt="Endereço" width="36" height="36"></span>
+                <span class="footer-contact__text">Rua José André Pattini, 250 – Terceira Divisão de Interlagos – CEP 04809-260 São Paulo / SP</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="site-footer__credits">
+        <p>© 2025 MS Equipaseg. Todos os direitos reservados.</p>
+        <p class="site-footer__dev">Desenvolvido por <strong>Artemis</strong></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="theme/ms-equipaseg/assets/js/main.js" defer></script>
+  <script src="tools/overlay.js" defer></script>
+</body>
+</html>

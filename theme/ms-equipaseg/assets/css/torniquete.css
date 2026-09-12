@@ -1,0 +1,160 @@
+/*
+ * MS Equipaseg — página "Torniquete". Carregado depois do main.css.
+ * Medidas transcritas do Figma I7qYIaCi6nFLVWPiu9y1Un, frame "Produtos > Torniquete" (5235:708).
+ * Hero, diferenciais, foto de produto, card de destaque, galeria, depoimentos, FAQ, CTA e rodapé
+ * ficam no main.css: repetem na página Projetos.
+ */
+
+/* Torniquete · Diferenciais — larguras das caixas de texto no Figma (definem as quebras). */
+
+.bento-card--giro .bento-card__text {
+  width: 217.274px;
+}
+
+.bento-card--material .bento-card__text {
+  width: 235px;
+}
+
+.bento-card--mecanismo .bento-card__text {
+  width: 224.639px;
+}
+
+/* Torniquete · Outros modelos — Figma 5277:2731 */
+
+.modelos-torniquete__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--content-gap);
+  padding-block: 120px;
+}
+
+.modelos-torniquete__grid {
+  display: flex;
+  align-items: flex-start;
+  gap: 48px;
+}
+
+/* Traço interno de 1px no Figma: a borda sai do padding de 32px. */
+.modelo-torniquete {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  gap: 80px;
+  min-width: 0;
+  padding: 31px;
+  border: 1px solid var(--color-black-pure);
+}
+
+.modelo-torniquete__content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.modelo-torniquete__text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* No Figma o segundo card usa 24px entre todos os blocos. */
+.modelo-torniquete--duplo .modelo-torniquete__content,
+.modelo-torniquete--duplo .modelo-torniquete__text {
+  gap: 24px;
+}
+
+.modelo-torniquete__title {
+  height: 43px;
+  font-family: var(--font-heading);
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 43px;
+  letter-spacing: var(--tracking);
+}
+
+.modelo-torniquete__desc {
+  width: 524px;
+  max-width: 100%;
+  color: var(--gray-06);
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: var(--tracking);
+}
+
+/* Faixa preta do manual (Figma 5277:2749): traço de 1px só embaixo, por dentro. */
+.modelo-torniquete__manual {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 28px 28px 27px;
+  border-bottom: 1px solid var(--gray-03);
+  background: var(--color-black-pure);
+}
+
+/* Caixa de 44px com duas linhas de 24px: a segunda transborda 4px, como no Figma. */
+.modelo-torniquete__manual-text {
+  width: 281px;
+  max-width: 100%;
+  height: 44px;
+  color: var(--color-white);
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+/* Torniquete · Galerias — Instalações (Figma 5277:2771) e Possibilidades (5253:1772) */
+
+.galeria--instalacoes .galeria__desc {
+  width: 564px;
+}
+
+.galeria--aplicacoes .galeria__desc {
+  width: 405px;
+}
+
+/* No Figma uma das fotos tem 405px e as outras, 406px. */
+.galeria--instalacoes .galeria__item:first-child {
+  width: 405px;
+}
+
+.galeria--aplicacoes .galeria__item:nth-child(2) {
+  width: 405px;
+}
+
+/* Torniquete · Depoimentos — Figma 5253:1822: avatares em amarelo claro. */
+
+.depoimentos--torniquete .depoimento__avatar {
+  background: var(--color-yellow-pale);
+}
+
+/* Larguras menores que 1440px ---------------------------------------------------------------
+   Estas regras não mudam nada em 1440px: evitam rolagem lateral e sobreposição. */
+
+@media (max-width: 1279px) {
+  .modelos-torniquete__grid {
+    flex-wrap: wrap;
+  }
+
+  .modelo-torniquete {
+    flex: 1 1 420px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .modelos-torniquete__grid {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 767px) {
+  .modelo-torniquete__manual {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .modelo-torniquete__manual-text {
+    height: auto;
+  }
+}

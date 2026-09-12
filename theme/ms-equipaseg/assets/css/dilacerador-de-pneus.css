@@ -1,0 +1,331 @@
+/*
+ * MS Equipaseg — página "Dilacerador de Pneus". Carregado depois do main.css.
+ * Medidas transcritas do Figma I7qYIaCi6nFLVWPiu9y1Un, frame "Produtos > Dilacerador de Pneus" (5235:496).
+ * Galeria de fotos e perguntas frequentes ficam no main.css (repetem na página do Torniquete).
+ */
+
+/* Dilacerador · Hero — Figma 5241:427 */
+
+.produto-hero {
+  position: relative;
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+/* Caixa com a proporção do frame (1440×540) presa à direita: em 1440px coincide com o Figma. */
+.produto-hero__media {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  aspect-ratio: 1440 / 540;
+  overflow: hidden;
+}
+
+/* Recorte da foto como no Figma (largura e altura independentes). */
+.produto-hero__media img {
+  position: absolute;
+  top: -0.31%;
+  left: 36.56%;
+  width: 63.52%;
+  max-width: none;
+  height: 100.5%;
+  opacity: 0.6;
+}
+
+.produto-hero__media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to left, var(--color-black-transparent) 0%, var(--color-black) 64.097%);
+}
+
+.produto-hero__inner {
+  position: relative;
+  padding-block: 120px;
+}
+
+.produto-hero__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+}
+
+.produto-hero__text {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 100%;
+}
+
+.produto-hero__title {
+  width: 492px;
+  max-width: 100%;
+  font-family: var(--font-heading);
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 64px;
+}
+
+.produto-hero__desc {
+  width: 544.832px;
+  max-width: 100%;
+  color: var(--gray-02);
+  font-size: 18px;
+  line-height: 27px;
+  letter-spacing: var(--tracking);
+}
+
+.produto-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+
+.produto-hero__shape {
+  position: absolute;
+  right: 0;
+  bottom: -0.481px;
+  width: 485px;
+  height: 59.481px;
+  transform: scaleX(-1);
+}
+
+/* Dilacerador · Nossos clientes — Figma 5293:1883: 24px de respiro e sem borda. A faixa roda como na home. */
+
+.clientes--compacto {
+  border-bottom: 0;
+}
+
+.clientes--compacto .clientes__inner {
+  padding-block: 24px;
+}
+
+/* Dilacerador · Diferenciais — Figma 5330:679 */
+
+.diferenciais {
+  background: var(--color-surface);
+}
+
+.diferenciais__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--content-gap);
+  padding-block: 120px;
+}
+
+/* Colunas de até 405px: em 1440px coincidem com o Figma; com a barra de rolagem, encolhem sem quebrar a linha. */
+.diferenciais__list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 405px));
+  gap: 32px;
+}
+
+/* Sem letter-spacing no Figma. */
+.diferencial {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+  padding: 16px 20px;
+  background: var(--color-white);
+  color: var(--gray-06);
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.diferencial__icon {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--color-icon-bg);
+}
+
+.diferencial__icon img {
+  width: 24px;
+  height: 24px;
+}
+
+.diferencial__text {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+/* Dilacerador · Modelos disponíveis — Figma 5253:1429 */
+
+.modelos__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--content-gap);
+  padding-block: 120px;
+}
+
+/* Duas colunas de até 616px; os cards da mesma linha ficam com a mesma altura. */
+.modelos__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 616px));
+  gap: 48px;
+}
+
+.modelo {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.modelo__media {
+  position: relative;
+  flex: none;
+  height: 346.5px;
+  overflow: hidden;
+  background: linear-gradient(180deg, var(--color-placeholder-start) 0%, var(--color-placeholder-end) 100%);
+}
+
+.modelo__pattern {
+  position: absolute;
+  bottom: -0.5px;
+  left: calc(50% + 0.5px);
+  width: 615px;
+  max-width: none;
+  height: 347px;
+  transform: translateX(-50%);
+}
+
+.modelo__foto {
+  position: absolute;
+  top: calc(50% + 0.25px);
+  left: 50%;
+  max-width: none;
+  height: 347px;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+}
+
+.modelo__foto--embutido {
+  left: calc(50% - 0.03px);
+  width: 161.933px;
+}
+
+.modelo__foto--lombada {
+  width: 462px;
+}
+
+.modelo__foto--garra-dupla {
+  /* 515x500 na proporção da foto: 347px de altura dão 357,41px de largura. */
+  width: 357.41px;
+}
+
+/* Traço interno de 1px no Figma: a borda sai do padding de 32px. Os cards da mesma linha
+   ficam com a mesma altura, e o bloco do manual desce para o fim. */
+.modelo__content {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: 32px;
+  padding: 31px;
+  border: 1px solid var(--gray-03);
+}
+
+.modelo__text {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.modelo__title {
+  height: 43px;
+  font-family: var(--font-heading);
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 43px;
+  letter-spacing: var(--tracking);
+}
+
+.modelo__desc {
+  color: var(--gray-06);
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: var(--tracking);
+}
+
+.modelo__manual {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 24px;
+  background: var(--color-black-pure);
+}
+
+/* Caixa de 44px com duas linhas de 24px: a segunda transborda 4px, como no Figma. */
+.modelo__manual-text {
+  width: 281px;
+  max-width: 100%;
+  height: 44px;
+  color: var(--color-white);
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+/* Dilacerador · Galerias — Instalações (Figma 5241:591) e Possibilidades de aplicação (5277:2575) */
+
+.galeria--instalacoes .galeria__desc {
+  width: 564px;
+}
+
+.galeria--aplicacoes .galeria__desc {
+  width: 538px;
+}
+
+/* No Figma a primeira foto tem 405px e as outras, 406px. */
+.galeria--instalacoes .galeria__item:first-child,
+.galeria--aplicacoes .galeria__item:first-child {
+  width: 405px;
+}
+
+/* Dilacerador · Depoimentos — Figma 5241:593: título de 40px e avatares em amarelo claro. */
+
+.depoimentos--produto .depoimentos__title {
+  font-size: 40px;
+  line-height: 56px;
+}
+
+.depoimentos--produto .depoimento__avatar {
+  background: var(--color-yellow-pale);
+}
+
+/* Larguras menores que 1440px ---------------------------------------------------------------
+   Estas regras não mudam nada em 1440px: evitam rolagem lateral e sobreposição. */
+
+@media (max-width: 1023px) {
+  .diferenciais__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .modelos__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .diferenciais__list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .modelo__manual {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .modelo__manual-text {
+    height: auto;
+  }
+}

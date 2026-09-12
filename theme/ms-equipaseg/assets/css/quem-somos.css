@@ -1,0 +1,368 @@
+/*
+ * MS Equipaseg — página "Quem somos". Carregado depois do main.css.
+ * Medidas transcritas do Figma I7qYIaCi6nFLVWPiu9y1Un, frame "Quem somos" (5235:27).
+ */
+
+/* Quem somos · Hero — Figma 5235:1044 */
+
+.intro {
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+.intro__inner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 32px;
+  padding-block: 120px;
+}
+
+.intro__title {
+  flex: 0 1 492px;
+  min-width: 0;
+  font-family: var(--font-heading);
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 64px;
+}
+
+.intro__desc {
+  flex: 0 1 597px;
+  min-width: 0;
+  color: var(--gray-02);
+  font-size: 18px;
+  line-height: 27px;
+  letter-spacing: var(--tracking);
+}
+
+/* Quem somos · Nossa história — Figma 5235:1478 */
+
+.historia__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-block: 100px;
+}
+
+.historia__title {
+  font-family: var(--font-heading);
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 53px;
+}
+
+/* Sem letter-spacing no Figma, ao contrário dos outros textos em Inter. */
+.historia__cols {
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+  color: var(--gray-06);
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.historia__col {
+  flex: 0 1 577px;
+  min-width: 0;
+}
+
+.historia__col p + p {
+  margin-top: 20px;
+}
+
+/* Quem somos · O que nos move — Figma 5235:1481 */
+
+.mvv {
+  border-top: 1px solid var(--gray-03);
+}
+
+.mvv__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--content-gap);
+  /* 100px no Figma; 1px é a borda superior. */
+  padding-block: 99px 100px;
+}
+
+.mvv__content {
+  display: flex;
+  gap: 100px;
+}
+
+/* Os dois cards dividem a altura da coluna de valores (559px no Figma). */
+.mvv__cards {
+  display: flex;
+  flex: 0 1 492px;
+  flex-direction: column;
+  gap: 32px;
+  min-width: 0;
+}
+
+.mvv-card {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+  padding: 32px;
+  background: linear-gradient(120.4761deg, var(--color-cream) 22.817%, var(--color-cream-transparent) 100.05%);
+}
+
+.mvv-card__title,
+.valores__title {
+  font-family: var(--font-heading);
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 43px;
+  white-space: nowrap;
+}
+
+.mvv-card__text {
+  max-width: 100%;
+  color: var(--gray-06);
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: var(--tracking);
+}
+
+/* Larguras das caixas de texto no Figma: definem as quebras de linha. */
+.mvv-card--missao .mvv-card__text {
+  width: 364px;
+}
+
+.mvv-card--visao .mvv-card__text {
+  width: 412px;
+}
+
+.valores {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 0;
+}
+
+.valores__list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.valores__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+  /* 16px no Figma; 1px é a borda inferior. */
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--gray-03);
+}
+
+.valores__nome {
+  flex: none;
+  width: 142px;
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 21px;
+  white-space: nowrap;
+}
+
+/* 446px no Figma. O Inter do navegador sai um pouco mais largo: 6px de folga mantêm as quebras
+   de linha (sem ela, o "e" de "Comprometimento" desce). */
+.valores__desc {
+  flex: 1 1 0;
+  min-width: 0;
+  margin-right: -6px;
+  color: var(--gray-06);
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: var(--tracking);
+}
+
+.valores__icon {
+  display: flex;
+  flex: none;
+  padding: 8px;
+  background: var(--color-yellow-soft);
+}
+
+.valores__icon img {
+  width: 20px;
+  height: 20px;
+}
+
+/* Quem somos · Nossos números — Figma 5235:1508 */
+
+.marcos {
+  background: var(--color-surface);
+}
+
+.marcos__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--content-gap);
+  padding-block: 100px 80px;
+}
+
+.marcos__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.marcos__text {
+  display: flex;
+  flex: 0 1 569px;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 0;
+}
+
+.marcos__title {
+  font-family: var(--font-heading);
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 53px;
+  white-space: nowrap;
+}
+
+.marcos__desc {
+  width: 481.07px;
+  max-width: 100%;
+  color: var(--gray-06);
+  font-size: 18px;
+  line-height: 27px;
+  letter-spacing: var(--tracking);
+}
+
+/* Quadrados decorativos (Figma "Pattern" 5238:1238). */
+.marcos__pattern {
+  position: relative;
+  flex: none;
+  width: 106.098px;
+  height: 117.888px;
+}
+
+.marcos__square {
+  position: absolute;
+  background: var(--color-yellow);
+}
+
+.marcos__square--1 {
+  top: 0;
+  left: 0;
+  width: 43.226px;
+  height: 43.226px;
+}
+
+.marcos__square--2 {
+  top: 55.02px;
+  left: 43.23px;
+  width: 43.226px;
+  height: 43.226px;
+}
+
+.marcos__square--3 {
+  top: 98.24px;
+  left: 23.58px;
+  width: 19.648px;
+  height: 19.648px;
+}
+
+.marcos__square--4 {
+  top: 25.54px;
+  left: 82.52px;
+  width: 23.578px;
+  height: 23.578px;
+}
+
+.marcos__list {
+  display: flex;
+  gap: 24px;
+}
+
+.marcos__item {
+  display: flex;
+  flex: 1 1 0;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+  padding: 16px;
+  background: var(--color-white);
+}
+
+.marcos__icon {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  background: var(--color-yellow-soft);
+}
+
+.marcos__icon img {
+  width: 32px;
+  height: 32px;
+}
+
+/* pre: o Figma usa espaço duplo em "+20  estados". */
+.marcos__label {
+  color: var(--color-ink);
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: var(--tracking);
+  white-space: pre;
+}
+
+.marcos__label strong {
+  font-weight: 600;
+}
+
+/* Larguras menores que 1440px ---------------------------------------------------------------
+   Estas regras não mudam nada em 1440px: evitam rolagem lateral e sobreposição. */
+
+.intro__inner,
+.historia__cols,
+.marcos__head {
+  flex-wrap: wrap;
+}
+
+@media (max-width: 1279px) {
+  .mvv__content {
+    flex-direction: column;
+    gap: var(--content-gap);
+  }
+
+  .mvv__cards {
+    flex: none;
+  }
+
+  .marcos__list {
+    flex-wrap: wrap;
+  }
+
+  .marcos__item {
+    flex: 1 1 320px;
+  }
+}
+
+@media (max-width: 767px) {
+  .mvv-card__title,
+  .valores__title,
+  .marcos__title,
+  .marcos__label {
+    white-space: normal;
+  }
+
+  .valores__item {
+    flex-wrap: wrap;
+    gap: 8px 16px;
+  }
+
+  .valores__nome {
+    width: 100%;
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "figma": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["C:/Users/josel/.figma-mcp/node_modules/figma-developer-mcp/dist/bin.js", "--stdio"],
+      "env": {
+        "FIGMA_API_KEY": "${FIGMA_API_KEY}"
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+# PNGs de referência do Figma, screenshots e comparativos: só servem para a conferência
+# local (68MB). O `?overlay` das páginas depende deles e não funciona no site publicado.
+_ref/
+
+# Windows e OneDrive
+Thumbs.db
+desktop.ini
+*.tmp

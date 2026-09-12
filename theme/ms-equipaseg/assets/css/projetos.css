@@ -1,0 +1,30 @@
+/*
+ * MS Equipaseg — página "Projetos". Carregado depois do main.css.
+ * Medidas transcritas do Figma I7qYIaCi6nFLVWPiu9y1Un, frame 5278:2809. O frame está nomeado
+ * "Produtos > Torniquete" no arquivo, mas é a página Projetos: o hero diz "Projetos".
+ * Hero, diferenciais, foto de produto, card de destaque, galeria, depoimentos, FAQ, CTA e rodapé
+ * vêm do main.css.
+ */
+
+/* Projetos · Diferenciais — largura da caixa de texto no Figma (define as quebras). */
+
+.bento-card--aco .bento-card__text {
+  width: 235px;
+}
+
+/* Projetos · Outros projetos — Figma 5278:2985 */
+
+.galeria--projetos .galeria__desc {
+  width: 442px;
+}
+
+/* No Figma a segunda foto tem 405px e as outras, 406px. */
+.galeria--projetos .galeria__item:nth-child(2) {
+  width: 405px;
+}
+
+/* Projetos · Depoimentos — Figma 5278:3030: avatares em amarelo claro. */
+
+.depoimentos--projetos .depoimento__avatar {
+  background: var(--color-yellow-pale);
+}

@@ -1,0 +1,13 @@
+/*
+ * MS Equipaseg — página "Controle de acesso". Carregado depois do main.css e do
+ * dilacerador-de-pneus.css, de onde vêm os blocos (hero de produto, diferenciais, modelos,
+ * galerias e depoimentos). Medidas do Figma I7qYIaCi6nFLVWPiu9y1Un, frame 5235:496.
+ * É o modelo da página deste produto: textos de exemplo e espaços de foto em cinza.
+ */
+
+/* Espaços de foto, até as imagens do produto existirem. */
+
+.produto-hero__media--vazio,
+.galeria__item--vazio {
+  background: linear-gradient(180deg, var(--color-placeholder-start) 0%, var(--color-placeholder-end) 100%);
+}

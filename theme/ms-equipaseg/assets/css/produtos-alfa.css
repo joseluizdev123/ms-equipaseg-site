@@ -1,0 +1,21 @@
+/*
+ * MS Equipaseg — página "Produtos alfa". Carregado depois do main.css.
+ * Modelo para as páginas de produto que ainda não existem: usa os blocos da Página inicial
+ * (Figma 3047:6, cards 5051:235 e 5275:756) com textos de exemplo e o espaço da foto em cinza.
+ */
+
+/* Hero com a estrutura da home, mas sem a foto: o espaço fica cinza. */
+.hero__media--vazio {
+  background: linear-gradient(180deg, var(--color-placeholder-start) 0%, var(--color-placeholder-end) 100%);
+}
+
+/* Espaço da foto, até as imagens de cada produto existirem. */
+.feature-media__slide--vazio {
+  background: linear-gradient(180deg, var(--color-placeholder-start) 0%, var(--color-placeholder-end) 100%);
+}
+
+/* No card com recorte a foto tem tamanho próprio; o espaço cinza usa a medida do Figma. */
+.feature-media--cutout .feature-media__slide--vazio {
+  width: 315px;
+  height: 517px;
+}
