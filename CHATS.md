@@ -56,3 +56,4 @@ Quando um pedido do usuário cai numa parte comum:
 - Ao terminar cada página, abra o filho dela na hora, sem perguntar (pedido do usuário): `mcp__ccd_session__spawn_task` com título "Ajustar <Página> · MS Equipaseg" e um prompt que manda ler este arquivo. Quando a sessão aparecer em `list_sessions`, preencha a tabela e mova a sessão para o grupo "MS Equipaseg" da barra lateral.
 - Ao receber aviso de um filho, releia o trecho que mudou antes de seguir com a página em construção e repasse o aviso aos outros filhos abertos.
 - Ao mudar uma parte comum, avise os filhos abertos.
+- Ao assumir como Mestre novo: troque a sessão do Mestre na tabela acima pela sua e avise os filhos abertos de quem é o Mestre agora.

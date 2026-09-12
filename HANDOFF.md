@@ -99,6 +99,16 @@ node tools/serve.mjs
 - O Inter do navegador sai ~1% mais largo: numa caixa justa, a última palavra desce de linha. Confira as quebras com `extents.ps1` (modo cols, uma consulta por linha).
 - Diferenças já aceitas: seção "Diferenças justificadas" de `VALIDACAO.md` (home), `VALIDACAO-QUEM-SOMOS.md`, `VALIDACAO-DILACERADOR.md`, `VALIDACAO-TORNIQUETE.md`, `VALIDACAO-CONTATO.md` e `VALIDACAO-PROJETOS.md`.
 
+## Pendências com o usuário
+
+- Espaço entre os itens do menu: 24px no Figma das páginas internas, 32px no site (o header é um só). Decisão dele; está no `VALIDACAO` de cada página interna.
+- Nome da página de produtos: hoje `produtos-alfa.html`. Ele decide se renomeia para `produtos.html` — aí os links das 8 páginas mudam juntos.
+- Formulário do Contato não envia: falta o destino (e-mail, serviço ou WordPress).
+- Conteúdo provisório vindo do Figma: "Lorem ipsum" nos cards de destaque do Torniquete e do Projetos, fotos do dilacerador nos cards do Torniquete, e "+1.000" (Quem somos) × "+100.000 produtos" (home).
+- Filho do Torniquete: a sessão criada caiu numa pasta de rascunho e não edita o site; abrir de novo na pasta certa.
+- Mobile: o Figma só tem 1440px; nada de layout mobile dedicado sem decisão.
+- Tema WordPress: parado até ele pedir.
+
 ## Primeiros passos
 
 1. Ler este arquivo, o `VALIDACAO.md` e o `CHATS.md`.
