@@ -31,6 +31,8 @@ $chromeArgs = @(
   '--headless=new',
   '--disable-gpu',
   '--hide-scrollbars',
+  # Carrossel parado no primeiro card: o JS só anda sozinho para quem não pediu menos movimento.
+  '--force-prefers-reduced-motion',
   '--no-first-run',
   '--force-device-scale-factor=1',
   "--user-data-dir=`"$profileDir`"",

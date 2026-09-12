@@ -6,11 +6,11 @@ Vários chats trabalham ao mesmo tempo nesta pasta. O **Mestre** cria as página
 
 | Chat | Sessão | Dono de |
 |---|---|---|
-| Mestre · MS Equipaseg | `local_380530cb-f430-4db5-9624-f03ae062a4a0` | páginas em construção, `HANDOFF.md`, `CHATS.md`, `tools/` |
+| Mestre · MS Equipaseg | `local_a8262703-e451-45ee-a337-2a1af2d32fa5` | páginas em construção, `HANDOFF.md`, `CHATS.md`, `tools/` |
 | Ajustar Página inicial · MS Equipaseg | `local_bd9eb915-f80c-4a00-8214-1641c692b0fa` | `index.html`, `VALIDACAO.md`, blocos da home no `main.css` |
 | Ajustar Quem somos · MS Equipaseg | `local_de8c4d1d-b1ce-497d-9ec8-d63f007add58` | `quem-somos.html`, `quem-somos.css`, `VALIDACAO-QUEM-SOMOS.md` |
 | Ajustar Dilacerador de Pneus · MS Equipaseg | `local_99febc06-43da-4019-904c-3a15f88fdc4d` | `dilacerador-de-pneus.html`, `dilacerador-de-pneus.css`, `VALIDACAO-DILACERADOR.md` |
-| Ajustar Torniquete · MS Equipaseg | a abrir de novo (a sessao criada caiu numa pasta de rascunho) | `torniquete.html`, `torniquete.css`, `VALIDACAO-TORNIQUETE.md` |
+| Ajustar Torniquete · MS Equipaseg | a abrir de novo (a sessao do spawn_task nasce em worktree e nao consegue sair) | `torniquete.html`, `torniquete.css`, `VALIDACAO-TORNIQUETE.md` |
 | Ajustar Contato · MS Equipaseg | `local_f8072267-66f5-4b9f-a956-fd03a58a3213` | `contato.html`, `contato.css`, `VALIDACAO-CONTATO.md` |
 | Ajustar Projetos · MS Equipaseg | `local_be83df8c-4b2b-4a98-9431-f91aaee4cc9e` | `projetos.html`, `projetos.css`, `VALIDACAO-PROJETOS.md` |
 | Ajustar Produtos alfa · MS Equipaseg | `local_22c5e9c5-6917-4210-829c-8b6965bd7ec6` | `produtos-alfa.html`, `produtos-alfa.css` |
@@ -53,7 +53,7 @@ Quando um pedido do usuário cai numa parte comum:
 
 ## Mestre
 
-- Ao terminar cada página, abra o filho dela na hora, sem perguntar (pedido do usuário): `mcp__ccd_session__spawn_task` com título "Ajustar <Página> · MS Equipaseg" e um prompt que manda ler este arquivo. Quando a sessão aparecer em `list_sessions`, preencha a tabela e mova a sessão para o grupo "MS Equipaseg" da barra lateral.
+- Ao terminar cada página, abra o filho dela na hora, sem perguntar (pedido do usuário): `mcp__ccd_session__spawn_task` com título "Ajustar <Página> · MS Equipaseg" e um prompt que manda ler este arquivo. Atenção: a sessão do `spawn_task` nasce numa worktree e não consegue sair de lá (o `change_directory` recusa e o `ExitWorktree` não vale, porque a worktree veio do lançador). Quando isso acontecer, peça ao usuário para abrir um chat novo sem pasta e colar a mensagem de abertura do filho — o primeiro passo dela é chamar `change_directory` para a pasta do projeto, que aí funciona. Quando a sessão aparecer em `list_sessions`, preencha a tabela e mova a sessão para o grupo "MS Equipaseg" da barra lateral.
 - Ao receber aviso de um filho, releia o trecho que mudou antes de seguir com a página em construção e repasse o aviso aos outros filhos abertos.
 - Ao mudar uma parte comum, avise os filhos abertos.
 - Ao assumir como Mestre novo: troque a sessão do Mestre na tabela acima pela sua e avise os filhos abertos de quem é o Mestre agora.

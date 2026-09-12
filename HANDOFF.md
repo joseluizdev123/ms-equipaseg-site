@@ -12,7 +12,8 @@ Implementar em HTML/CSS, fiel ao Figma em 1440px, as páginas do site institucio
 - Uma coisa por vez: mostrar cada página (link local) assim que ficar pronta e recolher ajustes antes de seguir.
 - Mensagens curtas, em português simples. Antes de etapa longa (ferramenta nova, conferência detalhada, refatoração), explicar o plano em 2–3 linhas e esperar o ok.
 - Nível de conferência: perguntar no início. Padrão sugerido: comparação visual lado a lado e medida dos alinhamentos principais. Diff pixel a pixel só quando o usuário pedir ou algo parecer fora.
-- Mobile: pendente. O Figma só tem desktop; não criar layout mobile dedicado sem decisão.
+- Mobile: o Figma só tem desktop. O header já tem versão mobile (pedido de 12/09/2026): abaixo de 860px ficam o logo e o botão de menu, que abre os links e o "Fale conosco". O resto do layout mobile continua pendente — não criar sem decisão.
+- Avatares dos depoimentos: cada página segue o Figma dela. Na Contato os quatro são amarelo claro (`--color-yellow-pale`, regra no `contato.css`). Nas outras, o Figma traz o 4º card mais claro, mas com o carrossel girando esse card ficava pulando de posição e o usuário pediu para igualar tudo no `--color-yellow` (12/09/2026).
 - Chats em paralelo: o Mestre faz as páginas novas e cada página pronta ganha um chat filho para ajustes. Sessões abertas, escopo das mudanças e regras de edição simultânea em `CHATS.md` — ler antes de editar.
 
 ## Figma
@@ -27,13 +28,13 @@ Implementar em HTML/CSS, fiel ao Figma em 1440px, as páginas do site institucio
 
 | Caminho | O que é |
 |---|---|
-| `index.html` | Página inicial, 12 seções, conferida em 1440px |
+| `index.html` | Página inicial, 13 seções (a de vídeos veio do site atual, fora do Figma), conferida em 1440px |
 | `VALIDACAO.md` | Medidas da home e diferenças já aceitas |
 | `quem-somos.html` | Quem somos, 7 seções, conferida em 1440px |
 | `VALIDACAO-QUEM-SOMOS.md` | Medidas da Quem somos e diferenças já aceitas |
 | `dilacerador-de-pneus.html` | Produtos > Dilacerador de Pneus, 11 seções, conferida em 1440px |
 | `VALIDACAO-DILACERADOR.md` | Medidas do Dilacerador e diferenças já aceitas |
-| `torniquete.html` | Produtos > Torniquete, 11 seções, conferida em 1440px |
+| `torniquete.html` | Produtos > Torniquete, 12 seções (a faixa "Nossos clientes" foi pedida pelo usuário e não está no frame), conferida em 1440px |
 | `VALIDACAO-TORNIQUETE.md` | Medidas do Torniquete e diferenças já aceitas |
 | `contato.html` | Contato, 5 seções com formulário e mapa, conferida em 1440px |
 | `VALIDACAO-CONTATO.md` | Medidas do Contato e diferenças já aceitas |
@@ -47,10 +48,11 @@ Implementar em HTML/CSS, fiel ao Figma em 1440px, as páginas do site institucio
 | `theme/ms-equipaseg/assets/css/torniquete.css` | CSS do Torniquete: "Outros modelos", larguras das galerias e dos textos dos diferenciais |
 | `theme/ms-equipaseg/assets/css/projetos.css` | CSS do Projetos: larguras da galeria e de um texto dos diferenciais |
 | `theme/ms-equipaseg/assets/css/contato.css` | CSS do Contato (hero com formulário e mapa). Só esta página carrega a fonte Roboto, usada nos campos |
-| `theme/ms-equipaseg/assets/js/main.js` | Galeria dos cards de produto e carrossel de depoimentos |
+| `theme/ms-equipaseg/assets/js/main.js` | Carrosséis do site e abre/fecha do menu no mobile. Todos giram sem fim (cópias dos cards antes e depois do trilho, então entra card pelos dois lados) e andam sozinhos a cada 5s, parando com o mouse em cima, com o teclado dentro, fora da tela e para quem pediu menos movimento. Nas fotos dos cards de produto a troca desliza: uma sai para o lado enquanto a outra entra, com a etiqueta junto. Também troca a capa de vídeo (`data-video`) pelo player do YouTube no clique |
 | `theme/ms-equipaseg/assets/images/` | Ícones e formas (SVG exportados do Figma) |
 | `theme/ms-equipaseg/assets/seed/` | Fotos e logos |
 | `theme/ms-equipaseg/*.php`, `MODEL.md` | Tema WordPress só da home, nunca executado — parado. Os bugs já encontrados numa revisão de código estão no fim do `MODEL.md` |
+| `CONTEUDO-SITE-ATUAL.md` | O que o site no ar (https://equipaseg.com.br) tem e o novo não tem: o que já foi trazido e o que o usuário deixou parado |
 | `tools/` | Servidor e ferramentas de conferência (abaixo) |
 | `_ref/` | PNG de referência do Figma (`page-full.png` = home) e comparativos em `_ref/diff/` |
 
@@ -63,8 +65,10 @@ node tools/serve.mjs
 - Abre em http://localhost:5500, sem cache. No app, `.claude/launch.json` tem a configuração `equipaseg-estatico` com `autoPort`: se outro chat já usa a 5500, o servidor sobe noutra porta (o Browser de um chat não enxerga o servidor de outro).
 - Referência do Figma: exportar o frame da página em 1x para `_ref/` com `download_figma_images` (`pngScale: 1`).
 - Se o `download_figma_images` falhar com "fetch failed": referência com `get_screenshot` (`maxDimension` maior que a altura do frame) e `curl`; fotos e ícones pelas URLs do `get_design_context` com `curl`; SVG de um nó com `use_figma` e `exportAsync({ format: 'SVG_STRING' })`.
+- O `shot.ps1` força "menos movimento" no Chrome: os carrosséis ficam parados no primeiro card, então a conferência sempre compara a mesma posição.
 - Screenshot do site em 1440px: `powershell -ExecutionPolicy Bypass -File tools/shot.ps1 -Url http://localhost:5500/<pagina>.html -Out _ref/site-<pagina>.png -Height <altura do frame>`
 - Diferença por região: `powershell -ExecutionPolicy Bypass -File tools/pixeldiff.ps1 -Figma _ref/<figma>.png -Site _ref/site-<pagina>.png -Y <y> -H <altura> -Out _ref/diff/<nome>.png`
+- Carrossel: `_ref/teste-carrossel.html?pagina=/torniquete.html&alvo=.galeria__inner&i=0&n=6` abre a página num quadro de 1440px, dá N cliques (ou `dir=prev`) e escreve o estado em cima; capture com o `shot.ps1`. Fica fora do repositório.
 - Posição de textos, bordas e blocos: `tools/extents.ps1` (uso no cabeçalho do arquivo).
 - Sobreposição do Figma na página: `?overlay` na URL. O PNG vem do `data-overlay` do `<body>` (sem ele, `_ref/page-full.png`, da home).
 - Compare com 1440px de largura útil: no Windows a barra de rolagem ocupa ~15px.
@@ -79,7 +83,7 @@ node tools/serve.mjs
 ## Convenções
 
 - Reusar tokens e componentes antes de criar novos: `.container`, `.section-title`, `.btn-outline`, `.cta` (`--67`, `--degrade`, `--dark`, `--sm`), `.feature-card`, `.feature-list`, `.feature-media`, `.arrow-btn`, `.site-header`, `.site-footer`.
-- Header e footer idênticos em todas as páginas: copiar o markup do `index.html`. "Quem somos" aponta para `quem-somos.html`; Produtos e Projetos ainda apontam para âncoras da home (`./#produtos`, `./#projetos`). Ao criar páginas, apontar para os arquivos novos e marcar o item atual com `is-current` e `aria-current="page"`.
+- Header e footer idênticos em todas as páginas: copiar o markup do `index.html`. O header tem o botão `site-header__toggle` (três barras) logo depois do logo: some no desktop e, abaixo de 860px, abre o menu e o "Fale conosco" (classe `is-open` no `.site-header`, regras no fim do `main.css`). "Quem somos" aponta para `quem-somos.html`; Produtos e Projetos ainda apontam para âncoras da home (`./#produtos`, `./#projetos`). Ao criar páginas, apontar para os arquivos novos e marcar o item atual com `is-current` e `aria-current="page"`.
 - Cada página nova tem CSS próprio em `theme/ms-equipaseg/assets/css/<pagina>.css`, carregado depois do `main.css`, com seções comentadas `/* Página · Seção — Figma <node> */` e classes curtas em português, no padrão atual. O que passar a se repetir entre páginas sobe para o `main.css`.
 - Imagens do Figma: SVG para ícones; fotos em JPG redimensionadas para 2x do tamanho exibido.
 - As regras fluidas abaixo de 1440px ficam no fim do `main.css`; qualquer ajuste ali não pode mudar a renderização em 1440px.
@@ -101,12 +105,13 @@ node tools/serve.mjs
 
 ## Pendências com o usuário
 
+- Conteúdo do site atual: lista e decisões em `CONTEUDO-SITE-ATUAL.md`. Em 12/09/2026 ele liberou só os dados de contato (telefone, e-mail, endereço); vídeos, políticas, banner de cookies e o resto ficam parados.
+
 - Espaço entre os itens do menu: 24px no Figma das páginas internas, 32px no site (o header é um só). Decisão dele; está no `VALIDACAO` de cada página interna.
 - Nome da página de produtos: hoje `produtos-alfa.html`. Ele decide se renomeia para `produtos.html` — aí os links das 8 páginas mudam juntos.
 - Formulário do Contato não envia: falta o destino (e-mail, serviço ou WordPress).
 - Conteúdo provisório vindo do Figma: "Lorem ipsum" nos cards de destaque do Torniquete e do Projetos, fotos do dilacerador nos cards do Torniquete, e "+1.000" (Quem somos) × "+100.000 produtos" (home).
-- Filho do Torniquete: a sessão criada caiu numa pasta de rascunho e não edita o site; abrir de novo na pasta certa.
-- Mobile: o Figma só tem 1440px; nada de layout mobile dedicado sem decisão.
+- Mobile: só o header tem versão própria; o resto das seções continua no layout fluido, sem mobile dedicado.
 - Tema WordPress: parado até ele pedir.
 
 ## Primeiros passos

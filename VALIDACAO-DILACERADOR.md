@@ -13,8 +13,8 @@ Figma `I7qYIaCi6nFLVWPiu9y1Un`, frame **Produtos > Dilacerador de Pneus** (`5235
 | 2 | Hero | `5241:427` | 1,91% | 0, 0 | título, as 4 linhas do texto e os dois botões nas mesmas posições |
 | 3 | Nossos clientes | `5293:1883` | 9,89% | 0, 0 | logos em movimento, como na home |
 | 4 | Diferenciais | `5330:679` | 1,31% | 0, 0 | 9 itens com ícones e quebras iguais |
-| 5 | Modelos disponíveis | `5253:1429` | 2,00% | 0, 0 | quebras iguais; o bloco do manual fica na mesma altura nos dois cards |
-| 6 | Instalações | `5241:591` | 0,59% | 0, 0 | fotos, setas e pontos |
+| 5 | Modelos disponíveis | `5253:1429` | 3,46% | 0, 0 | quebras iguais; o bloco do manual fica na mesma altura nos dois cards; o card "Garra dupla" ganhou foto (sem ela a seção dava 2,00%) |
+| 6 | Instalações | `5241:591` | 24,53% | 0, 0 | a 2ª foto é a instalação real enviada pelo usuário, e as seguintes andaram uma casa; sem ela a seção dava 0,59% |
 | 7 | Possibilidades de aplicação | `5277:2575` | 1,57% | 0, 0 | quebras dos cards iguais |
 | 8 | Depoimentos | `5241:593` | 2,55% | 0, 0 | título de 40px; avatares em amarelo claro |
 | 9 | Perguntas frequentes | `5250:1139` | 2,38% | 0, 0 | 4 perguntas com quebras iguais |
@@ -32,7 +32,10 @@ Altura total: Figma 7610,12px, site 7610px. A divergência que sobra é rasteriz
 | Faixa "Nossos clientes" | logos parados em 952px | logos rodando, como na home | pedido do usuário na home |
 | Seta da 2ª pergunta | 2px mais baixa (centralizada na linha) | no topo, como as outras | inconsistência do arquivo |
 | Perguntas frequentes | todas abertas | abrem e fecham (`<details>`), começam abertas | interação esperada numa FAQ |
-| Galeria "Instalações" | 6 fotos | 7 fotos: a 2ª é uma instalação real enviada pelo usuário (`instalacao-cancela-2.jpg`) | pedido do usuário; os 4 pontos do Figma continuam iguais |
+| Galeria "Instalações" | 6 fotos | 7 fotos: a 2ª é uma instalação real enviada pelo usuário (`instalacao-cancela-2.jpg`) | pedido do usuário; os 4 pontinhos do Figma continuam, distribuídos pelas 7 fotos |
+| Setas "anterior" dos carrosséis | apagadas no início | ativas desde o início | todos os carrosséis giram sem fim (`main.js`, pedido do usuário) |
+| Faixa à esquerda dos carrosséis | fundo liso | ponta da foto/card anterior | os carrosséis giram sem fim dos dois lados (`main.js`, pedido do usuário) |
+| Carrosséis parados | parados | andam sozinhos a cada 5s; param com o mouse em cima, com o teclado dentro, fora da tela e com "menos movimento" no sistema | pedido do usuário |
 | "Garra dupla" | sem foto, texto "Descrição" | foto do modelo duplo, a mesma da página inicial (`duplo.png`) | pedido do usuário; o texto da descrição continua pendente |
 | "Baixar manual" | — | link `#` | arquivo do manual pendente |
 | 1425px úteis (barra de rolagem do Windows) | — | a 2ª resposta das perguntas quebra em 2 linhas | faltam 15px na caixa; com 1440px úteis fica igual |

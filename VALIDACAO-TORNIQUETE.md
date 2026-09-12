@@ -21,7 +21,7 @@ Figma `I7qYIaCi6nFLVWPiu9y1Un`, frame **Produtos > Torniquete** (`5235:708`). Me
 | 10 | CTA | `5253:1905` | 0,67% | 0, 0 |
 | 11 | Footer | `5235:1281` | 2,15% | 0, 0 |
 
-Altura total: Figma 8051,12px, site 8051px. Cada seção começa na mesma linha do Figma. A divergência que sobra é rasterização de texto.
+Altura total: Figma 8051,12px, site 8155px — os 104px a mais são a faixa "Nossos clientes", que não existe no frame (ver diferenças). Até o hero cada seção começa na mesma linha do Figma; da faixa em diante tudo desce 104px. A divergência que sobra é rasterização de texto.
 
 ## Diferenças justificadas
 
@@ -34,6 +34,7 @@ Altura total: Figma 8051,12px, site 8051px. Cada seção começa na mesma linha 
 | Fotos do "Em destaque" e dos modelos | mostram o dilacerador | iguais ao Figma | o Figma usa a foto do dilacerador como provisória nos cards do torniquete; conteúdo a trocar |
 | Texto do "Em destaque" | "…alta segurança. de alto risco." | igual ao Figma | erro de digitação do arquivo, mantido |
 | Textos dos modelos | "Lorem ipsum" e "Botoeira, controle de acesso…" repetido | iguais ao Figma | conteúdo provisório |
+| Faixa "Nossos clientes" | não existe neste frame | faixa igual à do Dilacerador (`5293:1883`), logo depois do hero | pedido do usuário em 12/09/2026; a página ficou 104px mais alta |
 
 ## Imagens
 

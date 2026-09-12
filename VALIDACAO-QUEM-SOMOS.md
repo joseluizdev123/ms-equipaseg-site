@@ -29,10 +29,13 @@ Altura total: Figma 3383,12px, site 3383px. A divergência que sobra é rasteriz
 | Descrição de "Comprometimento" | caixa de 446px | 6px de folga (`margin-right: -6px`) | sem a folga, o "e" desce de linha |
 | Quadrados amarelos e caixas dos ícones 2 e 3 | posições fracionárias (43,23px; 514,67px) | bordas alinhadas ao pixel | arredondamento do Chrome |
 | "+1.000 produtos fabricados" | este frame | igual ao Figma | a home diz "+100.000 produtos"; conteúdo a confirmar |
+| Submenu de "Produtos" no menu | não existe neste frame | abre no hover e no foco do teclado, com Dilacerador de Pneus, Torniquete e Controle de acesso | navegação do site ligada pelo Mestre em 12/09/2026; em repouso fica escondido e não muda o desenho |
+| Contatos do rodapé | telefone e e-mail de exemplo | dados reais do site atual: WhatsApp e telefone "11 5667-9440" e e-mail `email@msequipaseg.com.br` | rodapé comum atualizado pelo Mestre em 12/09/2026, com autorização do usuário; muda só as três linhas de contato (itens de 279×36px; a altura da página não mudou) |
+| Hover, clique e foco | não existem no Figma | botões e links reagem ao mouse e o foco de teclado ganha anel amarelo | parte comum aprovada pelo usuário em 12/09/2026; em repouso nada muda |
 
 ## Abaixo de 1440px
 
-Sem rolagem lateral em 1440, 1366, 1280, 1024, 768 e 390px. Até 1279px, missão e visão ficam acima dos valores e os números quebram em linhas; até 767px, os valores empilham.
+Sem rolagem lateral em 1440, 1366, 1280, 1024, 768 e 390px. Até 1279px, missão e visão ficam acima dos valores e os números quebram em linhas; até 767px, os valores empilham. Abaixo de 860px o menu vira botão de três barras (header comum): conferido em 390px, abre e fecha no clique, sem rolagem lateral.
 
 ## Smoke test
 

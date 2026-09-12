@@ -427,6 +427,44 @@ svg {
   }
 }
 
+/* Botão do menu no mobile. Fora do Figma (só tem desktop): aparece abaixo de 860px. */
+
+.site-header__toggle {
+  display: none;
+  flex: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--color-white);
+  cursor: pointer;
+}
+
+.site-header__toggle-bar {
+  width: 24px;
+  height: 2px;
+  background: currentColor;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* Com o menu aberto, as três barras viram um X. */
+.site-header.is-open .site-header__toggle-bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.site-header.is-open .site-header__toggle-bar:nth-child(2) {
+  opacity: 0;
+}
+
+.site-header.is-open .site-header__toggle-bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
 .site-nav,
 .site-nav__list,
 .site-nav__item {
@@ -876,8 +914,11 @@ svg {
   overflow: hidden;
 }
 
+/* A foto sai para o lado e a próxima entra, como virar a página do livro: sai devagar, ganha
+   velocidade no meio e freia no fim, para o movimento não parecer de máquina. */
 .feature-media__slide {
-  transition: opacity 0.3s ease;
+  transform: translateX(var(--desliza, 0px));
+  transition: transform 0.65s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
 .feature-media__slide:not(.is-active) {
@@ -913,7 +954,7 @@ svg {
   left: calc(50% - 1px);
   width: auto;
   height: 517px;
-  transform: translateX(-50%);
+  transform: translateX(calc(-50% + var(--desliza, 0px)));
 }
 
 .feature-media--placeholder {
@@ -973,7 +1014,8 @@ svg {
 
 /* Galerias: a etiqueta de cada foto vem logo depois dela no HTML; só a da foto ativa aparece. */
 .produtos .feature-media__tag {
-  transition: opacity 0.3s ease;
+  transform: translateX(var(--desliza, 0px));
+  transition: transform 0.65s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
 .produtos .feature-media__slide:not(.is-active) + .feature-media__tag {
@@ -988,7 +1030,85 @@ svg {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transform: none;
+  transform: translateX(var(--desliza, 0px));
+}
+
+/* Vídeos em funcionamento — não existe no Figma (pedido do usuário em 12/09/2026, copiando a seção do
+   site no ar). Mesmo ritmo de espaçamento das outras seções; três capas 16:9 que viram player no clique. */
+
+.videos__head {
+  padding-block: 100px 60px;
+}
+
+.videos__lista {
+  display: grid;
+  /* Três colunas em 1440px; vira duas e depois uma quando falta largura. */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+  padding-bottom: 100px;
+}
+
+.video-capa {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  background: var(--color-media-dark);
+  cursor: pointer;
+}
+
+.video-capa__foto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.video-capa__play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 72px;
+  height: 72px;
+  transform: translate(-50%, -50%);
+  transition: transform 0.2s ease;
+}
+
+@media (hover: hover) {
+  .video-capa:hover .video-capa__foto {
+    transform: scale(1.04);
+  }
+
+  .video-capa:hover .video-capa__play {
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+}
+
+.video-capa:active .video-capa__play {
+  transform: translate(-50%, -50%) scale(0.96);
+}
+
+/* Player que entra no lugar da capa depois do clique. */
+.videos__player {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html .video-capa:hover .video-capa__foto,
+  html .video-capa:hover .video-capa__play,
+  html .video-capa:active .video-capa__play {
+    transform: translate(-50%, -50%);
+  }
+
+  html .video-capa:hover .video-capa__foto {
+    transform: none;
+  }
 }
 
 /* 7–8 · Projetos especiais — Figma 5275:793, 5275:796 */
@@ -1183,7 +1303,8 @@ svg {
 .depoimentos__track {
   display: flex;
   gap: 32px;
-  transition: transform 0.4s ease;
+  /* Passo longo e macio: sai devagar, corre no meio e freia no fim. */
+  transition: transform 0.7s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
 .depoimento {
@@ -1239,10 +1360,6 @@ svg {
   overflow: hidden;
   border-radius: 50%;
   background: var(--color-yellow);
-}
-
-.depoimento:nth-child(4n) .depoimento__avatar {
-  background: var(--color-yellow-pale);
 }
 
 .depoimento__avatar-icon {
@@ -1699,7 +1816,7 @@ svg {
 .galeria__track {
   display: flex;
   gap: 32px;
-  transition: transform 0.4s ease;
+  transition: transform 0.7s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
 .galeria__item {
@@ -2287,11 +2404,74 @@ svg {
   }
 }
 
+/* Header no mobile: ficam o logo e o botão; o menu e o "Fale conosco" abrem embaixo. */
 @media (max-width: 859px) {
-  .site-nav {
+  .site-header__inner {
+    flex-wrap: wrap;
+    height: auto;
+    min-height: 71px;
+  }
+
+  .site-header__toggle {
+    display: flex;
+  }
+
+  .site-nav,
+  .site-header__inner > .btn-outline {
     display: none;
   }
+
+  .site-header.is-open .site-nav {
+    display: block;
+    width: 100%;
+    padding-block: 8px 4px;
+    border-top: 1px solid var(--color-line-dark);
+  }
+
+  .site-header.is-open .site-header__inner > .btn-outline {
+    display: inline-flex;
+    margin-bottom: 16px;
+  }
+
+  .site-nav__list {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .site-nav__item {
+    display: block;
+  }
+
+  .site-nav__link {
+    padding-block: 12px;
+  }
+
+  /* Na lista vertical o traço amarelo não tem a borda do header para encostar. */
+  .site-nav__list > .site-nav__item > .site-nav__link::after,
+  .site-nav__caret {
+    display: none;
+  }
+
+  /* Submenu sempre aberto e indentado, sem a caixa flutuante do desktop. */
+  .site-nav .sub-menu {
+    position: static;
+    min-width: 0;
+    padding: 0 0 4px 16px;
+    border: 0;
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+  }
+
+  .site-nav .sub-menu::before {
+    content: none;
+  }
+
+  .site-nav .sub-menu a {
+    padding: 10px 0;
+  }
 }
+
 
 @media (max-width: 767px) {
   .feature-list__text--nowrap {
