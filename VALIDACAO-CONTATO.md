@@ -24,6 +24,7 @@ Medidas conferidas no navegador: formulário 624×750, campos 544×45, mensagem 
 | Onde | Figma | Site | Motivo |
 |---|---|---|---|
 | Espaço entre os itens do menu | 24px | 32px, como na home | o site tem um header só; mesma decisão pendente das outras páginas internas |
+| Menu do header e rodapé | 5 itens simples | "Produtos" com seta e submenu (Dilacerador, Torniquete, Controle de acesso) e "Projetos" como aba própria | navegação do site ligada pelo Mestre em 12/09/2026; parte comum a todas as páginas |
 | Larguras dos botões | 118 e 131px | 117,3 e 130,9px | largura do rótulo em Inter |
 | Campos do formulário | textos de exemplo dentro da caixa | `placeholder` de verdade, com `<label>` acima | mesmo desenho, mas acessível e digitável |
 | Envio do formulário | — | ainda não envia | falta o destino (WordPress, e-mail ou serviço); hoje o botão só valida o HTML |
