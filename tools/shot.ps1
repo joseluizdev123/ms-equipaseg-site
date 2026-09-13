@@ -24,9 +24,10 @@ if (-not $browser) { throw 'Chrome ou Edge não encontrado.' }
 $outPath = $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($Out)
 New-Item -ItemType Directory -Force (Split-Path $outPath) | Out-Null
 
-# Perfil separado: não interfere no Chrome aberto do usuário.
-# Um perfil e um arquivo temporario por execucao: dois chats podem rodar o script ao mesmo tempo.
-$profileDir = Join-Path $env:TEMP ('mse-headless-' + [guid]::NewGuid().ToString('N'))
+# Perfil separado: não interfere no Chrome aberto do usuário. O perfil é fixo porque guarda as fontes
+# do Google em cache: com um perfil novo a cada execução, a Exo às vezes não chegava a tempo e o PNG
+# saía com outra fonte, sem erro nenhum.
+$profileDir = Join-Path $env:TEMP 'mse-headless-profile'
 $tmpPath = [IO.Path]::ChangeExtension($outPath, ".$PID.tmp.png")
 $chromeArgs = @(
   '--headless=new',
@@ -42,9 +43,23 @@ $chromeArgs = @(
   "--screenshot=`"$tmpPath`"",
   $Url
 )
-Start-Process -FilePath $browser -ArgumentList $chromeArgs -Wait -NoNewWindow
-Remove-Item $profileDir -Recurse -Force -ErrorAction SilentlyContinue
-if (-not (Test-Path $tmpPath)) { throw "Screenshot não gerado: $outPath" }
-# So agora troca o PNG antigo pelo novo.
-Move-Item -Force $tmpPath $outPath
+
+# Um screenshot por vez entre todos os chats: com dois Chrome no mesmo perfil, o segundo sai sem gravar.
+$trava = New-Object System.Threading.Mutex($false, 'mse-headless-shot')
+try { $pegou = $trava.WaitOne([TimeSpan]::FromMinutes(5)) } catch [System.Threading.AbandonedMutexException] { $pegou = $true }
+if (-not $pegou) { throw 'Outro screenshot está demorando mais de 5 minutos; tente de novo.' }
+try {
+  # Perfil ainda sem cache: uma rodada antes, só para baixar as fontes.
+  if (-not (Test-Path (Join-Path $profileDir 'Default'))) {
+    Start-Process -FilePath $browser -ArgumentList $chromeArgs -Wait -NoNewWindow
+    Remove-Item $tmpPath -Force -ErrorAction SilentlyContinue
+  }
+  Start-Process -FilePath $browser -ArgumentList $chromeArgs -Wait -NoNewWindow
+  if (-not (Test-Path $tmpPath)) { throw "Screenshot não gerado: $outPath" }
+  # Só agora troca o PNG antigo pelo novo: se o Chrome falhar, o anterior continua lá.
+  Move-Item -Force $tmpPath $outPath
+} finally {
+  $trava.ReleaseMutex()
+  $trava.Dispose()
+}
 "ok: $outPath ($browser)"

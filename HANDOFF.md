@@ -39,7 +39,7 @@ Implementar em HTML/CSS, fiel ao Figma em 1440px, as páginas do site institucio
 | `contato.html` | Contato, 5 seções com formulário e mapa, conferida em 1440px |
 | `VALIDACAO-CONTATO.md` | Medidas do Contato e diferenças já aceitas |
 | `projetos.html` | Projetos, 7 seções, conferida em 1440px. Desde 12/09/2026, a pedido do usuário: hero com título e texto novos, sem Depoimentos e sem Perguntas frequentes, e o card "Lançamento" com o texto e 3 diferenciais do Dilacerador |
-| `controle-de-acesso.html` | Virou a página dos Totens para Controle de Acesso (fora do Figma), produto novo do briefing da cliente, no molde da página do Dilacerador (`5235:496`). Carrega o `dilacerador-de-pneus.css`. O nome do arquivo e o item "Controle de acesso" do menu continuam os antigos |
+| `controle-de-acesso.html` | Virou a página dos Totens para Controle de Acesso (fora do Figma), produto novo do briefing da cliente, no molde da página do Dilacerador (`5235:496`). Carrega o `dilacerador-de-pneus.css`. O nome do arquivo e o item "Controle de acesso" do menu continuam os antigos. Em 13/09/2026, a pedido do usuário: "Instalações" com as 4 fotos do torniquete com porta de passagem, "Possibilidades de aplicação" com os mesmos 5 cards do Torniquete e perguntas frequentes escritas com as informações do briefing |
 | `produtos-alfa.html` | Página geral de produtos (fora do Figma): hero com o título e o subtítulo do site (foto ainda cinza), faixa de clientes, 3 blocos copiados da home (Dilacerador de Pneus, Torniquete e Totem de Acesso) com "Consulte os modelos" levando à página de cada um, CTA e rodapé |
 | `VALIDACAO-PROJETOS.md` | Medidas do Projetos, o que difere do Torniquete e diferenças já aceitas |
 | `theme/ms-equipaseg/assets/css/main.css` | CSS comum do site (tokens no `:root`) e blocos da home. O HTML aponta para este caminho; mantenha assim para o tema reaproveitar depois |
@@ -51,6 +51,7 @@ Implementar em HTML/CSS, fiel ao Figma em 1440px, as páginas do site institucio
 | `theme/ms-equipaseg/assets/js/main.js` | Carrosséis do site e abre/fecha do menu no mobile. Todos giram sem fim (cópias dos cards antes e depois do trilho, então entra card pelos dois lados) e andam sozinhos a cada 5s, parando com o mouse em cima, com o teclado dentro, fora da tela e para quem pediu menos movimento. Nas fotos dos cards de produto a troca desliza: uma sai para o lado enquanto a outra entra, com a etiqueta junto. Também troca a capa de vídeo (`data-video`) pelo player do YouTube no clique |
 | `theme/ms-equipaseg/assets/images/` | Ícones e formas (SVG exportados do Figma) |
 | `theme/ms-equipaseg/assets/seed/` | Fotos e logos |
+| `fotos-para-o-site/` | Onde o usuário deixa as fotos da cliente, uma subpasta por página (fora do repositório). O Mestre redimensiona para 2x do tamanho exibido e copia para `assets/seed/`. Foto original solta na raiz entra no commit: mova para cá depois de converter |
 | `theme/ms-equipaseg/*.php`, `MODEL.md` | Tema WordPress só da home, nunca executado — parado. Os bugs já encontrados numa revisão de código estão no fim do `MODEL.md` |
 | `CONTEUDO-SITE-ATUAL.md` | O que o site no ar (https://equipaseg.com.br) tem e o novo não tem: o que já foi trazido e o que o usuário deixou parado |
 | `tools/` | Servidor e ferramentas de conferência (abaixo) |
@@ -66,7 +67,7 @@ node tools/serve.mjs
 - Referência do Figma: exportar o frame da página em 1x para `_ref/` com `download_figma_images` (`pngScale: 1`).
 - Se o `download_figma_images` falhar com "fetch failed": referência com `get_screenshot` (`maxDimension` maior que a altura do frame) e `curl`; fotos e ícones pelas URLs do `get_design_context` com `curl`; SVG de um nó com `use_figma` e `exportAsync({ format: 'SVG_STRING' })`.
 - O `shot.ps1` força "menos movimento" no Chrome: os carrosséis ficam parados no primeiro card, então a conferência sempre compara a mesma posição.
-- O `shot.ps1` usa um perfil do Chrome e um arquivo temporário por execução: dá para rodar em vários chats ao mesmo tempo, e se o Chrome falhar o PNG anterior continua lá.
+- O `shot.ps1` roda um screenshot por vez entre todos os chats (uma trava do Windows; quem chega depois espera) e usa sempre o mesmo perfil do Chrome, que guarda as fontes do Google em cache. Não troque por um perfil novo a cada execução: a Exo às vezes não chega a tempo e o PNG sai com outra fonte, sem erro. Grava num arquivo temporário e só troca o PNG antigo se deu certo. Antes de registrar um número, confira no PNG se os títulos estão em Exo.
 - Screenshot do site em 1440px: `powershell -ExecutionPolicy Bypass -File tools/shot.ps1 -Url http://localhost:5500/<pagina>.html -Out _ref/site-<pagina>.png -Height <altura do frame>`
 - Diferença por região: `powershell -ExecutionPolicy Bypass -File tools/pixeldiff.ps1 -Figma _ref/<figma>.png -Site _ref/site-<pagina>.png -Y <y> -H <altura> -Out _ref/diff/<nome>.png`
 - Carrossel: `_ref/teste-carrossel.html?pagina=/torniquete.html&alvo=.galeria__inner&i=0&n=6` abre a página num quadro de 1440px, dá N cliques (ou `dir=prev`) e escreve o estado em cima; capture com o `shot.ps1`. Fica fora do repositório.
@@ -114,12 +115,13 @@ node tools/serve.mjs
 - Conteúdo provisório vindo do Figma: "Lorem ipsum" no card "Em destaque" do Torniquete (o do Projetos ganhou texto em 12/09/2026), fotos do dilacerador nos cards do Torniquete, e "+1.000" (Quem somos) × "+100.000 produtos" (home).
 - Mobile: só o header tem versão própria; o resto das seções continua no layout fluido, sem mobile dedicado.
 - Tema WordPress: parado até ele pedir.
-- Arquivos para baixar: os botões "Baixar informações" dos cards de modelo (Dilacerador, Torniquete, Controle de acesso) apontam para `#` até a cliente mandar manual, catálogo e infraestrutura civil e elétrica.
+- Arquivos para baixar: o "Catálogo" da lista "Baixar informações" já abre o PDF da cliente no Dilacerador (`assets/docs/catalogo-dilacerador-de-pneus.pdf`, o folheto V2) e no Torniquete (`assets/docs/catalogo-torniquetes.pdf`, o folder), desde 13/09/2026. Ainda em `#`: Manual e Infraestrutura civil e elétrica nas três páginas, e o Catálogo dos Totens.
 - Dilacerador — confirmar com a cliente: o texto oficial do Unidirecional (100% mecânico, sem energia elétrica) agora descreve o Embutido, mas o site atual mostra o Embutido como elétrico ("atua em 1 segundo").
 - Nome do modelo com garra dupla: "Lombada – Garra dupla" na página do Dilacerador (igual ao site atual) e "Duplo" na galeria da home. Decidir se alinha.
 - Favicon: o site não tem, e todas as páginas dão 404 em `/favicon.ico` no console. Falta escolher o ícone (dá para sair do logo).
 - Nome do produto Totem: "Controle de acesso" no menu das 8 páginas, "Totem" na home, "Totem de Acesso" na produtos-alfa e "Totens para Controle de Acesso" na própria página. Decidir um nome só.
 - Rolagem lateral no celular: em 320–360px ainda passam da tela as fotos dos cards de "Outros modelos" do Torniquete (515px), o shape do card "Em destaque"/"Lançamento" (296px) e o `.site-footer__desc` (298px). Todas são partes comuns; aguardando o ok do usuário para corrigir.
+- Fotos de instalação: as galerias "Instalações" do Dilacerador, do Torniquete e dos Totens mostram as mesmas 13 fotos da cliente (`seed/instalacao-01.jpg` a `-13.jpg`, na numeração dela), com o mesmo visual escuro, a pedido do usuário em 13/09/2026. Ainda não há fotos só de totens.
 
 ## Primeiros passos
 

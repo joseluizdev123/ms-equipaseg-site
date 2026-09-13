@@ -2,12 +2,21 @@
  * MS Equipaseg — página "Totens para Controle de Acesso". Carregado depois do main.css e do
  * dilacerador-de-pneus.css, de onde vêm os blocos (hero de produto, diferenciais, modelos,
  * galerias e depoimentos). Medidas do Figma I7qYIaCi6nFLVWPiu9y1Un, frame 5235:496.
- * É o modelo da página deste produto: textos de exemplo e espaços de foto em cinza.
+ * Foto do produto: `seed/totem-controle-de-acesso.jpg`, uma cena com o totem, no hero e no card do modelo.
  */
 
-/* Espaços de foto, até as imagens do produto existirem. */
+/* Totens · Hero: a caixa da foto (63,52% × 100,5%) é mais estreita que a foto; `cover` corta as
+   laterais em vez de afinar o totem. */
 
-.produto-hero__media--vazio,
-.galeria__item--vazio {
-  background: linear-gradient(180deg, var(--color-placeholder-start) 0%, var(--color-placeholder-end) 100%);
+.produto-hero__media img {
+  object-fit: cover;
+}
+
+/* Totens · Modelos disponíveis: a foto é uma cena, não um recorte do produto como no Dilacerador,
+   e cobre a moldura inteira. */
+
+.modelo__foto--totem {
+  top: 50%;
+  width: 100%;
+  height: 100%;
 }

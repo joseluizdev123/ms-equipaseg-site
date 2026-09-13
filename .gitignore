@@ -6,3 +6,6 @@ _ref/
 Thumbs.db
 desktop.ini
 *.tmp
+
+# Fotos da cliente do jeito que chegaram: o Mestre redimensiona e copia para assets/seed/.
+fotos-para-o-site/

@@ -13,7 +13,7 @@ Cada seção foi recortada nas duas imagens a partir do próprio topo e comparad
 |---|---|---|---|---|
 | 1 | Header | `5278:2810` | 0 → 0 | 3,05% |
 | 2 | Hero | `5278:2824` | 72 → 72 | não se compara: título, texto e botões novos (altura 500px → 631px) |
-| 3 | Diferenciais do produto | `5278:2832` | 572 → 703 | 1,40% |
+| 3 | Diferenciais do produto | `5278:2832` | 572 → 703 | 12,65% (card alto com foto; mesma altura, 747px) |
 | 4 | Lançamento | `5278:2878` | 1319 → 1450 | 4,87% (textos e botão novos; mesma altura, 835px) |
 | 5 | Outros projetos | `5278:2985` | 2154 → 2285 | 2,41% |
 | — | Depoimentos | `5278:3030` | 3068 → retirada | — |
@@ -21,14 +21,14 @@ Cada seção foi recortada nas duas imagens a partir do próprio topo e comparad
 | 6 | CTA | `5278:3167` | 4696 → 3199 | 0,67% |
 | 7 | Footer | `5278:3168` | 5232 → 3735 | 3,52% (texto de apresentação novo, em 5 linhas) |
 
-Altura total: Figma 5897,12px, site 4400px. A conta fecha: +131px do hero (+118px do título e do texto, +13px dos botões), −784px dos depoimentos e −844px das perguntas frequentes. Fora o hero, os textos e o botão do card e o texto do rodapé, a divergência que sobra é rasterização de texto.
+Altura total: Figma 5897,12px, site 4400px. A conta fecha: +131px do hero (+118px do título e do texto, +13px dos botões), −784px dos depoimentos e −844px das perguntas frequentes. Fora o hero, o card alto dos diferenciais, os textos e o botão do card "Lançamento" e o texto do rodapé, a divergência que sobra é rasterização de texto.
 
 ## O que difere da página Torniquete (`5235:708`)
 
 | | Torniquete | Projetos |
 |---|---|---|
 | Hero | com recorte amarelo no canto | **sem** o recorte; título e texto próprios |
-| Diferenciais | card alto preto à esquerda | card alto **branco à direita**, textos diferentes |
+| Diferenciais | card alto com foto à esquerda | card alto com foto **à direita**, textos diferentes |
 | Seção do dilacerador | "Em destaque" | "**Lançamento**", com os textos da página do Dilacerador |
 | Galeria | "Instalações" + "Possibilidades de aplicação" | só "**Outros projetos**" (mesmas fotos e textos da segunda) |
 | Outros modelos | 2 cards | não existe |
@@ -44,6 +44,7 @@ As duas páginas usam os mesmos blocos do `main.css` (hero, diferenciais, foto d
 | Título do hero | "Projetos", caixa de 492px | "Desenvolvimento de projetos personalizados", caixa de 610px (a largura do texto abaixo), em 2 linhas | pedido do usuário (13/09/2026). Em 492px o título ia para 3 linhas. Regra em `projetos.css`, presa a `.hero-produto--projetos` |
 | Texto do hero | "Controle de acesso eficiente e seguro para diferentes ambientes…" (veio do Torniquete) | "Desenvolvemos projetos personalizados, criando soluções sob medida…", em 5 linhas | pedido do usuário (13/09/2026). Com o título, o texto e os botões novos, o hero passou de 500px para 631px |
 | Botões do hero | "Solicitar cotação" amarelo e "Saber mais" com borda, 59px de altura | `cta` (244×72, ícone do WhatsApp escuro de 20px) e `cta cta--claro` (160×72), como no Dilacerador | pedido do usuário ao Mestre (13/09/2026): botões iguais aos das outras páginas. O hero cresceu 13px |
+| Card alto dos diferenciais ("Passagem confortável, sem impactos ou travamentos") | branco, com ícone e o texto em cima | `bento-card--foto`: fundo escuro (`--color-media-dark`), foto `seed/produto-torniquete-mdduplo.jpg` de 296×268 em cima, até as bordas e com o pé esmaecido, e o texto em `--gray-03` no pé; sem ícone | pedido do usuário ao chat do Torniquete (13/09/2026), aplicado nas duas páginas. O card manteve 296×416 e a seção foi de 1,40% para 12,65% |
 | Depoimentos e Perguntas frequentes | existem | retiradas | pedido do usuário (13/09/2026) |
 | Textos do card "Lançamento" | "Lorem ipsum dolor sit amet" ×3 e "…alta segurança. de alto risco." | a descrição do hero da página do Dilacerador e os 3 primeiros itens de "Diferenciais dos nossos dilaceradores"; o 2º item ocupa 2 linhas | pedido do usuário (13/09/2026): usar os textos da página do Dilacerador. Com os textos, a seção foi de 1,55% para 4,24% e manteve a altura |
 | Botão do card "Lançamento" | "Saber mais sobre" amarelo, 59px de altura | `cta cta--67` (244×67), como na home | pedido do usuário ao Mestre (13/09/2026): botões iguais aos das outras páginas. A seção foi de 4,24% para 4,87% e manteve a altura |
@@ -56,7 +57,7 @@ As duas páginas usam os mesmos blocos do `main.css` (hero, diferenciais, foto d
 
 ## Abaixo de 1440px
 
-Sem rolagem lateral em 1440, 1425 (com a barra de rolagem), 1024, 479, 430, 390 e 360px. Com os botões novos, conferido de novo em 1440, 390, 360 e 320px: em 390 e 360px os dois botões do hero ficam um embaixo do outro. Os diferenciais vão de 3 para 2 colunas em 1023px e para 1 coluna em 767px; o card de destaque empilha em 1279px.
+Sem rolagem lateral em 1440, 1425 (com a barra de rolagem), 1024, 479, 430, 390 e 360px. Com os botões novos, conferido de novo em 1440, 390, 360 e 320px: em 390 e 360px os dois botões do hero ficam um embaixo do outro. Os diferenciais vão de 3 para 2 colunas em 1023px e para 1 coluna em 767px; o card de destaque empilha em 1279px. O card alto com foto ocupa a linha inteira em 1023px, com a foto de 296×268 centralizada, e fica com 342×356 em 390px.
 
 Abaixo de 480px a fonte do título do hero acompanha a tela (`min(48px, (100vw - 48px) / 8.5)`), senão a palavra "Desenvolvimento" (390px em 48px) não cabe: fica com 40px em 390px e 45px em 430px.
 
