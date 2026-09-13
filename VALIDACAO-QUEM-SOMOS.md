@@ -5,6 +5,20 @@ Figma `I7qYIaCi6nFLVWPiu9y1Un`, frame **Quem somos** (`5235:27`). Medições de 
 - Página: `quem-somos.html`. Sobreposição do Figma: `quem-somos.html?overlay`.
 - Referência: `_ref/quem-somos-figma.png` (1440×3384). Screenshot: `_ref/quem-somos-site.png`. Comparativos: `_ref/diff/quem-somos-*.png`.
 
+## Textos novos (13/09/2026)
+
+O usuário mandou textos novos para a página. A História trocou de título e de texto, e entraram duas seções que não existem no frame, montadas com as peças e as medidas das seções vizinhas. Ordem escolhida pelo usuário: História → Soluções → O que nos move → Por que escolher → Nossos números.
+
+| Seção | y / altura em 1440px | Como ficou |
+|---|---|---|
+| História | 393 / 518 | título "Segurança que nasce da experiência, da tecnologia e da fabricação própria" em 2 linhas (`text-wrap: balance`); 4 parágrafos, 2 por coluna |
+| Soluções (nova) | 911 / 514 | borda no topo; título em 3 linhas à esquerda (492px) e, à direita (688px), o texto e a lista "Fabricamos equipamentos como:" em 2×2 (`.feature-list--grid`, ícone quadrado, 1ª linha centrada no ícone) |
+| O que nos move | 1425 / 849 | sem mudança |
+| Por que escolher (nova) | 2273 / 787 | borda no topo; 5 cards com fundo `--color-surface`, ícone amarelo de 56px, nome em Exo 20px e texto de 16px: 3 cards de 405px e 2 de 624px |
+| Nossos números | 3060 / 474 | sem mudança |
+
+Altura total: 4735px. As seções abaixo registram a medição de 11/09/2026, antes dos textos novos: continuam valendo para o header, o hero e o desenho de cada seção, mas não para as posições da História para baixo.
+
 ## Resultado por seção
 
 | # | Seção | Node | Divergência real | Deslocamento | Âncoras (Figma = site, px) |
@@ -31,12 +45,14 @@ Altura total: Figma 3383,12px, site 3383px. A divergência que sobra é rasteriz
 | "+1.000 produtos fabricados" | este frame | igual ao Figma | a home diz "+100.000 produtos"; conteúdo a confirmar |
 | Submenu de "Produtos" no menu | não existe neste frame | abre no hover e no foco do teclado, com Dilacerador de Pneus, Torniquete e Controle de acesso | navegação do site ligada pelo Mestre em 12/09/2026; em repouso fica escondido e não muda o desenho |
 | Contatos do rodapé | telefone e e-mail de exemplo | dados reais do site atual: WhatsApp e telefone "11 5667-9440" e e-mail `email@msequipaseg.com.br` | rodapé comum atualizado pelo Mestre em 12/09/2026, com autorização do usuário; muda só as três linhas de contato (itens de 279×36px; a altura da página não mudou) |
+| Texto do rodapé | lorem ipsum ("Eget cursus nec vehicula…") | "Fabricamos torniquetes, dilaceradores de pneus e totens, além de desenvolver projetos personalizados, com qualidade, inovação e agilidade para proteger sua empresa." | rodapé comum atualizado em 13/09/2026, a pedido do usuário (primeiro pelo Mestre; "totens" entrou depois, pelo chat da Página inicial); o parágrafo passa de 4 para 5 linhas e o rodapé continua com 665px |
 | Hover, clique e foco | não existem no Figma | botões e links reagem ao mouse e o foco de teclado ganha anel amarelo | parte comum aprovada pelo usuário em 12/09/2026; em repouso nada muda |
+| Textos da História, Soluções e Por que escolher | texto antigo; Soluções e Por que escolher não existem | textos enviados pelo usuário em 13/09/2026 | pedido do usuário; sem frame no Figma, montado com as peças do site |
 
 ## Abaixo de 1440px
 
-Sem rolagem lateral em 1440, 1366, 1280, 1024, 768 e 390px. Até 1279px, missão e visão ficam acima dos valores e os números quebram em linhas; até 767px, os valores empilham. Abaixo de 860px o menu vira botão de três barras (header comum): conferido em 390px, abre e fecha no clique, sem rolagem lateral.
+Sem rolagem lateral em 1440, 1366, 1280, 1024, 768 e 390px. Até 1279px, missão e visão ficam acima dos valores e os números quebram em linhas; até 767px, os valores empilham. Abaixo de 860px o menu vira botão de três barras (header comum): conferido em 390px, abre e fecha no clique, sem rolagem lateral. Soluções empilha (título em cima) até 1279px; os cards de Por que escolher ficam em 2 colunas até 1023px, com o último ocupando a linha, e em 1 coluna até 767px. Conferido sem rolagem lateral em 1280, 1024, 768 e 390px em 13/09/2026.
 
 ## Smoke test
 
-Console sem erros. Ícones exportados do Figma para esta página: `icon-check-duplo.svg` (o desenho do `icon-check.svg`, 0,45px mais baixo) e `icon-numero-*-32.svg`.
+Console sem erros. Ícones exportados do Figma para esta página: `icon-check-duplo.svg` (o desenho do `icon-check.svg`, 0,45px mais baixo) e `icon-numero-*-32.svg`. Ícones de Por que escolher: `icon-wrench.svg`, `icon-ruler.svg` e `icon-lightbulb.svg`, que já existiam, e dois derivados escuros de 24px, `icon-experiencia-24.svg` e `icon-chat-dark-24.svg` (traço 1,25 no desenho de 20px, que dá 1,5px como os outros; o `icon-chat.svg` é branco).

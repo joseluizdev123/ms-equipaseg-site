@@ -23,10 +23,11 @@ if (-not $browser) { throw 'Chrome ou Edge não encontrado.' }
 
 $outPath = $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($Out)
 New-Item -ItemType Directory -Force (Split-Path $outPath) | Out-Null
-if (Test-Path $outPath) { Remove-Item $outPath -Force }
 
 # Perfil separado: não interfere no Chrome aberto do usuário.
-$profileDir = Join-Path $env:TEMP 'mse-headless-profile'
+# Um perfil e um arquivo temporario por execucao: dois chats podem rodar o script ao mesmo tempo.
+$profileDir = Join-Path $env:TEMP ('mse-headless-' + [guid]::NewGuid().ToString('N'))
+$tmpPath = [IO.Path]::ChangeExtension($outPath, ".$PID.tmp.png")
 $chromeArgs = @(
   '--headless=new',
   '--disable-gpu',
@@ -38,9 +39,12 @@ $chromeArgs = @(
   "--user-data-dir=`"$profileDir`"",
   "--window-size=$Width,$Height",
   '--virtual-time-budget=8000',
-  "--screenshot=`"$outPath`"",
+  "--screenshot=`"$tmpPath`"",
   $Url
 )
 Start-Process -FilePath $browser -ArgumentList $chromeArgs -Wait -NoNewWindow
-if (-not (Test-Path $outPath)) { throw "Screenshot não gerado: $outPath" }
+Remove-Item $profileDir -Recurse -Force -ErrorAction SilentlyContinue
+if (-not (Test-Path $tmpPath)) { throw "Screenshot não gerado: $outPath" }
+# So agora troca o PNG antigo pelo novo.
+Move-Item -Force $tmpPath $outPath
 "ok: $outPath ($browser)"

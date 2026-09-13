@@ -10,7 +10,7 @@ Vários chats trabalham ao mesmo tempo nesta pasta. O **Mestre** cria as página
 | Ajustar Página inicial · MS Equipaseg | `local_bd9eb915-f80c-4a00-8214-1641c692b0fa` | `index.html`, `VALIDACAO.md`, blocos da home no `main.css` |
 | Ajustar Quem somos · MS Equipaseg | `local_de8c4d1d-b1ce-497d-9ec8-d63f007add58` | `quem-somos.html`, `quem-somos.css`, `VALIDACAO-QUEM-SOMOS.md` |
 | Ajustar Dilacerador de Pneus · MS Equipaseg | `local_99febc06-43da-4019-904c-3a15f88fdc4d` | `dilacerador-de-pneus.html`, `dilacerador-de-pneus.css`, `VALIDACAO-DILACERADOR.md` |
-| Ajustar Torniquete · MS Equipaseg | a abrir de novo (a sessao do spawn_task nasce em worktree e nao consegue sair) | `torniquete.html`, `torniquete.css`, `VALIDACAO-TORNIQUETE.md` |
+| Ajustar Torniquete · MS Equipaseg | `local_b25af0da-cb0d-4d1e-9c89-1b68529e7d36` (a sessão de 11/09, reaberta pelo usuário; trabalha na pasta do projeto, mesmo com a lista do app mostrando uma pasta de rascunho) | `torniquete.html`, `torniquete.css`, `VALIDACAO-TORNIQUETE.md` |
 | Ajustar Contato · MS Equipaseg | `local_f8072267-66f5-4b9f-a956-fd03a58a3213` | `contato.html`, `contato.css`, `VALIDACAO-CONTATO.md` |
 | Ajustar Projetos · MS Equipaseg | `local_be83df8c-4b2b-4a98-9431-f91aaee4cc9e` | `projetos.html`, `projetos.css`, `VALIDACAO-PROJETOS.md` |
 | Ajustar Produtos alfa · MS Equipaseg | `local_22c5e9c5-6917-4210-829c-8b6965bd7ec6` | `produtos-alfa.html`, `produtos-alfa.css` |

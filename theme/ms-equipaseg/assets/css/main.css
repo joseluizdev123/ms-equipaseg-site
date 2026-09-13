@@ -331,6 +331,78 @@ svg {
   background-image: url('../images/cta-shape-142.svg');
 }
 
+/* Botão "Baixar informações" dos cards de modelo (Dilacerador, Torniquete, Controle de acesso).
+   Não existe no Figma: no lugar do "Baixar manual", abre a lista com manual, catálogo e
+   infraestrutura civil e elétrica. O `main.js` fecha a lista com clique fora e com Esc. */
+.menu-baixar {
+  position: relative;
+  flex: none;
+}
+
+.menu-baixar__botao {
+  gap: 8px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.menu-baixar__botao::-webkit-details-marker {
+  display: none;
+}
+
+/* Rótulo de 128px + seta pedem mais que os 142px do CTA: o shape de 188px mantém os cantos de 12px. */
+.menu-baixar__botao.cta--xs {
+  width: 188px;
+  background-image: url('../images/cta-shape-188.svg');
+}
+
+.menu-baixar__botao.btn-solid--sm {
+  padding-inline: 16px;
+}
+
+.menu-baixar__botao .menu-baixar__seta {
+  flex: none;
+  width: 8px;
+  height: 7px;
+  transition: transform 0.2s ease;
+}
+
+.menu-baixar[open] .menu-baixar__seta {
+  transform: rotate(180deg);
+}
+
+/* Mesmo visual do submenu do header. */
+.menu-baixar__lista {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 20;
+  min-width: 260px;
+  padding: 8px 0;
+  border: 1px solid var(--color-line-dark);
+  background: var(--color-black);
+  box-shadow: 0 12px 24px var(--color-overlay);
+}
+
+/* Com o botão encostado à esquerda (cards empilhados), a lista abre para a direita. */
+.menu-baixar__lista--direita {
+  right: auto;
+  left: 0;
+}
+
+.menu-baixar__lista a {
+  display: block;
+  padding: 10px 20px;
+  color: var(--color-white);
+  font-size: 15px;
+  line-height: 1.5;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.menu-baixar__lista a:hover {
+  color: var(--color-yellow);
+}
+
 /* Setas: um ícone para ativo e outro para inativo, espelhados conforme a direção. */
 .arrow-btn {
   display: grid;
@@ -1036,8 +1108,17 @@ svg {
 /* Vídeos em funcionamento — não existe no Figma (pedido do usuário em 12/09/2026, copiando a seção do
    site no ar). Mesmo ritmo de espaçamento das outras seções; três capas 16:9 que viram player no clique. */
 
+/* Fundo preto (pedido do usuário em 12/09/2026): mesmo preto do header e do rodapé. */
+.videos {
+  background: var(--color-black);
+}
+
 .videos__head {
   padding-block: 100px 60px;
+}
+
+.videos .section-title {
+  color: var(--color-white);
 }
 
 .videos__lista {
@@ -2129,10 +2210,13 @@ svg {
   justify-content: space-between;
 }
 
-/* Só no Torniquete o card alto é preto (Figma 5253:1708). */
-.bento-card--escuro {
-  background: var(--color-black-pure);
-  color: var(--color-white);
+/* Card alto com a foto do produto em cima e o texto no pé. Fora do Figma, a pedido do usuário
+   (13/09/2026): no Figma o card alto só tinha ícone e texto, e sobrava um vazio grande. O fundo
+   tem a cor do fundo das fotos (#1b1c20), então a foto não mostra borda. */
+.bento-card--foto {
+  justify-content: space-between;
+  background: var(--color-media-dark);
+  color: var(--gray-03);
 }
 
 .bento-card__icon {
@@ -2145,8 +2229,18 @@ svg {
   background: var(--color-yellow-soft);
 }
 
-.bento-card--escuro .bento-card__icon {
-  background: var(--color-placeholder-start);
+/* Foto até a borda do card (desconta o padding de 24px), com o pé esmaecido para as linhas do
+   fundo não terminarem num corte seco. */
+.bento-card__foto {
+  display: block;
+  flex: none;
+  width: calc(100% + 48px);
+  max-width: none;
+  height: 268px;
+  margin: -24px -24px 0;
+  object-fit: cover;
+  object-position: center top;
+  mask-image: linear-gradient(to bottom, var(--color-black-pure) calc(100% - 48px), transparent);
 }
 
 .bento-card__icon img {
@@ -2283,6 +2377,12 @@ svg {
     flex: 1 1 100%;
     height: auto;
     min-height: 192px;
+  }
+
+  /* Card com foto em largura cheia: a foto mantém o tamanho do desktop, centralizada. */
+  .bento-card__foto {
+    width: min(100% + 48px, 296px);
+    margin-inline: auto;
   }
 }
 
@@ -2494,5 +2594,10 @@ svg {
 
   .cta-final__media {
     display: none;
+  }
+
+  /* Os créditos do rodapé não cabem numa linha só em telas estreitas (em 360px passavam da tela). */
+  .site-footer__credits p {
+    white-space: normal;
   }
 }

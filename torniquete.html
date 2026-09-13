@@ -63,11 +63,11 @@
           </div>
 
           <div class="hero-produto__actions">
-            <a class="btn-solid" href="#contato">
-              <img src="theme/ms-equipaseg/assets/images/icon-whatsapp-24.svg" alt="" width="24" height="24">
+            <a class="cta" href="https://wa.me/551156679440?text=Ol%C3%A1!%20Vim%20do%20site%2C%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es" target="_blank" rel="noopener">
+              <img class="cta__icon" src="theme/ms-equipaseg/assets/images/icon-whatsapp-dark.svg" alt="" width="20" height="20">
               <span>Solicitar cotação</span>
             </a>
-            <a class="btn-ghost" href="#modelos"><span>Saber mais</span></a>
+            <a class="cta cta--claro" href="#modelos"><span>Saber mais</span></a>
           </div>
         </div>
       </div>
@@ -107,9 +107,12 @@
         <h2 class="titulo-secao titulo-secao--32" id="diferenciais-titulo">Diferenciais do produto</h2>
 
         <div class="bento__grid">
-          <article class="bento-card bento-card--alto bento-card--baixo bento-card--escuro">
-            <span class="bento-card__icon"><img src="theme/ms-equipaseg/assets/images/icon-escudo-claro.svg" alt="" width="24" height="24" loading="lazy"></span>
-            <p class="bento-card__text">Construção estrutural totalmente em alumínio com pintura eletrostática, para ambientes de atmosfera agressiva (Região litorânea).</p>
+          <article class="bento-card bento-card--alto bento-card--foto">
+            <img class="bento-card__foto" src="theme/ms-equipaseg/assets/seed/produto-torniquete-md300.jpg" alt="" width="515" height="500" loading="lazy">
+            <div class="bento-card__corpo">
+              <p class="bento-card__titulo">Estrutura em alumínio</p>
+              <p class="bento-card__text">Pintura eletrostática para atmosfera agressiva, como regiões litorâneas.</p>
+            </div>
           </article>
 
           <div class="bento__col">
@@ -157,25 +160,25 @@
             <h3 class="destaque__title" id="destaque-produto">Dilacerador de Pneus</h3>
 
             <div class="destaque__body">
-              <p class="destaque__desc">Nossos dilaceradores de pneus garantem proteção máxima para o controle de veículos em fábricas, centros de distribuição, portos, aeroportos e ambientes de alta segurança. de alto risco. Com tecnologia de ponta e acionamento inteligente, é a solução ideal para evitar acessos não autorizados com eficiência e confiabilidade.</p>
+              <p class="destaque__desc">Nossos dilaceradores de pneus garantem proteção máxima para o controle de veículos em fábricas, centros de distribuição, portos, aeroportos e ambientes de alta segurança. Com tecnologia e soluções desenvolvidas para diferentes necessidades de controle de acesso, são ideais para impedir acessos não autorizados com eficiência e confiabilidade.</p>
 
               <ul class="feature-list feature-list--stack">
                 <li class="feature-list__item">
                   <span class="feature-list__icon"><img src="theme/ms-equipaseg/assets/images/icon-check.svg" alt="" width="20" height="20" loading="lazy"></span>
-                  <span class="feature-list__text">Lorem ipsum dolor sit amet</span>
+                  <span class="feature-list__text">Integração com portão, cancela e laço indutivo</span>
                 </li>
                 <li class="feature-list__item">
                   <span class="feature-list__icon"><img src="theme/ms-equipaseg/assets/images/icon-check.svg" alt="" width="20" height="20" loading="lazy"></span>
-                  <span class="feature-list__text">Lorem ipsum dolor sit amet</span>
+                  <span class="feature-list__text">Equipamento fabricado em módulos de 1,0 m e 0,5 m, facilitando instalação e transporte</span>
                 </li>
                 <li class="feature-list__item">
                   <span class="feature-list__icon"><img src="theme/ms-equipaseg/assets/images/icon-check.svg" alt="" width="20" height="20" loading="lazy"></span>
-                  <span class="feature-list__text">Lorem ipsum dolor sit amet</span>
+                  <span class="feature-list__text">Farol de sinalização verde e vermelho</span>
                 </li>
               </ul>
             </div>
 
-            <a class="btn-solid" href="dilacerador-de-pneus.html"><span>Saber mais sobre</span></a>
+            <a class="cta cta--67" href="dilacerador-de-pneus.html"><span>Saber mais sobre</span></a>
           </div>
         </article>
       </div>
@@ -196,12 +199,19 @@
             <div class="modelo-torniquete__content">
               <div class="modelo-torniquete__text">
                 <h3 class="modelo-torniquete__title" id="modelo-simples">Simples</h3>
-                <p class="modelo-torniquete__desc">Botoeira, controle de acesso, remotamente ou por laço indutivo. Botoeira, controle de acesso, remotamente ou por laço indutivo. Botoeira, controle de acesso, remotamente ou por laço indutivo. Botoeira, controle de acesso, remotamente ou por laço indutivo.</p>
+                <p class="modelo-torniquete__desc">Unidirecional: solução 100% mecânica, sem necessidade de energia elétrica, desenvolvida para controle de fluxo em sentido único. Permite a passagem segura dos veículos autorizados e mantém as garras expostas para impedir a passagem no sentido contrário.</p>
               </div>
 
               <div class="modelo-torniquete__manual">
                 <p class="modelo-torniquete__manual-text">Veja as demais informações técnicas e a infraestrutura necessária</p>
-                <a class="btn-solid btn-solid--sm" href="#"><span>Baixar manual</span></a>
+                <details class="menu-baixar" data-menu-baixar>
+                  <summary class="cta cta--xs menu-baixar__botao"><span>Baixar informações</span><img class="menu-baixar__seta" src="theme/ms-equipaseg/assets/images/icon-caret-down-dark.svg" alt="" width="8" height="7"></summary>
+                  <ul class="menu-baixar__lista">
+                    <li><a href="#">Manual</a></li>
+                    <li><a href="#">Catálogo</a></li>
+                    <li><a href="#">Infraestrutura civil e elétrica</a></li>
+                  </ul>
+                </details>
               </div>
             </div>
           </article>
@@ -216,12 +226,19 @@
             <div class="modelo-torniquete__content">
               <div class="modelo-torniquete__text">
                 <h3 class="modelo-torniquete__title" id="modelo-duplo">Duplo</h3>
-                <p class="modelo-torniquete__desc">Botoeira, controle de acesso, remotamente ou por laço indutivo. Botoeira, controle de acesso, remotamente ou por laço indutivo. Botoeira, controle de acesso, remotamente ou por laço indutivo. Botoeira, controle de acesso, remotamente ou por laço indutivo.</p>
+                <p class="modelo-torniquete__desc">Bidirecional: acionamento por botoeira, controle de acesso ou remotamente, com possibilidade de integração a portões, cancelas e laços indutivos.</p>
               </div>
 
               <div class="modelo-torniquete__manual">
                 <p class="modelo-torniquete__manual-text">Veja as demais informações técnicas e a infraestrutura necessária</p>
-                <a class="btn-solid btn-solid--sm" href="#"><span>Baixar manual</span></a>
+                <details class="menu-baixar" data-menu-baixar>
+                  <summary class="cta cta--xs menu-baixar__botao"><span>Baixar informações</span><img class="menu-baixar__seta" src="theme/ms-equipaseg/assets/images/icon-caret-down-dark.svg" alt="" width="8" height="7"></summary>
+                  <ul class="menu-baixar__lista">
+                    <li><a href="#">Manual</a></li>
+                    <li><a href="#">Catálogo</a></li>
+                    <li><a href="#">Infraestrutura civil e elétrica</a></li>
+                  </ul>
+                </details>
               </div>
             </div>
           </article>
@@ -484,7 +501,7 @@
             <h2 class="cta-final__title" id="cta-titulo">Fale agora com um consultor</h2>
             <p class="cta-final__desc">Fale com o nosso time e encontre as melhores soluções para o seu negócio.</p>
           </div>
-          <a class="cta cta--dark" href="#contato">
+          <a class="cta cta--dark" href="https://wa.me/551156679440?text=Ol%C3%A1!%20Vim%20do%20site%2C%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es" target="_blank" rel="noopener">
             <img class="cta__icon" src="theme/ms-equipaseg/assets/images/icon-whatsapp-light.svg" alt="" width="20" height="20">
             <span>Solicitar cotação</span>
           </a>
@@ -517,8 +534,8 @@
 
       <div class="site-footer__main">
         <div class="site-footer__about">
-          <p class="site-footer__desc">Eget cursus nec vehicula, convallis. tincidunt Ut enim. Nunc placerat nisi non vitae Donec faucibus vehicula, sapien scelerisque Donec Nunc Lorem.</p>
-          <a class="cta cta--sm" href="#contato">
+          <p class="site-footer__desc">Fabricamos torniquetes, dilaceradores de pneus e totens, além de desenvolver projetos personalizados, com qualidade, inovação e agilidade para proteger sua empresa.</p>
+          <a class="cta cta--sm" href="https://wa.me/551156679440?text=Ol%C3%A1!%20Vim%20do%20site%2C%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es" target="_blank" rel="noopener">
             <img class="cta__icon" src="theme/ms-equipaseg/assets/images/icon-whatsapp-dark.svg" alt="" width="20" height="20">
             <span>Solicitar cotação</span>
           </a>

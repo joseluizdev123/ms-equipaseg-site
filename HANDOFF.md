@@ -28,9 +28,9 @@ Implementar em HTML/CSS, fiel ao Figma em 1440px, as páginas do site institucio
 
 | Caminho | O que é |
 |---|---|
-| `index.html` | Página inicial, 13 seções (a de vídeos veio do site atual, fora do Figma), conferida em 1440px |
+| `index.html` | Página inicial, 13 seções (a de vídeos veio do site atual, fora do Figma), conferida em 1440px. Blocos de produto: Dilacerador de Pneus, Torniquete e Totem |
 | `VALIDACAO.md` | Medidas da home e diferenças já aceitas |
-| `quem-somos.html` | Quem somos, 7 seções, conferida em 1440px |
+| `quem-somos.html` | Quem somos, 9 seções, conferida em 1440px até a História. Textos novos do briefing da cliente (12/09/2026): História com título e texto novos, e duas seções fora do Figma, Soluções e Por que escolher; página com 4735px. Layout novo aguardando o ok do usuário |
 | `VALIDACAO-QUEM-SOMOS.md` | Medidas da Quem somos e diferenças já aceitas |
 | `dilacerador-de-pneus.html` | Produtos > Dilacerador de Pneus, 11 seções, conferida em 1440px |
 | `VALIDACAO-DILACERADOR.md` | Medidas do Dilacerador e diferenças já aceitas |
@@ -38,9 +38,9 @@ Implementar em HTML/CSS, fiel ao Figma em 1440px, as páginas do site institucio
 | `VALIDACAO-TORNIQUETE.md` | Medidas do Torniquete e diferenças já aceitas |
 | `contato.html` | Contato, 5 seções com formulário e mapa, conferida em 1440px |
 | `VALIDACAO-CONTATO.md` | Medidas do Contato e diferenças já aceitas |
-| `projetos.html` | Projetos, 9 seções, conferida em 1440px |
-| `controle-de-acesso.html` | Modelo da página do produto Controle de acesso (fora do Figma): mesmo escopo da Dilacerador (`5235:496`), com textos de exemplo e espaços de foto em cinza. Carrega o `dilacerador-de-pneus.css` |
-| `produtos-alfa.html` | Modelo das páginas de produto que ainda não existem (fora do Figma): header, hero de exemplo, faixa de clientes, 4 blocos de produto com carrossel, CTA e rodapé. Textos de exemplo e espaço da foto em cinza |
+| `projetos.html` | Projetos, 7 seções, conferida em 1440px. Desde 12/09/2026, a pedido do usuário: hero com título e texto novos, sem Depoimentos e sem Perguntas frequentes, e o card "Lançamento" com o texto e 3 diferenciais do Dilacerador |
+| `controle-de-acesso.html` | Virou a página dos Totens para Controle de Acesso (fora do Figma), produto novo do briefing da cliente, no molde da página do Dilacerador (`5235:496`). Carrega o `dilacerador-de-pneus.css`. O nome do arquivo e o item "Controle de acesso" do menu continuam os antigos |
+| `produtos-alfa.html` | Página geral de produtos (fora do Figma): hero com o título e o subtítulo do site (foto ainda cinza), faixa de clientes, 3 blocos copiados da home (Dilacerador de Pneus, Torniquete e Totem de Acesso) com "Consulte os modelos" levando à página de cada um, CTA e rodapé |
 | `VALIDACAO-PROJETOS.md` | Medidas do Projetos, o que difere do Torniquete e diferenças já aceitas |
 | `theme/ms-equipaseg/assets/css/main.css` | CSS comum do site (tokens no `:root`) e blocos da home. O HTML aponta para este caminho; mantenha assim para o tema reaproveitar depois |
 | `theme/ms-equipaseg/assets/css/quem-somos.css` | CSS da Quem somos |
@@ -66,6 +66,7 @@ node tools/serve.mjs
 - Referência do Figma: exportar o frame da página em 1x para `_ref/` com `download_figma_images` (`pngScale: 1`).
 - Se o `download_figma_images` falhar com "fetch failed": referência com `get_screenshot` (`maxDimension` maior que a altura do frame) e `curl`; fotos e ícones pelas URLs do `get_design_context` com `curl`; SVG de um nó com `use_figma` e `exportAsync({ format: 'SVG_STRING' })`.
 - O `shot.ps1` força "menos movimento" no Chrome: os carrosséis ficam parados no primeiro card, então a conferência sempre compara a mesma posição.
+- O `shot.ps1` usa um perfil do Chrome e um arquivo temporário por execução: dá para rodar em vários chats ao mesmo tempo, e se o Chrome falhar o PNG anterior continua lá.
 - Screenshot do site em 1440px: `powershell -ExecutionPolicy Bypass -File tools/shot.ps1 -Url http://localhost:5500/<pagina>.html -Out _ref/site-<pagina>.png -Height <altura do frame>`
 - Diferença por região: `powershell -ExecutionPolicy Bypass -File tools/pixeldiff.ps1 -Figma _ref/<figma>.png -Site _ref/site-<pagina>.png -Y <y> -H <altura> -Out _ref/diff/<nome>.png`
 - Carrossel: `_ref/teste-carrossel.html?pagina=/torniquete.html&alvo=.galeria__inner&i=0&n=6` abre a página num quadro de 1440px, dá N cliques (ou `dir=prev`) e escreve o estado em cima; capture com o `shot.ps1`. Fica fora do repositório.
@@ -83,7 +84,7 @@ node tools/serve.mjs
 ## Convenções
 
 - Reusar tokens e componentes antes de criar novos: `.container`, `.section-title`, `.btn-outline`, `.cta` (`--67`, `--degrade`, `--dark`, `--sm`), `.feature-card`, `.feature-list`, `.feature-media`, `.arrow-btn`, `.site-header`, `.site-footer`.
-- Header e footer idênticos em todas as páginas: copiar o markup do `index.html`. O header tem o botão `site-header__toggle` (três barras) logo depois do logo: some no desktop e, abaixo de 860px, abre o menu e o "Fale conosco" (classe `is-open` no `.site-header`, regras no fim do `main.css`). "Quem somos" aponta para `quem-somos.html`; Produtos e Projetos ainda apontam para âncoras da home (`./#produtos`, `./#projetos`). Ao criar páginas, apontar para os arquivos novos e marcar o item atual com `is-current` e `aria-current="page"`.
+- Header e footer idênticos em todas as páginas: copiar o markup do `index.html`. Todo botão "Solicitar cotação" abre o WhatsApp numa aba nova, como no site atual: `https://wa.me/551156679440?text=Ol%C3%A1!%20Vim%20do%20site%2C%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es` com `target="_blank" rel="noopener"` (pedido do usuário, 13/09/2026). O header tem o botão `site-header__toggle` (três barras) logo depois do logo: some no desktop e, abaixo de 860px, abre o menu e o "Fale conosco" (classe `is-open` no `.site-header`, regras no fim do `main.css`). "Quem somos" aponta para `quem-somos.html`; Produtos e Projetos ainda apontam para âncoras da home (`./#produtos`, `./#projetos`). Ao criar páginas, apontar para os arquivos novos e marcar o item atual com `is-current` e `aria-current="page"`.
 - Cada página nova tem CSS próprio em `theme/ms-equipaseg/assets/css/<pagina>.css`, carregado depois do `main.css`, com seções comentadas `/* Página · Seção — Figma <node> */` e classes curtas em português, no padrão atual. O que passar a se repetir entre páginas sobe para o `main.css`.
 - Imagens do Figma: SVG para ícones; fotos em JPG redimensionadas para 2x do tamanho exibido.
 - As regras fluidas abaixo de 1440px ficam no fim do `main.css`; qualquer ajuste ali não pode mudar a renderização em 1440px.
@@ -110,9 +111,15 @@ node tools/serve.mjs
 - Espaço entre os itens do menu: 24px no Figma das páginas internas, 32px no site (o header é um só). Decisão dele; está no `VALIDACAO` de cada página interna.
 - Nome da página de produtos: hoje `produtos-alfa.html`. Ele decide se renomeia para `produtos.html` — aí os links das 8 páginas mudam juntos.
 - Formulário do Contato não envia: falta o destino (e-mail, serviço ou WordPress).
-- Conteúdo provisório vindo do Figma: "Lorem ipsum" nos cards de destaque do Torniquete e do Projetos, fotos do dilacerador nos cards do Torniquete, e "+1.000" (Quem somos) × "+100.000 produtos" (home).
+- Conteúdo provisório vindo do Figma: "Lorem ipsum" no card "Em destaque" do Torniquete (o do Projetos ganhou texto em 12/09/2026), fotos do dilacerador nos cards do Torniquete, e "+1.000" (Quem somos) × "+100.000 produtos" (home).
 - Mobile: só o header tem versão própria; o resto das seções continua no layout fluido, sem mobile dedicado.
 - Tema WordPress: parado até ele pedir.
+- Arquivos para baixar: os botões "Baixar informações" dos cards de modelo (Dilacerador, Torniquete, Controle de acesso) apontam para `#` até a cliente mandar manual, catálogo e infraestrutura civil e elétrica.
+- Dilacerador — confirmar com a cliente: o texto oficial do Unidirecional (100% mecânico, sem energia elétrica) agora descreve o Embutido, mas o site atual mostra o Embutido como elétrico ("atua em 1 segundo").
+- Nome do modelo com garra dupla: "Lombada – Garra dupla" na página do Dilacerador (igual ao site atual) e "Duplo" na galeria da home. Decidir se alinha.
+- Favicon: o site não tem, e todas as páginas dão 404 em `/favicon.ico` no console. Falta escolher o ícone (dá para sair do logo).
+- Nome do produto Totem: "Controle de acesso" no menu das 8 páginas, "Totem" na home, "Totem de Acesso" na produtos-alfa e "Totens para Controle de Acesso" na própria página. Decidir um nome só.
+- Rolagem lateral no celular: em 320–360px ainda passam da tela as fotos dos cards de "Outros modelos" do Torniquete (515px), o shape do card "Em destaque"/"Lançamento" (296px) e o `.site-footer__desc` (298px). Todas são partes comuns; aguardando o ok do usuário para corrigir.
 
 ## Primeiros passos
 

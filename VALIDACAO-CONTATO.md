@@ -13,13 +13,17 @@ Figma `I7qYIaCi6nFLVWPiu9y1Un`, frame **Contato** (`5235:876`). Medições de 11
 | 2 | Hero com formulário | `5254:467` | 1,58% | 0, 0 |
 | 3 | Depoimentos | `5284:1443` | 2,58% | 0, 0 |
 | 4 | Mapa | `5254:670` | 1,82% | 0, 0 |
-| 5 | Footer | `5235:1280` | 2,15% | 0, 0 |
+| 5 | Footer | `5235:1280` | 3,52% | 0, 0 |
 
 Altura total: Figma 3051,12px, site 3051px. As bordas entre seções caem nas mesmas linhas do Figma (hero termina em 1034, mapa começa em 1818, rodapé em 2386). A divergência que sobra é rasterização de texto.
 
 Rechecada em 12/09/2026, depois das mudanças de parte comum (navegação, header mobile e carrossel): página inteira em 1,754% de divergência real, deslocamento 0, 0; a faixa dos depoimentos continua em 2,584%. Screenshot novo em `_ref/contato-site.png`, comparativo da faixa em `_ref/diff/contato-depoimentos-infinito2.png`.
 
 Dados de contato reais (12/09/2026): com o endereço mais longo, o hero passou de 1,49% para 1,58% (a segunda linha do endereço ficou maior) e o mapa de 0,43% para 1,82% (o cartão cresceu 130px, então o texto e o botão saíram do lugar do Figma). Página inteira em 2,047%, deslocamento 0, 0. Comparativos em `_ref/diff/contato-hero-dados-reais.png` e `_ref/diff/contato-mapa-dados-reais.png`. O `CEP` e o número vão juntos por `&nbsp;`, para não quebrarem no meio.
+
+Texto real do rodapé (13/09/2026, já na segunda versão, que cita os totens): o parágrafo passou de 4 para 5 linhas e o rodapé continua com 665px. A divergência do rodapé foi de 2,15% para 3,52%, concentrada nas linhas do parágrafo e logo abaixo dele (y 2607–2822); página inteira em 2,339%, deslocamento 0, 0. Comparativo em `_ref/diff/contato-rodape-texto-real.png`. Em 360px não há rolagem lateral e o "© 2025 MS Equipaseg…" quebra em 2 linhas.
+
+Cuidado com os screenshots: numa das execuções do `tools/shot.ps1` a fonte Exo não carregou e o texto saiu em fonte do sistema. Os números subiram só nas áreas de texto (depoimentos 3,88%, hero 1,95%). Se um número pular assim, confira o título dos depoimentos no PNG e tire outro screenshot.
 
 Medidas conferidas no navegador: formulário 624×750, campos 544×45, mensagem 544×100, botão "Enviar" 117,3×59 (118 no Figma), cartão do mapa 905×77 (775 no Figma, que tem o endereço sem CEP), botão "Ver no maps" 130,9×45 (131).
 
@@ -30,6 +34,7 @@ Medidas conferidas no navegador: formulário 624×750, campos 544×45, mensagem 
 | Espaço entre os itens do menu | 24px | 32px, como na home | o site tem um header só; mesma decisão pendente das outras páginas internas |
 | Menu do header e rodapé | 5 itens simples | "Produtos" com seta e submenu (Dilacerador, Torniquete, Controle de acesso) e "Projetos" como aba própria | navegação do site ligada pelo Mestre em 12/09/2026; parte comum a todas as páginas |
 | Telefone e endereço | (11) 99111-1111, endereço sem CEP | (11) 5667-9440, CEP 04809-260 | dados reais do site atual (https://equipaseg.com.br), autorizados pelo usuário em 12/09/2026; o cartão do mapa cresce de 775 para 905px para o endereço caber numa linha |
+| Texto do rodapé | lorem ipsum em 4 linhas | "Fabricamos torniquetes, dilaceradores de pneus…" em 5 linhas | texto real pedido pelo usuário em 13/09/2026 (parte comum, nas 8 páginas); a altura do rodapé continua 665px |
 | Seta "anterior" dos depoimentos | apagada no primeiro card | ativa desde o começo | carrossel infinito (parte comum, 12/09/2026): do primeiro card dá para voltar ao último |
 | Faixa à esquerda dos depoimentos | fundo #F7F7F7 | fim do card anterior, 48×352px, branco | carrossel infinito dos dois lados (parte comum, 12/09/2026); são 8 tons de diferença, abaixo da tolerância do diff: a seção continua em 2,584% |
 | Larguras dos botões | 118 e 131px | 117,3 e 130,9px | largura do rótulo em Inter |

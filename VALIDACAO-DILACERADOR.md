@@ -10,10 +10,10 @@ Figma `I7qYIaCi6nFLVWPiu9y1Un`, frame **Produtos > Dilacerador de Pneus** (`5235
 | # | Seção | Node | Divergência real | Deslocamento | Observações |
 |---|---|---|---|---|---|
 | 1 | Header | `5235:497` | 3,05% | 0, 0 | logo e botão iguais; menu em "Diferenças justificadas" |
-| 2 | Hero | `5241:427` | 1,91% | 0, 0 | título, as 4 linhas do texto e os dois botões nas mesmas posições |
+| 2 | Hero | `5241:427` | 1,91% (antes do texto oficial) | 0, 0 | título e botões como no Figma; desde 12/09 o texto oficial do cliente ocupa 6 linhas em vez de 4, e o hero ficou 54px mais alto (594px) |
 | 3 | Nossos clientes | `5293:1883` | 9,89% | 0, 0 | logos em movimento, como na home |
-| 4 | Diferenciais | `5330:679` | 1,31% | 0, 0 | 9 itens com ícones e quebras iguais |
-| 5 | Modelos disponíveis | `5253:1429` | 3,46% | 0, 0 | quebras iguais; o bloco do manual fica na mesma altura nos dois cards; o card "Garra dupla" ganhou foto (sem ela a seção dava 2,00%) |
+| 4 | Diferenciais | `5330:679` | 1,31% (com os 9 itens do Figma) | 0, 0 | desde 13/09 são 11 itens: a lista oficial do cliente mais 5 itens do Figma |
+| 5 | Modelos disponíveis | `5253:1429` | 3,46% (antes dos textos oficiais) | 0, 0 | quebras iguais; o bloco do manual fica no fim de cada card; desde 12/09 o Embutido e a "Lombada – Garra dupla" têm os textos oficiais do Unidirecional e do Bidirecional |
 | 6 | Instalações | `5241:591` | 24,53% | 0, 0 | a 2ª foto é a instalação real enviada pelo usuário, e as seguintes andaram uma casa; sem ela a seção dava 0,59% |
 | 7 | Possibilidades de aplicação | `5277:2575` | 1,57% | 0, 0 | quebras dos cards iguais |
 | 8 | Depoimentos | `5241:593` | 2,55% | 0, 0 | título de 40px; avatares em amarelo claro |
@@ -21,7 +21,7 @@ Figma `I7qYIaCi6nFLVWPiu9y1Un`, frame **Produtos > Dilacerador de Pneus** (`5235
 | 10 | CTA | `5241:676` | 0,67% | 0, 0 | igual à home |
 | 11 | Footer | `5235:1166` | 2,16% | 0, 0 | igual à home |
 
-Altura total: Figma 7610,12px, site 7610px. A divergência que sobra é rasterização de texto.
+Altura total: Figma 7610,12px. Site: 7610px com o conteúdo do Figma; desde 13/09, 7848px, com o texto oficial do hero (+54px), os textos oficiais nos modelos (+48px na linha da "Lombada – Garra dupla") e os 11 diferenciais (+136px: uma linha de itens a mais e o item dos módulos em 3 linhas). As medidas das seções depois do hero são de antes dessas mudanças. A divergência que sobra é rasterização de texto.
 
 ## Diferenças justificadas
 
@@ -36,8 +36,13 @@ Altura total: Figma 7610,12px, site 7610px. A divergência que sobra é rasteriz
 | Setas "anterior" dos carrosséis | apagadas no início | ativas desde o início | todos os carrosséis giram sem fim (`main.js`, pedido do usuário) |
 | Faixa à esquerda dos carrosséis | fundo liso | ponta da foto/card anterior | os carrosséis giram sem fim dos dois lados (`main.js`, pedido do usuário) |
 | Carrosséis parados | parados | andam sozinhos a cada 5s; param com o mouse em cima, com o teclado dentro, fora da tela e com "menos movimento" no sistema | pedido do usuário |
-| "Garra dupla" | sem foto, texto "Descrição" | foto do modelo duplo, a mesma da página inicial (`duplo.png`) | pedido do usuário; o texto da descrição continua pendente |
-| "Baixar manual" | — | link `#` | arquivo do manual pendente |
+| "Garra dupla" | sem foto, texto "Descrição" | "Lombada – Garra dupla", como no site atual (equipaseg.com.br), com a foto do modelo duplo (`duplo.png`) e o texto oficial do Bidirecional | pedido do usuário |
+| Textos dos modelos | Embutido com o texto do Figma; Garra dupla com "Descrição" | Embutido com o texto oficial do Unidirecional; "Lombada – Garra dupla" com o texto oficial do Bidirecional | o usuário considera que são os mesmos produtos. Confirmar com a MS Equipaseg: no site atual o Embutido é elétrico ("atua em 1 segundo") e o texto do Unidirecional diz 100% mecânico |
+| Alinhamento do texto dos modelos | à esquerda | justificado; abaixo de 768px volta à esquerda, para não abrir buracos entre as palavras na coluna estreita | pedido do usuário; vale também para a página de Controle de acesso, que usa este CSS |
+| Texto do rodapé | lorem ipsum | "Fabricamos torniquetes, dilaceradores de pneus e totens, além de desenvolver projetos personalizados, com qualidade, inovação e agilidade para proteger sua empresa.", em 5 linhas; o rodapé continua com 665px | parte comum, a pedido do usuário (13/09): primeiro o Mestre trouxe o texto do site atual e depois o chat da Página inicial acrescentou os totens |
+| Diferenciais | 9 itens | 11 itens: primeiro os 6 da lista oficial do cliente, que substituem "portão e ou cancela", "laço detector", "Farol Verde Vermelho" e "Alerta de fechamento"; depois os 5 itens do Figma que não se repetem (controle de acesso, caixa de comando, alarme, CFTV, CLP). Ícones novos: régua (`icon-ruler.svg`) e chave (`icon-wrench.svg`); o escudo reaproveita `icon-escudo.svg` | pedido do usuário |
+| Texto do hero | 4 linhas (texto do Figma) | texto oficial do cliente, em 6 linhas; o hero fica 54px mais alto | pedido do usuário |
+| Botão dos cards de modelo | "Baixar manual", 142px | "Baixar informações" com seta, 188px, que abre a lista Manual, Catálogo e Infraestrutura civil e elétrica | pedido do usuário, igual no Torniquete e no Controle de acesso; os três arquivos ainda estão pendentes (links `#`) |
 | 1425px úteis (barra de rolagem do Windows) | — | a 2ª resposta das perguntas quebra em 2 linhas | faltam 15px na caixa; com 1440px úteis fica igual |
 
 ## Abaixo de 1440px
@@ -50,4 +55,4 @@ Abaixo de ~1360px o 3º card dos depoimentos fica cortado na borda, porque os ca
 
 - 46 imagens com resposta 200; console sem erros.
 - Galerias: avançam 437px por clique; pontos e setas atualizam. Perguntas abrem e fecham.
-- Arquivos novos: fotos em `seed/` (`dilacerador-hero.jpg`, `instalacao-cancela.jpg`, `instalacao-cancela-2.jpg`, `aplicacao-*.jpg`, `modelo-embutido.png`, `modelo-lombada.png`) e SVGs em `images/` (`icon-fence.svg`, `icon-arrow-down-up.svg`, `icon-bell-electric.svg`, `icon-app-window-mac.svg`, `icon-car.svg`, `icon-siren.svg`, `icon-cctv.svg`, `icon-circuit-board.svg`, `icon-chevron-left-dim.svg`, `icon-chevron-down-gray.svg`, `cta-shape-white-160.svg`, `cta-shape-142.svg`, `pattern-elipses-modelo.svg`, `faq-ilustracao.svg`).
+- Arquivos novos: fotos em `seed/` (`dilacerador-hero.jpg`, `instalacao-cancela.jpg`, `instalacao-cancela-2.jpg`, `aplicacao-*.jpg`, `modelo-embutido.png`, `modelo-lombada.png`) e SVGs em `images/` (`icon-fence.svg`, `icon-ruler.svg`, `icon-wrench.svg`, `icon-arrow-down-up.svg`, `icon-bell-electric.svg`, `icon-app-window-mac.svg`, `icon-car.svg`, `icon-siren.svg`, `icon-cctv.svg`, `icon-circuit-board.svg`, `icon-chevron-left-dim.svg`, `icon-chevron-down-gray.svg`, `cta-shape-white-160.svg`, `cta-shape-142.svg`, `pattern-elipses-modelo.svg`, `faq-ilustracao.svg`).

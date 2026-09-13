@@ -19,6 +19,24 @@
   width: 224.639px;
 }
 
+/* Torniquete · Diferenciais — título e texto do card com foto. Fora do Figma, a pedido do usuário
+   (13/09/2026); o card com foto fica no main.css. */
+
+.bento-card--foto .bento-card__corpo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bento-card--foto .bento-card__titulo {
+  color: var(--color-white);
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 27px;
+  letter-spacing: var(--tracking);
+}
+
 /* Torniquete · Outros modelos — Figma 5277:2731 */
 
 .modelos-torniquete__inner {
@@ -28,9 +46,11 @@
   padding-block: 120px;
 }
 
+/* Os textos dos dois modelos têm tamanhos diferentes: os cards esticam até a mesma altura e a
+   faixa preta desce para o pé, então as bordas terminam juntas. */
 .modelos-torniquete__grid {
   display: flex;
-  align-items: flex-start;
+  align-items: stretch;
   gap: 48px;
 }
 
@@ -47,7 +67,9 @@
 
 .modelo-torniquete__content {
   display: flex;
+  flex: 1 1 auto;
   flex-direction: column;
+  justify-content: space-between;
   gap: 32px;
 }
 
@@ -55,12 +77,6 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-}
-
-/* No Figma o segundo card usa 24px entre todos os blocos. */
-.modelo-torniquete--duplo .modelo-torniquete__content,
-.modelo-torniquete--duplo .modelo-torniquete__text {
-  gap: 24px;
 }
 
 .modelo-torniquete__title {

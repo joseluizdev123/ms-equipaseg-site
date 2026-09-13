@@ -227,6 +227,47 @@ document.querySelectorAll('[data-video]').forEach((capa) => {
   });
 });
 
+// Botão "Baixar informações" dos cards de modelo: abre um menu por vez, que fecha com clique fora,
+// com Esc e depois de escolher uma opção.
+const menusBaixar = [...document.querySelectorAll('details[data-menu-baixar]')];
+
+menusBaixar.forEach((menu) => {
+  const lista = menu.querySelector('.menu-baixar__lista');
+
+  menu.addEventListener('toggle', () => {
+    if (!menu.open) return;
+    menusBaixar.forEach((outro) => {
+      if (outro !== menu) outro.open = false;
+    });
+    // A lista abre alinhada à direita do botão; se isso a jogar para fora da tela, abre para a direita.
+    lista.classList.remove('menu-baixar__lista--direita');
+    if (lista.getBoundingClientRect().left < 0) lista.classList.add('menu-baixar__lista--direita');
+  });
+
+  menu.querySelectorAll('a').forEach((opcao) => {
+    opcao.addEventListener('click', () => {
+      menu.open = false;
+    });
+  });
+});
+
+if (menusBaixar.length) {
+  document.addEventListener('click', (evento) => {
+    menusBaixar.forEach((menu) => {
+      if (menu.open && !menu.contains(evento.target)) menu.open = false;
+    });
+  });
+
+  document.addEventListener('keydown', (evento) => {
+    if (evento.key !== 'Escape') return;
+    menusBaixar.forEach((menu) => {
+      if (!menu.open) return;
+      menu.open = false;
+      menu.querySelector('summary').focus();
+    });
+  });
+}
+
 // Menu do mobile: abaixo de 860px o botão do header abre e fecha a lista de links.
 document.querySelectorAll('[data-menu-toggle]').forEach((toggle) => {
   const header = toggle.closest('.site-header');

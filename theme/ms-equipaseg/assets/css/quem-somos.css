@@ -50,6 +50,7 @@
   font-size: 40px;
   font-weight: 700;
   line-height: 53px;
+  text-wrap: balance;
 }
 
 /* Sem letter-spacing no Figma, ao contrário dos outros textos em Inter. */
@@ -69,6 +70,65 @@
 
 .historia__col p + p {
   margin-top: 20px;
+}
+
+/* Quem somos · Soluções — sem frame no Figma: texto enviado pelo usuário em 13/09/2026.
+   Colunas como em "O que nos move": 492px, vão de 100px e o resto para o texto. */
+
+.solucoes {
+  border-top: 1px solid var(--gray-03);
+}
+
+.solucoes__inner {
+  display: flex;
+  align-items: flex-start;
+  gap: 100px;
+  /* 100px como nas outras seções; 1px é a borda superior. */
+  padding-block: 99px 100px;
+}
+
+.solucoes__title {
+  flex: 0 1 492px;
+  min-width: 0;
+  text-wrap: balance;
+}
+
+.solucoes__body {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 0;
+  color: var(--gray-06);
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: var(--tracking);
+}
+
+.solucoes__equipamentos {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.solucoes__lead {
+  color: var(--color-ink);
+  font-weight: 600;
+}
+
+/* Ícone quadrado, como nos valores; texto no tamanho do corpo, com a 1ª linha centrada no ícone de 36px. */
+.solucoes .feature-list__item {
+  align-items: flex-start;
+}
+
+.solucoes .feature-list__icon {
+  border-radius: 0;
+}
+
+.solucoes .feature-list__text {
+  font-size: 16px;
+  line-height: 24px;
+  padding-top: 6px;
 }
 
 /* Quem somos · O que nos move — Figma 5235:1481 */
@@ -190,6 +250,77 @@
 .valores__icon img {
   width: 20px;
   height: 20px;
+}
+
+/* Quem somos · Por que escolher — sem frame no Figma: texto enviado pelo usuário em 13/09/2026.
+   Cards no desenho dos "Diferenciais" (Figma 5241:552): ícone de 56px, respiro de 24px e 32px entre cards. */
+
+.escolher {
+  border-top: 1px solid var(--gray-03);
+}
+
+.escolher__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--content-gap);
+  /* 100px como nas outras seções; 1px é a borda superior. */
+  padding-block: 99px 100px;
+}
+
+/* Seis colunas: os 3 primeiros cards ocupam 2 cada (405px) e os 2 últimos, 3 cada (624px). */
+.escolher__list {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 32px;
+}
+
+.escolher__item {
+  display: flex;
+  grid-column: span 2;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+  padding: 24px;
+  background: var(--color-surface);
+}
+
+.escolher__item:nth-child(n + 4) {
+  grid-column: span 3;
+}
+
+.escolher__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  background: var(--color-yellow-soft);
+}
+
+.escolher__icon img {
+  width: 24px;
+  height: 24px;
+}
+
+.escolher__text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.escolher__nome {
+  color: var(--color-ink);
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 27px;
+}
+
+.escolher__desc {
+  color: var(--gray-06);
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: var(--tracking);
 }
 
 /* Quem somos · Nossos números — Figma 5235:1508 */
@@ -347,9 +478,42 @@
   .marcos__item {
     flex: 1 1 320px;
   }
+  .solucoes__inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+  }
+
+  .solucoes__title,
+  .solucoes__body {
+    flex: none;
+  }
+}
+
+@media (max-width: 1023px) {
+  .escolher__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .escolher__item,
+  .escolher__item:nth-child(n + 4) {
+    grid-column: auto;
+  }
+
+  .escolher__item:last-child {
+    grid-column: 1 / -1;
+  }
 }
 
 @media (max-width: 767px) {
+  .escolher__list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .escolher__item:last-child {
+    grid-column: auto;
+  }
+
   .mvv-card__title,
   .valores__title,
   .marcos__title,

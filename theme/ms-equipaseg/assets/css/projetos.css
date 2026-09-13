@@ -2,9 +2,24 @@
  * MS Equipaseg — página "Projetos". Carregado depois do main.css.
  * Medidas transcritas do Figma I7qYIaCi6nFLVWPiu9y1Un, frame 5278:2809. O frame está nomeado
  * "Produtos > Torniquete" no arquivo, mas é a página Projetos: o hero diz "Projetos".
- * Hero, diferenciais, foto de produto, card de destaque, galeria, depoimentos, FAQ, CTA e rodapé
- * vêm do main.css.
+ * Hero, diferenciais, foto de produto, card de destaque, galeria, CTA e rodapé vêm do main.css.
  */
+
+/* Projetos · Hero — Figma 5278:2824. O título do Figma, "Projetos", cabia na caixa de 492px;
+ * o título novo, pedido pelo usuário, usa a largura do texto abaixo (610px) e fica em 2 linhas. */
+
+.hero-produto--projetos .hero-produto__title {
+  width: 610px;
+}
+
+/* Abaixo de 480px, "Desenvolvimento" em 48px (390px de largura) não cabe no container e cria
+ * rolagem lateral: a fonte acompanha a largura da tela. */
+@media (max-width: 479px) {
+  .hero-produto--projetos .hero-produto__title {
+    font-size: min(48px, calc((100vw - 48px) / 8.5));
+    line-height: 1.33;
+  }
+}
 
 /* Projetos · Diferenciais — largura da caixa de texto no Figma (define as quebras). */
 
@@ -21,10 +36,4 @@
 /* No Figma a segunda foto tem 405px e as outras, 406px. */
 .galeria--projetos .galeria__item:nth-child(2) {
   width: 405px;
-}
-
-/* Projetos · Depoimentos — Figma 5278:3030: avatares em amarelo claro. */
-
-.depoimentos--projetos .depoimento__avatar {
-  background: var(--color-yellow-pale);
 }
