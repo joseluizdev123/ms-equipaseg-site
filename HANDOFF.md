@@ -120,7 +120,13 @@ node tools/serve.mjs
 - Nome do modelo com garra dupla: "Lombada – Garra dupla" na página do Dilacerador (igual ao site atual) e "Duplo" na galeria da home. Decidir se alinha.
 - Favicon: o site não tem, e todas as páginas dão 404 em `/favicon.ico` no console. Falta escolher o ícone (dá para sair do logo).
 - Nome do produto Totem: "Controle de acesso" no menu das 8 páginas, "Totem" na home, "Totem de Acesso" na produtos-alfa e "Totens para Controle de Acesso" na própria página. Decidir um nome só.
-- Rolagem lateral no celular (medida em 14/09/2026, depois da escala de letras): o Torniquete rola 222px em 390px e 252px em 360px, por causa das fotos de 515px dos cards de "Outros modelos" (`.foto-produto`). Em 320px: Projetos 24px (shape de 296px do "Lançamento"), Página inicial 7px, as outras 2px. Nenhum texto passa da sua caixa em 320, 360, 375 e 390px. Aguardando o ok do usuário para corrigir o Torniquete.
+- Rolagem lateral no celular: corrigida em 14/09/2026 com o ok do usuário. Medida nas 8 páginas em 320, 360, 375, 390, 414 e 767px: tudo 0, menos a Página inicial em 320px (7px). Computador e tablet (1440 e 1024) ficaram iguais, com 0% de diferença. O que mudou, só abaixo de 768px:
+  - `torniquete.css`: `.modelos-torniquete__grid` com `flex-wrap: nowrap`. Com wrap, a coluna de cards ficava com 588px.
+  - `main.css`: `.foto-produto` segue a largura do card na proporção 515:500, e o recorte e o círculo encolhem junto. Vale para Torniquete e Projetos.
+  - `main.css`: o círculo para 4px antes do recorte amarelo.
+  - `main.css`: `.menu-baixar` encolhe até a faixa preta em telas de 320 a 355px.
+  - `main.css`: `.site-footer__desc` virou `max-width: 298px`.
+  - Falta a Página inicial em 320px, que é do chat da Página inicial: os `li` da `.videos__lista` com `minmax(300px, 1fr)` e a `.numeros__list` com 303px.
 - Fotos de instalação: as galerias "Instalações" do Dilacerador, do Torniquete e dos Totens mostram as mesmas 13 fotos da cliente (`seed/instalacao-01.jpg` a `-13.jpg`, na numeração dela), com o mesmo visual escuro, a pedido do usuário em 13/09/2026. Ainda não há fotos só de totens.
 
 ## Primeiros passos

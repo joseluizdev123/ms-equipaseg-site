@@ -165,6 +165,12 @@
 }
 
 @media (max-width: 767px) {
+  /* Com várias linhas, a coluna de cards ficava da largura do conteúdo (588px) e passava da tela; numa linha só,
+     os cards acompanham a largura da tela. */
+  .modelos-torniquete__grid {
+    flex-wrap: nowrap;
+  }
+
   .modelo-torniquete__manual {
     flex-direction: column;
     align-items: flex-start;

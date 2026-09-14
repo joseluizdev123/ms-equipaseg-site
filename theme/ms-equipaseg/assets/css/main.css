@@ -2624,6 +2624,37 @@ svg {
   .destaque__title {
     height: auto;
   }
+
+  /* Foto de produto com recorte (Torniquete e Projetos): no celular a foto acompanha a largura do card, na proporção
+     do Figma (515×500), e o recorte amarelo e o círculo encolhem junto, sem passar da tela. */
+  .foto-produto {
+    height: auto;
+    aspect-ratio: 515 / 500;
+  }
+
+  .foto-produto__shape {
+    width: min(296px, 100%);
+    height: auto;
+  }
+
+  /* O terceiro limite deixa 4px entre o fim do círculo e o começo do recorte amarelo (sem ele, encostavam de 360 a 390px). */
+  .foto-produto__circulo {
+    width: min(224px, calc(100% - 52px), calc(84.8% - 20px));
+    height: auto;
+  }
+
+  /* "Baixar informações" tem 188px e passava da faixa preta dos cards em telas de 320 a 355px. O rótulo e a seta
+     somam 144px, então o botão encolhe até a faixa; o fundo estica junto (100% 100%). */
+  .menu-baixar,
+  .menu-baixar__botao.cta--xs {
+    max-width: 100%;
+  }
+
+  /* O texto do rodapé tinha 298px fixos e passava da tela em 320px. */
+  .site-footer__desc {
+    width: auto;
+    max-width: 298px;
+  }
 }
 
 /* Tipografia no celular (pedido do usuário, 14/09/2026): a mesma escala do site atual (equipaseg.com.br) —
