@@ -76,7 +76,7 @@ O Figma só tem a versão de 1440px. As regras fluidas não alteram nada em 1440
 - até 859: menu principal escondido;
 - até 767: listas em uma coluna, foto do CTA oculta.
 
-Sem rolagem lateral medida em 1440, 1366, 1280, 1024, 768 e 390px. Mobile de verdade (menu recolhível, tipografia e espaçamentos) depende de layout ou decisão: pendente.
+Sem rolagem lateral medida em 1440, 1366, 1280, 1024, 768 e 390px. No celular já existem o menu recolhível (botão de três barras abaixo de 860px) e a escala de letras do site atual (bloco `@media (max-width: 767px)` no fim do `main.css`, com `:root` na frente de cada regra; conferido na home em 360 e 390px em 14/09/2026: título dos vídeos com 28px e quebrado em 2 linhas, título do card 24px, etiqueta 18px, título de clientes 20px, nenhum texto passando da própria caixa e sem rolagem lateral. O `.section-title` tem altura fixa de 43px no desktop e `height: auto` no celular; sem isso, a 2ª linha do título dos vídeos passava 31px por cima das capas). Espaçamentos próprios de celular continuam pendentes. Ao criar ou mudar um `font-size` de desktop na home, pôr a versão de celular nesse bloco.
 
 ## Smoke test
 

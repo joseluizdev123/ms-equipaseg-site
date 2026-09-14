@@ -330,6 +330,11 @@
     height: auto;
   }
 
+  /* Em telas estreitas o título pode quebrar em duas linhas ("Lombada – Garra dupla" em 360px): a altura fixa do desktop não pode prender o texto. */
+  .modelo__title {
+    height: auto;
+  }
+
   /* Coluna estreita: justificado abre buracos entre as palavras. */
   .modelo__desc {
     text-align: left;

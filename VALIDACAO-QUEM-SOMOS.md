@@ -52,7 +52,7 @@ Altura total: Figma 3383,12px, site 3383px. A divergência que sobra é rasteriz
 
 ## Abaixo de 1440px
 
-Sem rolagem lateral em 1440, 1366, 1280, 1024, 768 e 390px. Até 1279px, missão e visão ficam acima dos valores e os números quebram em linhas; até 767px, os valores empilham. Abaixo de 860px o menu vira botão de três barras (header comum): conferido em 390px, abre e fecha no clique, sem rolagem lateral. Soluções empilha (título em cima) até 1279px; os cards de Por que escolher ficam em 2 colunas até 1023px, com o último ocupando a linha, e em 1 coluna até 767px. Conferido sem rolagem lateral em 1280, 1024, 768 e 390px em 13/09/2026.
+Sem rolagem lateral em 1440, 1366, 1280, 1024, 768 e 390px. Até 1279px, missão e visão ficam acima dos valores e os números quebram em linhas; até 767px, os valores empilham. Abaixo de 860px o menu vira botão de três barras (header comum): conferido em 390px, abre e fecha no clique, sem rolagem lateral. Soluções empilha (título em cima) até 1279px; os cards de Por que escolher ficam em 2 colunas até 1023px, com o último ocupando a linha, e em 1 coluna até 767px. Conferido sem rolagem lateral em 1280, 1024, 768 e 390px em 13/09/2026. Até 767px as letras seguem a escala do site atual, num bloco comum no fim do main.css (pedido do usuário em 14/09/2026): em 390px o título do topo fica com 32px, os títulos de seção com 28px, os nomes dos cards com 18px e os textos de 16px com 15px; a página fica com 8285px (8290px antes do título "O que nos move" perder a altura fixa em 14/09/2026), sem rolagem lateral, e o ícone da lista de Soluções fica 0,5px abaixo do centro da 1ª linha.
 
 ## Smoke test
 

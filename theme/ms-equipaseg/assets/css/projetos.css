@@ -12,11 +12,10 @@
   width: 610px;
 }
 
-/* Abaixo de 480px, "Desenvolvimento" em 48px (390px de largura) não cabe no container e cria
- * rolagem lateral: a fonte acompanha a largura da tela. */
+/* Abaixo de 480px o tamanho do título vem do bloco de celular do main.css: no máximo 32px e menor
+ * só abaixo de 320px, para "Desenvolvimento" caber. Aqui fica a entrelinha proporcional à fonte. */
 @media (max-width: 479px) {
   .hero-produto--projetos .hero-produto__title {
-    font-size: min(48px, calc((100vw - 48px) / 8.5));
     line-height: 1.33;
   }
 }

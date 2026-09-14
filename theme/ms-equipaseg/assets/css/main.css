@@ -2617,4 +2617,411 @@ svg {
   .site-footer__credits p {
     white-space: normal;
   }
+
+  /* Títulos com altura fixa do Figma: no celular, quando quebram em duas linhas, passavam por cima do conteúdo
+     ("Vídeos dos produtos em funcionamento" em 360px). A caixa acompanha o texto. */
+  .section-title,
+  .destaque__title {
+    height: auto;
+  }
+}
+
+/* Tipografia no celular (pedido do usuário, 14/09/2026): a mesma escala do site atual (equipaseg.com.br) —
+   48→32, 40→28, 32→24, 24→20, 20→18, 18→16 e 16→15px; 15px ou menos fica igual. Gerado a partir de todas as
+   regras de desktop do main.css e dos CSS das páginas, na mesma ordem. O ":root" na frente de cada regra vence a
+   original sem depender da ordem dos arquivos; as de 15px ou menos também entram, para que as variações menores
+   (.cta--xs, .btn-solid--xs…) continuem vencendo a regra-base. O cabeçalho fica como está. Não vale em 768px ou mais. */
+@media (max-width: 767px) {
+  :root body {
+    font-size: 15px;
+  }
+
+  :root .btn-solid {
+    font-size: 16px;
+  }
+
+  :root .btn-solid--sm {
+    font-size: 14px;
+  }
+
+  :root .btn-solid--xs {
+    font-size: 14px;
+  }
+
+  :root .btn-ghost {
+    font-size: 16px;
+  }
+
+  :root .cta {
+    font-size: 16px;
+  }
+
+  :root .cta--sm {
+    font-size: 15px;
+  }
+
+  :root .cta--xs {
+    font-size: 14px;
+  }
+
+  :root .hero__title {
+    font-size: 32px;
+    line-height: 43px;
+  }
+
+  :root .hero__subtitle {
+    font-size: 16px;
+  }
+
+  :root .clientes__title {
+    font-size: 20px;
+    line-height: 27px;
+  }
+
+  :root .section-title {
+    font-size: 28px;
+    line-height: 37px;
+  }
+
+  :root .titulo-secao {
+    font-size: 28px;
+    line-height: 37px;
+  }
+
+  :root .feature-card__title {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  :root .feature-card__desc {
+    font-size: 15px;
+    line-height: 23px;
+  }
+
+  :root .feature-list__text {
+    font-size: 15px;
+  }
+
+  :root .feature-list--stack .feature-list__text {
+    font-size: 15px;
+    line-height: 18px;
+  }
+
+  :root .feature-media__tag {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  :root .sobre__title {
+    font-size: 28px;
+    line-height: 37px;
+  }
+
+  :root .sobre__body {
+    font-size: 15px;
+    line-height: 23px;
+  }
+
+  :root .numeros__title {
+    font-size: 20px;
+    line-height: 27px;
+  }
+
+  :root .numeros__text {
+    font-size: 15px;
+    line-height: 18px;
+  }
+
+  :root .depoimentos__title {
+    font-size: 24px;
+    line-height: 34px;
+  }
+
+  :root .depoimentos__intro {
+    font-size: 15px;
+    line-height: 23px;
+  }
+
+  :root .depoimento__quote {
+    font-size: 15px;
+    line-height: 23px;
+  }
+
+  :root .depoimento__nome {
+    font-size: 15px;
+    line-height: 24px;
+  }
+
+  :root .depoimento__cargo {
+    font-size: 14px;
+  }
+
+  :root .cta-final__title {
+    font-size: 32px;
+    line-height: 45px;
+  }
+
+  :root .cta-final__desc {
+    font-size: 15px;
+    line-height: 23px;
+  }
+
+  :root .social__link {
+    font-size: 15px;
+    line-height: 23px;
+  }
+
+  :root .site-footer__desc {
+    font-size: 14px;
+  }
+
+  :root .footer-col__title {
+    font-size: 15px;
+    line-height: 23px;
+  }
+
+  :root .footer-col__list a,
+  :root .footer-contact__item {
+    font-size: 14px;
+  }
+
+  :root .site-footer__credits {
+    font-size: 14px;
+  }
+
+  :root .galeria__desc {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  :root .galeria__card-title {
+    font-size: 16px;
+    line-height: 21px;
+  }
+
+  :root .galeria__card-text {
+    font-size: 15px;
+    line-height: 23px;
+  }
+
+  :root .faq__title {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  :root .faq__question {
+    font-size: 16px;
+    line-height: 25px;
+  }
+
+  :root .faq__answer {
+    font-size: 15px;
+    line-height: 23px;
+  }
+
+  :root .titulo-secao--32 {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  :root .hero-produto__title {
+    font-size: 32px;
+    line-height: 43px;
+  }
+
+  :root .hero-produto__desc {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  :root .bento-card {
+    font-size: 15px;
+    line-height: 23px;
+  }
+
+  :root .destaque__title {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  :root .destaque__desc {
+    font-size: 15px;
+    line-height: 23px;
+  }
+
+  :root .page-content__body {
+    font-size: 15px;
+  }
+
+  :root .contato-hero__title {
+    font-size: 28px;
+    line-height: 37px;
+  }
+
+  :root .contato-hero__desc {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  :root .contatos__text {
+    font-size: 15px;
+    line-height: 23px;
+  }
+
+  :root .form-contato__label {
+    font-size: 15px;
+    line-height: 20px;
+  }
+
+  :root .form-contato__input,
+  :root .form-contato__textarea {
+    font-size: 14px;
+  }
+
+  :root .form-contato__aviso {
+    font-size: 14px;
+  }
+
+  :root .mapa__endereco {
+    font-size: 15px;
+    line-height: 23px;
+  }
+
+  :root .produto-hero__title {
+    font-size: 32px;
+    line-height: 43px;
+  }
+
+  :root .produto-hero__desc {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  :root .diferencial {
+    font-size: 15px;
+    line-height: 23px;
+  }
+
+  :root .modelo__title {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  :root .modelo__desc {
+    font-size: 15px;
+    line-height: 23px;
+  }
+
+  :root .modelo__manual-text {
+    font-size: 15px;
+    line-height: 23px;
+  }
+
+  :root .depoimentos--produto .depoimentos__title {
+    font-size: 28px;
+    line-height: 39px;
+  }
+
+  :root .intro__title {
+    font-size: 32px;
+    line-height: 43px;
+  }
+
+  :root .intro__desc {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  :root .historia__title {
+    font-size: 28px;
+    line-height: 37px;
+  }
+
+  :root .historia__cols {
+    font-size: 15px;
+    line-height: 23px;
+  }
+
+  :root .solucoes__body {
+    font-size: 15px;
+    line-height: 23px;
+  }
+
+  :root .solucoes .feature-list__text {
+    font-size: 15px;
+    line-height: 23px;
+  }
+
+  :root .mvv-card__title,
+  :root .valores__title {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  :root .mvv-card__text {
+    font-size: 15px;
+    line-height: 23px;
+  }
+
+  :root .valores__nome {
+    font-size: 15px;
+    line-height: 20px;
+  }
+
+  :root .valores__desc {
+    font-size: 15px;
+    line-height: 23px;
+  }
+
+  :root .escolher__nome {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  :root .escolher__desc {
+    font-size: 15px;
+    line-height: 23px;
+  }
+
+  :root .marcos__title {
+    font-size: 28px;
+    line-height: 37px;
+  }
+
+  :root .marcos__desc {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  :root .marcos__label {
+    font-size: 15px;
+    line-height: 18px;
+  }
+
+  :root .bento-card--foto .bento-card__titulo {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  :root .modelo-torniquete__title {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  :root .modelo-torniquete__desc {
+    font-size: 15px;
+    line-height: 23px;
+  }
+
+  :root .modelo-torniquete__manual-text {
+    font-size: 15px;
+    line-height: 23px;
+  }
+}
+
+/* O título longo do Projetos já encolhia com a tela abaixo de 480px: continua fluido, mas no máximo 32px. */
+@media (max-width: 479px) {
+  :root .hero-produto--projetos .hero-produto__title {
+    font-size: min(32px, calc((100vw - 48px) / 8.5));
+  }
 }

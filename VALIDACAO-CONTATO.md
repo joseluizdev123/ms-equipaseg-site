@@ -50,6 +50,8 @@ Header mobile (parte comum, 12/09/2026): até 859px ficam logo + botão de menu.
 
 Corrigido (14/09/2026), a pedido do usuário: desde o endereço com CEP, entre 768 e cerca de 1020px o endereço não quebrava linha e empurrava o botão "Ver no maps" para fora do cartão — em 844×390 a página rolava 100px para o lado e em 768px, 171px. O cartão agora é centralizado pelas margens (`left: calc(var(--section-px) + 1px); right: var(--section-px); width: fit-content; margin-inline: auto`, sem `transform` nem `max-width`) e o endereço tem `min-width: 0`, sem `nowrap`. Conferido em 1440, 1100, 1024, 900, 844×390, 768 e 390px: nada passa da tela e o botão fica 24px dentro do cartão. Em 1440 o cartão continua 905,1×77 em x 260,4; o mapa foi de 1,818% para 1,812% e a página inteira de 2,339% para 2,338%. Entre o screenshot de antes e o de depois mudaram só 259px (0,006%), de suavização do texto e do botão dentro do cartão, sem deslocamento. Comparativo em `_ref/diff/contato-mapa-botao-corrigido.png`.
 
+Letras no celular (parte comum, 14/09/2026): até 767px, o bloco do fim do `main.css` reduz os textos desta página — título 40→28px, descrição 18→16px, contatos, rótulos do formulário e endereço do mapa 16→15px; campos e aviso continuam em 14px. Conferido em 390 e 360px: tamanhos certos e nada passa da tela; em 768px continuam os tamanhos de desktop. Um `font-size` de desktop novo no `contato.css` precisa da versão de celular nesse bloco, com `:root` na frente. No Browser do app, a tela simulada em 767px não liga as regras de até 767px (em 766px liga): é a simulação, não o CSS.
+
 ## Smoke test
 
 Console sem erros. Ícones novos: `icon-email.svg`, `icon-endereco.svg`, `icon-whatsapp-contato.svg`, `icon-pin.svg`. Imagens novas: `mapa.png` e `contato-ilustracao.png`.
