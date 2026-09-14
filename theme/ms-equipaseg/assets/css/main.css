@@ -1129,7 +1129,8 @@ svg {
 .videos__lista {
   display: grid;
   /* Três colunas em 1440px; vira duas e depois uma quando falta largura. */
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  /* min(300px, 100%): em telas de 320px a coluna encolhe junto com a área útil, sem rolagem lateral. */
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
   gap: 32px;
   padding-bottom: 100px;
 }
@@ -2607,6 +2608,18 @@ svg {
   .sobre__media {
     width: 100%;
     opacity: 0.35;
+  }
+
+  /* Nossos números: no celular os itens ficam um embaixo do outro. Sem o traço vertical da direita (só faz sentido
+     com os itens lado a lado) e com o texto podendo quebrar, "+100.000 produtos fabricados" cabe em 320px.
+     pre-wrap mantém o espaço duplo do Figma em "+20  estados". */
+  .numeros__item:not(:last-child) {
+    padding-right: 0;
+    border-right: 0;
+  }
+
+  .numeros__text {
+    white-space: pre-wrap;
   }
 
   .cta-final__media {

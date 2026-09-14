@@ -239,9 +239,14 @@ menusBaixar.forEach((menu) => {
     menusBaixar.forEach((outro) => {
       if (outro !== menu) outro.open = false;
     });
-    // A lista abre alinhada à direita do botão; se isso a jogar para fora da tela, abre para a direita.
+    // A lista abre alinhada à direita do botão; se isso a jogar para fora da tela (ou a menos de 8px da borda),
+    // abre para a direita.
     lista.classList.remove('menu-baixar__lista--direita');
-    if (lista.getBoundingClientRect().left < 0) lista.classList.add('menu-baixar__lista--direita');
+    lista.style.removeProperty('left');
+    if (lista.getBoundingClientRect().left < 8) lista.classList.add('menu-baixar__lista--direita');
+    // Em telas muito estreitas (320px) nenhum dos dois lados tem espaço: a lista volta para dentro da tela.
+    const passa = lista.getBoundingClientRect().right - (document.documentElement.clientWidth - 8);
+    if (passa > 0) lista.style.left = `${-passa}px`;
   });
 
   menu.querySelectorAll('a').forEach((opcao) => {
