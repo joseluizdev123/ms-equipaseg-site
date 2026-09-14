@@ -40,6 +40,7 @@
   --color-overlay: rgba(0, 0, 0, 0.2);
   --color-line-clara: rgba(255, 255, 255, 0.15);
   --color-input-bg: #212121;
+  --color-whatsapp: #25d366;
   --gray-01: #f2f4f7;
   --gray-02: #eaecf0;
   --gray-03: #d0d5dd;
@@ -243,6 +244,54 @@ svg {
 
 .btn-ghost:active {
   background-color: var(--color-line-dark-hover);
+}
+
+/* Botão flutuante do WhatsApp (igual ao site atual, pedido do usuário em 14/09/2026): fica no canto de baixo em todas
+   as páginas e acompanha a rolagem. z-index abaixo do cabeçalho fixo (100), para o menu aberto ficar por cima. */
+.whatsapp-flutuante {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 90;
+  display: grid;
+  place-items: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--color-whatsapp);
+  box-shadow: 0 6px 16px var(--color-overlay);
+  transition: transform 0.2s ease, filter 0.2s ease, opacity 0.2s ease, visibility 0.2s;
+}
+
+.whatsapp-flutuante img {
+  width: 30px;
+  height: 30px;
+}
+
+@media (hover: hover) {
+  .whatsapp-flutuante:hover {
+    filter: brightness(1.06);
+    transform: translateY(-2px);
+  }
+}
+
+.whatsapp-flutuante:active {
+  filter: brightness(0.94);
+  transform: translateY(1px);
+}
+
+/* No fim da página o botão sai de cena: ali ele cobria o "Desenvolvido por Artemis" dos créditos (4px em 1440,
+   41px em 768 e 30px em 320). O main.js liga a classe enquanto os créditos estão na tela. */
+.whatsapp-flutuante--escondido {
+  opacity: 0;
+  visibility: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html .whatsapp-flutuante:hover,
+  html .whatsapp-flutuante:active {
+    transform: none;
+  }
 }
 
 /* CTA recortado (Figma "CTA" 5288:1543): shape exportado do Figma como fundo. */
@@ -2448,9 +2497,10 @@ svg {
 }
 
 @media (max-width: 1279px) {
+  /* Empilhado: texto, lista e botão primeiro e as fotos embaixo, como no site atual (pedido do usuário em 14/09/2026). */
   .feature-card,
   .feature-card--media-left {
-    flex-direction: column-reverse;
+    flex-direction: column;
     align-items: stretch;
     gap: 40px;
     width: auto;
@@ -2605,9 +2655,86 @@ svg {
     gap: 16px;
   }
 
-  .sobre__media {
+  /* Celular igual ao site atual (pedido do usuário em 14/09/2026): texto e botão primeiro, foto depois, nunca texto
+     por cima de foto. */
+
+  /* Topo: fundo preto com o texto e o botão; a foto vem embaixo, na largura toda, com as formas amarelas no pé.
+     O topo sem foto (página Produtos) não ganha a caixa. */
+  .hero {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero__container {
+    order: 1;
+    padding-block: 56px 44px;
+  }
+
+  .hero__media:not(.hero__media--vazio) {
+    position: relative;
+    order: 2;
     width: 100%;
-    opacity: 0.35;
+    height: auto;
+    aspect-ratio: 390 / 340;
+  }
+
+  .hero__media:not(.hero__media--vazio)::after {
+    background: linear-gradient(to bottom, var(--color-black) 0%, var(--color-black-transparent) 28%);
+  }
+
+  .hero__bg {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Fotos dos cards numa caixa quadrada na largura do card (no desktop, 515×500). O recorte do torniquete e as
+     elipses escalam junto: 517/500 = 103,4% de altura; elipses de 1338px = 259,8% da largura. */
+  .feature-media {
+    height: auto;
+    aspect-ratio: 1;
+  }
+
+  .feature-media--cutout .feature-media__slide {
+    top: -0.84%;
+    height: 103.4%;
+  }
+
+  .feature-media__pattern {
+    top: 4%;
+    left: -79.9%;
+    width: 259.8%;
+    height: auto;
+  }
+
+  .feature-media__tag {
+    top: 16px;
+    right: 16px;
+  }
+
+  /* Sobre nós: texto, botão e números primeiro; a foto vem embaixo, na largura toda, e só o topo dela escurece
+     para emendar com o fundo. */
+  .sobre {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sobre__container {
+    order: 1;
+    padding-block: 64px 56px;
+  }
+
+  .sobre__media {
+    position: relative;
+    order: 2;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 390 / 334;
+  }
+
+  .sobre__media::after {
+    background: linear-gradient(to bottom, var(--color-ink) 0%, var(--color-ink-transparent) 30%);
   }
 
   /* Nossos números: no celular os itens ficam um embaixo do outro. Sem o traço vertical da direita (só faz sentido
@@ -2622,8 +2749,60 @@ svg {
     white-space: pre-wrap;
   }
 
+  /* Faixa "Fale agora com um consultor": a foto aparece embaixo do botão, na largura toda, sem os quadradinhos
+     decorativos do desktop. */
+  .cta-final {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cta-final__content {
+    padding-block: 56px 48px;
+  }
+
   .cta-final__media {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    aspect-ratio: 390 / 292;
+  }
+
+  .cta-final__square {
     display: none;
+  }
+
+  /* Rodapé: tudo numa coluna só, com as redes sociais em duas colunas. */
+  .site-footer__top {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 32px;
+  }
+
+  .site-footer__logo {
+    align-self: flex-start;
+  }
+
+  .social {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .site-footer__cols {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .whatsapp-flutuante {
+    right: 16px;
+    bottom: 16px;
+    width: 56px;
+    height: 56px;
+  }
+
+  .whatsapp-flutuante img {
+    width: 28px;
+    height: 28px;
   }
 
   /* Os créditos do rodapé não cabem numa linha só em telas estreitas (em 360px passavam da tela). */

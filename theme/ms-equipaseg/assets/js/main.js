@@ -284,3 +284,15 @@ document.querySelectorAll('[data-menu-toggle]').forEach((toggle) => {
     toggle.setAttribute('aria-label', aberto ? 'Fechar menu' : 'Abrir menu');
   });
 });
+
+// Botão flutuante do WhatsApp: sai de cena enquanto os créditos do rodapé estão na tela, onde ele cobriria o
+// "Desenvolvido por Artemis".
+const whatsappFlutuante = document.querySelector('.whatsapp-flutuante');
+const creditosRodape = document.querySelector('.site-footer__credits');
+
+if (whatsappFlutuante && creditosRodape) {
+  new IntersectionObserver((entradas) => {
+    const ultima = entradas[entradas.length - 1];
+    whatsappFlutuante.classList.toggle('whatsapp-flutuante--escondido', ultima.isIntersecting);
+  }).observe(creditosRodape);
+}
