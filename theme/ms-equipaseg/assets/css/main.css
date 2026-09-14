@@ -2887,9 +2887,10 @@ svg {
     font-size: 14px;
   }
 
+  /* Fora da escala (48→28, pedido do usuário em 14/09/2026): com 32px o título longo da home tinha 8 linhas em 390px. */
   :root .hero__title {
-    font-size: 32px;
-    line-height: 43px;
+    font-size: 28px;
+    line-height: 37px;
   }
 
   :root .hero__subtitle {

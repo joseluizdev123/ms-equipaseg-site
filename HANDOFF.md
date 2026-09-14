@@ -39,7 +39,7 @@ Implementar em HTML/CSS, fiel ao Figma em 1440px, as páginas do site institucio
 | `contato.html` | Contato, 5 seções com formulário e mapa, conferida em 1440px |
 | `VALIDACAO-CONTATO.md` | Medidas do Contato e diferenças já aceitas |
 | `projetos.html` | Projetos, 7 seções, conferida em 1440px. Desde 12/09/2026, a pedido do usuário: hero com título e texto novos, sem Depoimentos e sem Perguntas frequentes, e o card "Lançamento" com o texto e 3 diferenciais do Dilacerador |
-| `controle-de-acesso.html` | Virou a página dos Totens para Controle de Acesso (fora do Figma), produto novo do briefing da cliente, no molde da página do Dilacerador (`5235:496`). Carrega o `dilacerador-de-pneus.css`. O nome do arquivo e o item "Controle de acesso" do menu continuam os antigos. Em 13/09/2026, a pedido do usuário: "Instalações" com as 4 fotos do torniquete com porta de passagem, "Possibilidades de aplicação" com os mesmos 5 cards do Torniquete e perguntas frequentes escritas com as informações do briefing |
+| `controle-de-acesso.html` | Virou a página dos Totens para Controle de Acesso (fora do Figma), produto novo do briefing da cliente, no molde da página do Dilacerador (`5235:496`). Carrega o `dilacerador-de-pneus.css`. O nome do arquivo continua o antigo. Desde 14/09/2026 o item do menu diz "Totens para Controle de Acesso". Em 13/09/2026, a pedido do usuário: "Instalações" com as mesmas 13 imagens do Dilacerador e do Torniquete, "Possibilidades de aplicação" com os mesmos 5 cards do Torniquete e perguntas frequentes escritas com as informações do briefing |
 | `produtos-alfa.html` | Página geral de produtos (fora do Figma): hero com o título e o subtítulo do site (foto ainda cinza), faixa de clientes, 3 blocos copiados da home (Dilacerador de Pneus, Torniquete e Totem de Acesso) com "Consulte os modelos" levando à página de cada um, CTA e rodapé |
 | `VALIDACAO-PROJETOS.md` | Medidas do Projetos, o que difere do Torniquete e diferenças já aceitas |
 | `theme/ms-equipaseg/assets/css/main.css` | CSS comum do site (tokens no `:root`) e blocos da home. O HTML aponta para este caminho; mantenha assim para o tema reaproveitar depois |
@@ -85,7 +85,7 @@ node tools/serve.mjs
 ## Convenções
 
 - Reusar tokens e componentes antes de criar novos: `.container`, `.section-title`, `.btn-outline`, `.cta` (`--67`, `--degrade`, `--dark`, `--sm`), `.feature-card`, `.feature-list`, `.feature-media`, `.arrow-btn`, `.site-header`, `.site-footer`.
-- Header e footer idênticos em todas as páginas: copiar o markup do `index.html`. Tipografia no celular (até 767px, pedido do usuário em 14/09/2026): mesma escala do site atual — 48→32, 40→28, 32→24, 24→20, 20→18, 18→16, 16→15px; 15px ou menos não muda; cabeçalho de fora. Está no fim do `main.css`, num bloco gerado a partir de todas as regras de desktop, cada uma com `:root` na frente. Quem criar ou mudar um `font-size` de desktop precisa pôr a versão do celular nesse bloco (com `:root`), senão o texto fica no tamanho do computador no celular. O tamanho fluido do título do hero do Projetos abaixo de 480px (`min(32px, calc((100vw - 48px) / 8.5))`) só existe nesse bloco do `main.css`; o `projetos.css` guarda apenas o `line-height: 1.33`. Sem essa regra, "Desenvolvimento" passa da tela abaixo de 320px. Títulos com altura fixa do Figma precisam de `height: auto` abaixo de 768px, senão passam por cima do conteúdo quando quebram em duas linhas: já estão assim `.section-title`, `.destaque__title` (`main.css`) e `.modelo__title` (`dilacerador-de-pneus.css`). O header fica fixo no topo ao rolar (`position: sticky`, `z-index: 100`, pedido do usuário em 14/09/2026). O `html` tem `scroll-padding-top` de 72px (73px abaixo de 860px), para as âncoras pararem logo abaixo dele. Com o menu do celular aberto, o header vai no máximo até a altura da tela e rola por dentro. Nada que precise aparecer por cima do header pode ter `z-index` de 100 ou mais, exceto o "Pular para o conteúdo" (110) e o `?overlay` (9999). Todo botão "Solicitar cotação" abre o WhatsApp numa aba nova, como no site atual: `https://wa.me/551156679440?text=Ol%C3%A1!%20Vim%20do%20site%2C%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es` com `target="_blank" rel="noopener"` (pedido do usuário, 13/09/2026). Botão flutuante do WhatsApp nas 8 páginas (pedido do usuário, 14/09/2026, feito pelo chat da Página inicial):
+- Header e footer idênticos em todas as páginas: copiar o markup do `index.html`. Tipografia no celular (até 767px, pedido do usuário em 14/09/2026): mesma escala do site atual — 48→32, 40→28, 32→24, 24→20, 20→18, 18→16, 16→15px; 15px ou menos não muda; cabeçalho de fora. Exceção: o `.hero__title` (home e produtos-alfa) fica com 28px/37px no celular, porque o texto é longo. Com 32px ele tinha 8 linhas em 390px e o "Solicitar cotação" saía da primeira tela em 360px (pedido do usuário, 14/09/2026). Está no fim do `main.css`, num bloco gerado a partir de todas as regras de desktop, cada uma com `:root` na frente. Quem criar ou mudar um `font-size` de desktop precisa pôr a versão do celular nesse bloco (com `:root`), senão o texto fica no tamanho do computador no celular. O tamanho fluido do título do hero do Projetos abaixo de 480px (`min(32px, calc((100vw - 48px) / 8.5))`) só existe nesse bloco do `main.css`; o `projetos.css` guarda apenas o `line-height: 1.33`. Sem essa regra, "Desenvolvimento" passa da tela abaixo de 320px. Títulos com altura fixa do Figma precisam de `height: auto` abaixo de 768px, senão passam por cima do conteúdo quando quebram em duas linhas: já estão assim `.section-title`, `.destaque__title` (`main.css`) e `.modelo__title` (`dilacerador-de-pneus.css`). O header fica fixo no topo ao rolar (`position: sticky`, `z-index: 100`, pedido do usuário em 14/09/2026). O `html` tem `scroll-padding-top` de 72px (73px abaixo de 860px), para as âncoras pararem logo abaixo dele. Com o menu do celular aberto, o header vai no máximo até a altura da tela e rola por dentro. Nada que precise aparecer por cima do header pode ter `z-index` de 100 ou mais, exceto o "Pular para o conteúdo" (110) e o `?overlay` (9999). Todo botão "Solicitar cotação" abre o WhatsApp numa aba nova, como no site atual: `https://wa.me/551156679440?text=Ol%C3%A1!%20Vim%20do%20site%2C%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es` com `target="_blank" rel="noopener"` (pedido do usuário, 13/09/2026). Botão flutuante do WhatsApp nas 8 páginas (pedido do usuário, 14/09/2026, feito pelo chat da Página inicial):
   - Markup: `<a class="whatsapp-flutuante" href="https://wa.me/551156679440?text=..." target="_blank" rel="noopener" aria-label="Falar com a MS Equipaseg no WhatsApp">` com `icon-whatsapp-light.svg`, logo depois do `</footer>`. Página nova precisa levar esse trecho.
   - CSS: `.whatsapp-flutuante` no `main.css`, fixo, com `z-index: 90` (abaixo do header). Tem 60px a 24px das bordas; abaixo de 768px, 56px a 16px das bordas.
   - Ele some enquanto os créditos do rodapé estão na tela, porque cobria o "Desenvolvido por Artemis" de 768 a 1440px e em 320px. Isso é feito pela classe `.whatsapp-flutuante--escondido`, ligada por um IntersectionObserver no fim do `main.js`.
@@ -127,14 +127,41 @@ Celular igual ao site atual (pedido do usuário, 14/09/2026, feito pelo chat da 
 - Espaço entre os itens do menu: 24px no Figma das páginas internas, 32px no site (o header é um só). Decisão dele; está no `VALIDACAO` de cada página interna.
 - Nome da página de produtos: hoje `produtos-alfa.html`. Ele decide se renomeia para `produtos.html` — aí os links das 8 páginas mudam juntos.
 - Formulário do Contato não envia: falta o destino (e-mail, serviço ou WordPress).
-- Conteúdo provisório vindo do Figma: "Lorem ipsum" no card "Em destaque" do Torniquete (o do Projetos ganhou texto em 12/09/2026), fotos do dilacerador nos cards do Torniquete, e "+1.000" (Quem somos) × "+100.000 produtos" (home).
+- Conteúdo provisório vindo do Figma (revisto em 14/09/2026):
+  - os 4 depoimentos em latim ("Ut enim ad minim veniam…", "Nome cliente", "Cargo/Empresa") na home, no Dilacerador, no Torniquete, nos Totens e no Contato;
+  - no Torniquete, o card "Em destaque" mostra o Dilacerador. Os cards "Simples" e "Duplo" usam foto e texto de dilacerador (veículos, garras), e a legenda da galeria "Instalações" fala de veículos;
+  - nos Totens, o card de modelo se chama "Modelo 1";
+  - "+1.000" na Quem somos contra "+100.000 produtos" na home.
+- Imagens: todos os originais em `fotos-para-o-site/` (as 13 de instalação e o totem) têm a marca C2PA do gpt-image/OpenAI. São imagens geradas por IA, não fotos de obras. As cópias em `assets/seed/` perderam os metadados no JPG. Confirmar com o usuário/cliente antes de apresentá-las como "Instalações".
+- Briefing da cliente (conferido em 14/09/2026). Falta material da cliente:
+  - Manual e Infraestrutura civil e elétrica do Dilacerador;
+  - descritivos do Torniquete;
+  - catálogo dos Totens;
+  - foto do Dilacerador unidirecional;
+  - fotos de totens instalados;
+  - fotos de projetos.
+- Briefing da cliente. Falta decisão:
+  - Dilacerador: o briefing tem 2 modelos (Bidirecional e Unidirecional), e o site tem 3 cards (Embutido, Lombada, Lombada – Garra dupla);
+  - Projetos: a cliente pediu "somente texto e fotos", e ainda há Diferenciais e Outros projetos com texto de torniquete, além de Lançamento e CTA;
+  - Quem somos: manter Missão, Visão, Valores e Números;
+  - Torniquete: "Manual" e "Infraestrutura" no lugar dos descritivos;
+  - Totens na coluna "Produtos" do rodapé.
 - Mobile: só o header tem versão própria; o resto das seções continua no layout fluido, sem mobile dedicado.
 - Tema WordPress: parado até ele pedir.
 - Arquivos para baixar: o "Catálogo" da lista "Baixar informações" já abre o PDF da cliente no Dilacerador (`assets/docs/catalogo-dilacerador-de-pneus.pdf`, o folheto V2) e no Torniquete (`assets/docs/catalogo-torniquetes.pdf`, o folder), desde 13/09/2026. Ainda em `#`: Manual e Infraestrutura civil e elétrica nas três páginas, e o Catálogo dos Totens.
 - Dilacerador — confirmar com a cliente: o texto oficial do Unidirecional (100% mecânico, sem energia elétrica) agora descreve o Embutido, mas o site atual mostra o Embutido como elétrico ("atua em 1 segundo").
 - Nome do modelo com garra dupla: "Lombada – Garra dupla" na página do Dilacerador (igual ao site atual) e "Duplo" na galeria da home. Decidir se alinha.
 - Favicon: o site não tem, e todas as páginas dão 404 em `/favicon.ico` no console. Falta escolher o ícone (dá para sair do logo).
-- Nome do produto Totem: "Controle de acesso" no menu das 8 páginas, "Totem" na home, "Totem de Acesso" na produtos-alfa e "Totens para Controle de Acesso" na própria página. Decidir um nome só.
+- Nome do produto (decisão do usuário, 14/09/2026): é sempre "Totens para Controle de Acesso", em todo o site. Página nova segue o mesmo nome. Já trocado em:
+  - menu Produtos das 8 páginas;
+  - texto do rodapé das 8 páginas ("totens para controle de acesso");
+  - home: h1, subtítulo, título e texto do card;
+  - produtos-alfa: meta description, h1, subtítulo, título e texto do card;
+  - página dos Totens: texto do topo.
+  Ficaram como estavam:
+  - "totem simples para duplo" nas listas, porque é o nome do modelo;
+  - os `alt` das fotos;
+  - "o totem" e "os totens" nas galerias, nos modelos e nas perguntas frequentes da página dos Totens, onde o assunto já está claro.
 - Rolagem lateral no celular: corrigida em 14/09/2026 com o ok do usuário. Medida nas 8 páginas em 320, 360, 375, 390, 414 e 767px: tudo 0. Computador e tablet (1440 e 1024) ficaram iguais, com 0% de diferença. O que mudou, só abaixo de 768px:
   - `torniquete.css`: `.modelos-torniquete__grid` com `flex-wrap: nowrap`. Com wrap, a coluna de cards ficava com 588px.
   - `main.css`: `.foto-produto` segue a largura do card na proporção 515:500, e o recorte e o círculo encolhem junto. Vale para Torniquete e Projetos.
