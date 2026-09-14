@@ -12,7 +12,7 @@ Figma `I7qYIaCi6nFLVWPiu9y1Un`, frame **Contato** (`5235:876`). Medições de 11
 | 1 | Header | `5235:877` | 3,05% | 0, 0 |
 | 2 | Hero com formulário | `5254:467` | 1,58% | 0, 0 |
 | 3 | Depoimentos | `5284:1443` | 2,58% | 0, 0 |
-| 4 | Mapa | `5254:670` | 1,82% | 0, 0 |
+| 4 | Mapa | `5254:670` | 1,81% | 0, 0 |
 | 5 | Footer | `5235:1280` | 3,52% | 0, 0 |
 
 Altura total: Figma 3051,12px, site 3051px. As bordas entre seções caem nas mesmas linhas do Figma (hero termina em 1034, mapa começa em 1818, rodapé em 2386). A divergência que sobra é rasterização de texto.
@@ -44,9 +44,11 @@ Medidas conferidas no navegador: formulário 624×750, campos 544×45, mensagem 
 
 ## Abaixo de 1440px
 
-Sem rolagem lateral em 1440, 1425 (com a barra de rolagem), 1024 e 390px. Até 1279px a coluna de contatos e o formulário dividem a linha e depois empilham; até 767px o cartão do mapa vira coluna.
+Sem rolagem lateral em 1440, 1425 (com a barra de rolagem), 1100, 1024, 900, 844×390 (celular deitado), 768 e 390px. Até 1279px a coluna de contatos e o formulário dividem a linha e depois empilham; o endereço do cartão do mapa quebra linha quando não cabe (de 1024px para baixo fica em 2 linhas) e até 767px o cartão vira coluna.
 
 Header mobile (parte comum, 12/09/2026): até 859px ficam logo + botão de menu. Conferido nesta página em 859 e 390px — o menu abre com todos os links, o submenu de Produtos e o "Fale conosco", sem rolagem lateral. Em 1440, 1425 e 1024px o header continua igual, com o botão escondido.
+
+Corrigido (14/09/2026), a pedido do usuário: desde o endereço com CEP, entre 768 e cerca de 1020px o endereço não quebrava linha e empurrava o botão "Ver no maps" para fora do cartão — em 844×390 a página rolava 100px para o lado e em 768px, 171px. O cartão agora é centralizado pelas margens (`left: calc(var(--section-px) + 1px); right: var(--section-px); width: fit-content; margin-inline: auto`, sem `transform` nem `max-width`) e o endereço tem `min-width: 0`, sem `nowrap`. Conferido em 1440, 1100, 1024, 900, 844×390, 768 e 390px: nada passa da tela e o botão fica 24px dentro do cartão. Em 1440 o cartão continua 905,1×77 em x 260,4; o mapa foi de 1,818% para 1,812% e a página inteira de 2,339% para 2,338%. Entre o screenshot de antes e o de depois mudaram só 259px (0,006%), de suavização do texto e do botão dentro do cartão, sem deslocamento. Comparativo em `_ref/diff/contato-mapa-botao-corrigido.png`.
 
 ## Smoke test
 
@@ -57,3 +59,5 @@ O mapa é a imagem do Figma, não um mapa interativo; o botão "Ver no maps" abr
 Depoimentos (carrossel comum, 12/09/2026): gira sem fim e anda sozinho a cada 5s. Conferido nesta página em 1440px, pelos cliques: 4 pontinhos para 4 depoimentos (o último card acende o último ponto), do último card passa para o primeiro, do primeiro volta para o último e o clique no ponto leva ao card certo. As duas setas ficam ativas. O passeio automático não foi exercitado aqui porque o painel do Browser estava escondido — a página fica `visibilityState: hidden` e o carrossel para fora da tela, como previsto.
 
 Avatares dos depoimentos: claros (#ffde59) nesta página, pela regra própria `.depoimentos--contato .depoimento__avatar` do `contato.css` — é o que o Figma da Contato mostra nos quatro cards. As outras páginas ficaram com o amarelo forte, ajuste que o usuário pediu na home; decisão de 12/09/2026: cada página segue o Figma dela.
+
+Cabeçalho fixo (parte comum, 14/09/2026): conferido nesta página em 1440 e 844×390, rolando pelo hero, depoimentos, setas do carrossel, cartão do mapa e rodapé — o cabeçalho fica no topo e nada passa por cima dele. O `#formulario` para em 72px, logo abaixo do cabeçalho. O `contato.css` não usa `z-index`.

@@ -183,15 +183,19 @@
   object-fit: cover;
 }
 
-/* Cartão flutuante com o endereço (Figma 5254:760): sombra de 4 camadas do Figma. */
+/* Cartão flutuante com o endereço (Figma 5254:760): sombra de 4 camadas do Figma.
+   Centralizado pelas margens, sem transform, para o endereço quebrar linha quando não cabe;
+   o 1px a mais à esquerda repete o meio pixel do Figma. */
 .mapa__card {
   position: absolute;
   bottom: 40px;
-  left: calc(50% + 0.5px);
+  left: calc(var(--section-px) + 1px);
+  right: var(--section-px);
   display: flex;
   align-items: center;
   gap: 32px;
-  max-width: calc(100% - 2 * var(--section-px));
+  width: fit-content;
+  margin-inline: auto;
   padding: 16px 24px;
   background: var(--color-white);
   box-shadow:
@@ -199,18 +203,17 @@
     0 66px 33px rgba(0, 0, 0, 0.09),
     0 149px 44.5px rgba(0, 0, 0, 0.05),
     0 264px 53px rgba(0, 0, 0, 0.01);
-  transform: translateX(-50%);
 }
 
 .mapa__endereco {
   display: flex;
   align-items: center;
   gap: 8px;
+  min-width: 0;
   color: var(--gray-06);
   font-size: 16px;
   line-height: 24px;
   letter-spacing: var(--tracking);
-  white-space: nowrap;
 }
 
 .mapa__endereco img {
@@ -234,8 +237,7 @@
 }
 
 @media (max-width: 767px) {
-  .contato-hero__title,
-  .mapa__endereco {
+  .contato-hero__title {
     white-space: normal;
   }
 

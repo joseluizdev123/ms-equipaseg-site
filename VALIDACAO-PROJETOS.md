@@ -67,6 +67,8 @@ Em 360px a rolagem lateral acabou em 13/09/2026: os créditos do rodapé, que pa
 
 Console sem erros (13/09/2026). A página reaproveita todas as imagens e ícones já baixados; só o círculo do card "Lançamento" é novo (`projetos-circulo.png`).
 
+Cabeçalho fixo no topo (parte comum, 14/09/2026): conferido em 1440 e 390px, rolando por 9 posições da página, que nada passa por cima dele, e que a âncora `#outros-projetos` (link "Saber mais" do hero) para a galeria logo abaixo do cabeçalho (72px do topo em 1440px, 73px em 390px). A página não tem `z-index` próprio. Com a página parada, nada muda.
+
 ## Carrossel (12/09/2026)
 
 Cada passo leva 0,7s com curva macia (`cubic-bezier(0.65, 0, 0.35, 1)`). A galeria "Outros projetos" (5 fotos) gira sem fim nos dois sentidos — há cópias das fotos antes e depois do trilho — e anda sozinha a cada 5s; para com o mouse em cima, com o teclado dentro, fora da tela e para quem pediu menos movimento. Conferido com o Chrome headless: em 13s anda 2 passos (3º pontinho aceso). Os 4 pontinhos ficam visíveis. O `tools/shot.ps1` força "menos movimento", então o screenshot sempre pega a galeria parada na primeira foto. Os depoimentos, que tinham o mesmo carrossel, saíram da página em 13/09/2026.

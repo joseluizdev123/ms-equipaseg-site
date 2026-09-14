@@ -66,6 +66,8 @@
 
 html {
   -webkit-text-size-adjust: 100%;
+  /* Âncoras (#modelos, #sobre…) param abaixo do cabeçalho fixo: 71px + 1px de borda. */
+  scroll-padding-top: 72px;
 }
 
 body {
@@ -119,7 +121,7 @@ svg {
   position: absolute;
   top: 8px;
   left: 8px;
-  z-index: 100;
+  z-index: 110;
   padding: 8px 16px;
   background: var(--color-yellow);
   color: var(--color-ink);
@@ -466,9 +468,12 @@ svg {
 
 /* 1 · Header — Figma 7020:1080 */
 
+/* Fica sempre no topo ao rolar, em todas as páginas e no celular (pedido do usuário, 14/09/2026). O z-index
+   fica acima de tudo do conteúdo (o maior é 20, das listas suspensas) e abaixo do "Pular para o conteúdo". */
 .site-header {
-  position: relative;
-  z-index: 10;
+  position: sticky;
+  top: 0;
+  z-index: 100;
   background: var(--color-black);
   border-bottom: 1px solid var(--color-line-dark);
 }
@@ -2510,6 +2515,18 @@ svg {
     flex-wrap: wrap;
     height: auto;
     min-height: 71px;
+  }
+
+  /* No celular o cabeçalho tem 73px (logo de 48px + 24px de respiro + 1px de borda). */
+  html {
+    scroll-padding-top: 73px;
+  }
+
+  /* Menu aberto num celular deitado: o cabeçalho fixo não passa da altura da tela e rola por dentro. */
+  .site-header.is-open {
+    max-height: 100vh;
+    max-height: 100dvh;
+    overflow-y: auto;
   }
 
   .site-header__toggle {
